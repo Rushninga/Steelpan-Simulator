@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://0pfsvlcupdeb"]
+
+[ext_resource type="Texture2D" uid="uid://bnc2xhr6slvdc" path="res://Assets/Art/Note Circle.svg" id="1_1x376"]
+[ext_resource type="Script" path="res://Scripts/note_image.gd" id="1_deqps"]
+
+[node name="NoteImage" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_deqps")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1x376")

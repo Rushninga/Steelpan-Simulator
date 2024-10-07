@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1yaavudi1rm4"]
+
+[ext_resource type="Script" path="res://GUI Styling/connect_to_server.gd" id="1_8asa4"]
+[ext_resource type="Theme" uid="uid://ccq60t47rgtuy" path="res://Themes/start_menu_theme.tres" id="1_day35"]
+
+[node name="Control2" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1283.0
+offset_bottom = 717.0
+script = ExtResource("1_8asa4")
+
+[node name="Container" type="VBoxContainer" parent="."]
+offset_right = 250.0
+offset_bottom = 72.0
+theme = ExtResource("1_day35")
+
+[node name="Ip_address" type="TextEdit" parent="Container"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+placeholder_text = "Enter Server IP"
+scroll_fit_content_height = true
+
+[node name="Button" type="Button" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Connect"
+
+[connection signal="pressed" from="Container/Button" to="." method="_on_button_pressed"]

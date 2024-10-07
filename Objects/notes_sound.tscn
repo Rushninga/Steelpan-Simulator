@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://dco1w80mpoq86"]
+
+[ext_resource type="Script" path="res://Scripts/notes_sound.gd" id="1_8v75d"]
+[ext_resource type="AudioStream" uid="uid://dmxuj0uqe3ml0" path="res://Assets/sounds/steelpan notes/C5.mp3" id="1_xv4xh"]
+[ext_resource type="AudioStream" uid="uid://c5dilaahijj2d" path="res://Assets/sounds/steelpan notes/D5.mp3" id="2_14ksl"]
+[ext_resource type="AudioStream" uid="uid://8v8la0hvlgqc" path="res://Assets/sounds/steelpan notes/E5.mp3" id="3_kw33j"]
+[ext_resource type="AudioStream" uid="uid://dpc11rj7ggvat" path="res://Assets/sounds/steelpan notes/F5.mp3" id="4_uysjp"]
+[ext_resource type="AudioStream" uid="uid://sbxox6l4o1lo" path="res://Assets/sounds/steelpan notes/G5.mp3" id="5_s1tkk"]
+[ext_resource type="AudioStream" uid="uid://ccj815cfh5urb" path="res://Assets/sounds/steelpan notes/A5.mp3" id="6_jwhah"]
+[ext_resource type="AudioStream" uid="uid://dhjmwi2qgctsm" path="res://Assets/sounds/steelpan notes/B5.mp3" id="7_j8bm5"]
+
+[sub_resource type="GDScript" id="GDScript_16hlb"]
+script/source = "extends AudioStreamPlayer
+
+var is_duplicate = false
+"
+
+[node name="NotesSound" type="Node2D"]
+script = ExtResource("1_8v75d")
+
+[node name="C1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_xv4xh")
+mix_target = 2
+max_polyphony = 20
+script = SubResource("GDScript_16hlb")
+
+[node name="D1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_14ksl")
+max_polyphony = 20
+script = SubResource("GDScript_16hlb")
+
+[node name="E1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kw33j")
+max_polyphony = 20
+script = SubResource("GDScript_16hlb")
+
+[node name="F1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_uysjp")
+max_polyphony = 20
+script = SubResource("GDScript_16hlb")
+
+[node name="G1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_s1tkk")
+max_polyphony = 20
+script = SubResource("GDScript_16hlb")
+
+[node name="A1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_jwhah")
+max_polyphony = 20
+script = SubResource("GDScript_16hlb")
+
+[node name="B1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_j8bm5")
+max_polyphony = 20
+script = SubResource("GDScript_16hlb")
+
+[node name="C2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_xv4xh")
+max_polyphony = 20
+script = SubResource("GDScript_16hlb")

@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://bm2uvi2qhjh5"]
+
+[ext_resource type="Theme" uid="uid://ccq60t47rgtuy" path="res://Themes/start_menu_theme.tres" id="1_pbac0"]
+[ext_resource type="Script" path="res://Scripts/login_data.gd" id="2_mm8ae"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_je50p"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhxsl"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjity"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjaha"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0nho"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rccb"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gwal"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v34g2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_pbac0")
+script = ExtResource("2_mm8ae")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 215.0
+theme = ExtResource("1_pbac0")
+
+[node name="Label" type="Label" parent="Container"]
+layout_mode = 2
+
+[node name="username" type="TextEdit" parent="Container"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+placeholder_text = "Enter Username"
+scroll_fit_content_height = true
+
+[node name="password" type="TextEdit" parent="Container"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+placeholder_text = "Enter Password"
+scroll_fit_content_height = true
+
+[node name="Button" type="Button" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+disabled = true
+text = "Sign In"
+
+[node name="Button_change" type="Button" parent="Container"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0.419813, 0.419813, 0.419813, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.458405, 0.458405, 0.458405, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/focus = SubResource("StyleBoxFlat_je50p")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_xhxsl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_xjity")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_pjaha")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w0nho")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_8rccb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2gwal")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v34g2")
+disabled = true
+text = "Already Have An Account? Click Here To Login!"
+
+[connection signal="pressed" from="Container/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Container/Button_change" to="." method="_on_button_change_pressed"]

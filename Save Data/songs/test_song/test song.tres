@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="song" load_steps=2 format=3 uid="uid://dkkwahuwifaid"]
+
+[ext_resource type="Script" path="res://Save Data/songs/test_song/test song script.gd" id="1_cbwi8"]
+
+[resource]
+script = ExtResource("1_cbwi8")

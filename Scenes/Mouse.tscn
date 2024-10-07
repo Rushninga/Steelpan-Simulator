@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bn1gquhgboypk"]
+
+[ext_resource type="Texture2D" uid="uid://bncaxxdo00nnu" path="res://Assets/Art/stick animation/stick animation1.png" id="1_ug8w1"]
+[ext_resource type="Texture2D" uid="uid://bcevcs8sqxrjq" path="res://Assets/Art/stick animation/stick animation2.png" id="2_bmpgl"]
+[ext_resource type="Texture2D" uid="uid://b688gqrvyathw" path="res://Assets/Art/stick animation/stick animation3.png" id="3_75in2"]
+[ext_resource type="Script" path="res://Scripts/mouse.gd" id="4_ugrn4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7xiwp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ug8w1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bmpgl")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_75in2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_ug8w1")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 60.0
+}]
+
+[node name="Mouse" type="AnimatedSprite2D"]
+position = Vector2(7.62939e-06, -2.00001)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_7xiwp")
+animation = &"Hit"
+offset = Vector2(19, -32)
+script = ExtResource("4_ugrn4")

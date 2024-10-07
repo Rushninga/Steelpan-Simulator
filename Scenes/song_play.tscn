@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://buufi8lbseah8"]
+
+[ext_resource type="PackedScene" uid="uid://bn1gquhgboypk" path="res://Scenes/Mouse.tscn" id="1_v750k"]
+[ext_resource type="PackedScene" uid="uid://c7fl4innwrghc" path="res://Objects/steelpan.tscn" id="2_mj7i1"]
+[ext_resource type="PackedScene" uid="uid://dco1w80mpoq86" path="res://Objects/notes_sound.tscn" id="3_oph0d"]
+
+[sub_resource type="GDScript" id="GDScript_osh0b"]
+script/source = "extends Node2D
+
+var counter:int = 0
+var song_time:float = 0
+var incoming_notes:Array = []
+var song_res:Resource = preload(\"res://Save Data/songs/test_song/test song.tres\")
+var note_image = preload(\"res://Objects/note_image.tscn\")
+var roll_note_image = preload(\"res://Objects/rolling note.tscn\")
+var shockwave = preload(\"res://Objects/shockwave.tscn\")
+var song_end = false
+@export var note_travel_time:float
+var hit_notes:Array = []
+var incoming_note
+var mouse
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	$Steelpan.quality.connect(note_is_played)
+	$Steelpan.global_position = Vector2(get_viewport().size.x/2, get_viewport().size.y/2)
+	if note_travel_time == null:
+		note_travel_time = 3
+	incoming_notes = song_res.incoming_notes
+	for i in incoming_notes :
+		i.start += note_travel_time
+		i.end +=  note_travel_time
+		
+	
+	
+	
+	pass
+
+
+
+func _process(delta):
+	hit_notes = []
+	if counter < incoming_notes.size():
+		if ( incoming_notes[counter].start - note_travel_time ) <= song_time :
+			for i in $Steelpan.get_children():
+				if \"note\" in i:
+					if i.note == incoming_notes[counter].name:
+						if incoming_notes[counter].type == \"single\" :
+							incoming_note = note_image.instantiate()
+						else:
+							incoming_note = roll_note_image.instantiate()
+						incoming_note.note = i.note
+						incoming_note.start = incoming_notes[counter].start
+						incoming_note.end = incoming_notes[counter].end
+						incoming_note.global_position = i.global_position
+						incoming_note.type = incoming_notes[counter].type
+						$Incoming_notes.add_child(incoming_note)
+			counter += 1
+	song_time += delta
+	if Input.is_action_just_pressed(\"play\") :
+		mouse = get_global_mouse_position()
+		var spawn = shockwave.instantiate()
+		spawn.global_position = mouse
+		add_child(spawn)
+	pass
+	
+func note_is_played(diff):
+	if diff > -0.05 and diff < 0.05:
+		print(\"perfect\")
+	elif diff > -0.1 and diff < 0.1:
+		print(\"good\")
+	elif diff > -0.2 and diff < 0.2:
+		print(\"Sloppy\")
+	elif diff > -0.5 and diff < 0.5:
+		print(\"Sh**\")
+	else:
+		print(\"U suck lmfao\")
+	pass
+"
+
+[node name="song_play" type="Node2D"]
+script = SubResource("GDScript_osh0b")
+note_travel_time = 1.0
+
+[node name="Steelpan" parent="." instance=ExtResource("2_mj7i1")]
+position = Vector2(631, 337)
+scale = Vector2(3, 3)
+
+[node name="Incoming_notes" type="Node2D" parent="."]
+
+[node name="NotesSound" parent="." instance=ExtResource("3_oph0d")]
+
+[node name="Mouse" parent="." instance=ExtResource("1_v750k")]
+top_level = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(636, 356)

@@ -1,0 +1,128 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7fl4innwrghc"]
+
+[ext_resource type="Script" path="res://Scripts/steelpan.gd" id="1_55ul2"]
+[ext_resource type="Texture2D" uid="uid://dtjy0rco4mw61" path="res://Assets/Art/lowtenorchrt.jpg" id="1_bih3b"]
+[ext_resource type="PackedScene" uid="uid://c1xqne0rlk8pv" path="res://Objects/pan_note.tscn" id="2_uhq7y"]
+
+[node name="Steelpan" type="Node2D"]
+script = ExtResource("1_55ul2")
+
+[node name="Low_tenor_steelpan_image" type="Sprite2D" parent="."]
+scale = Vector2(0.947917, 0.986607)
+texture = ExtResource("1_bih3b")
+
+[node name="C1" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(2, 80)
+scale = Vector2(1.2, 1.2)
+
+[node name="G1" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(44, 65)
+scale = Vector2(1.2, 1.2)
+
+[node name="D1" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(68, 29)
+scale = Vector2(1.2, 1.2)
+
+[node name="A1" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(74, -10)
+scale = Vector2(1.15, 1.15)
+
+[node name="E1" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(59, -51)
+scale = Vector2(1.2, 1.2)
+
+[node name="B1" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(30, -80)
+scale = Vector2(1.1, 1.1)
+
+[node name="F1" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(-38, 70)
+scale = Vector2(1.2, 1.2)
+
+[node name="F#1" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(-8, -86)
+scale = Vector2(1.2, 1.2)
+
+[node name="C#1" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(-46, -70)
+scale = Vector2(1.24, 1.24)
+
+[node name="Ab1" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(-74, -36)
+scale = Vector2(1.15, 1.15)
+
+[node name="Eb1" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(-78, 4)
+scale = Vector2(1.2, 1.2)
+
+[node name="Bb1" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(-66, 42)
+scale = Vector2(1.17, 1.17)
+
+[node name="G2" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(24, 36)
+scale = Vector2(0.64, 0.64)
+
+[node name="D2" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(36, 14)
+scale = Vector2(0.64, 0.64)
+
+[node name="A2" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(42, -10)
+scale = Vector2(0.64, 0.64)
+
+[node name="B2" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(16, -48)
+scale = Vector2(0.64, 0.64)
+
+[node name="E2" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(32, -30)
+scale = Vector2(0.64, 0.64)
+
+[node name="C2" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(2.38419e-07, 44)
+scale = Vector2(0.7, 0.7)
+
+[node name="F2" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(-24, 38)
+scale = Vector2(0.7, 0.7)
+
+[node name="Eb2" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(-46, 2)
+scale = Vector2(0.7, 0.7)
+
+[node name="Ab2" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(-44, -22)
+scale = Vector2(0.7, 0.7)
+
+[node name="C#2" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(-28, -40)
+scale = Vector2(0.7, 0.7)
+
+[node name="F#2" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(-6, -52)
+scale = Vector2(0.6, 0.6)
+
+[node name="C#3" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(0, -22)
+scale = Vector2(0.6, 0.6)
+
+[node name="Eb3" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(-20, -14)
+scale = Vector2(0.6, 0.6)
+
+[node name="E3" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(16, -6)
+scale = Vector2(0.6, 0.6)
+
+[node name="C3" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(-16, 10)
+scale = Vector2(0.6, 0.6)
+
+[node name="D3" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(8, 14)
+scale = Vector2(0.6, 0.6)
+
+[node name="Bb2" parent="." instance=ExtResource("2_uhq7y")]
+position = Vector2(-40, 24)
+scale = Vector2(0.6, 0.6)

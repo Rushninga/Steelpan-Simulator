@@ -15,6 +15,11 @@ func send_user_info(username_recieved, password_received, mode_received):
 	pass
 
 @rpc("authority", "unreliable_ordered", "call_remote")
-func user_login_confirm():
-	$StartScreen/Control/Container/Label.text = "You are Loged in"
+func user_login_confirm(message):
+	if message == 1:
+		$StartScreen/Control/Container/Label.text = "Username or password is incorrect"
+	elif message == 2:
+		$StartScreen/Control/Container/Label.text = "You are Loged in"
+	else:
+		$StartScreen/Control/Container/Label.text = "Unknown error occurred"
 	pass

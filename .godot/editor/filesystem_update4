@@ -5,3 +5,4 @@ res://addons/shaderV/uv/sphericalUV.gdshaderinc
 res://addons/shaderV/uv/lensDistortion.gdshaderinc
 res://Main.tscn
 res://GUI Styling/Login data.tscn
+res://Scenes/song_play.tscn

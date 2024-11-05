@@ -1,7 +1,7 @@
 extends Resource
 
 class_name song
-
+var background_audio = AudioStreamPlayer.new()
 var incoming_notes:Array = []
 
 class note:
@@ -25,6 +25,7 @@ func add_note(note_name:String, start_time:float, end_time:float = 0.00):
 	incoming_notes.append(note.new(note_name, start_time, end_time)) 
 
 func _init():
+	
 	add_note("C1",2)
 	add_note("D1",3)
 	add_note("E1",4)

@@ -1,11 +1,14 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1730823784
-icon.svg::CompressedTexture2D::8571896261653153598::1716749144::1730823785::1::::<><>::
-Main.tscn::PackedScene::3829449046548209183::1730823762::0::1::::<><>::res://Scripts/networking.gd<>uid://depc87vqcl07e::::res://Scenes/Start Screen.tscn
+::res://::1730832287
+godotmidi.gdextension::GDExtension::-1::1730832065::0::1::::<><>::
+godot_midi.gd::GDScript::-1::1730832065::0::1::::<>EditorPlugin<>::
+Main.tscn::PackedScene::3829449046548209183::1730831573::0::1::::<><>::res://Scripts/networking.gd<>uid://depc87vqcl07e::::res://Scenes/Start Screen.tscn
+midi_import_plugin.gd::GDScript::-1::1730832065::0::1::::<>EditorImportPlugin<>::
+plugin.cfg::TextFile::-1::1730832065::0::1::::<><>::
 ::res://addons/::1722130697
-::res://addons/shaderV/::1730823762
+::res://addons/shaderV/::1730823785
 shaderV_icon.png::CompressedTexture2D::8584048802262396868::1722130699::1730823785::1::::<><>::
-::res://addons/shaderV/examples/::1730823762
+::res://addons/shaderV/examples/::1730823785
 basic_examples.tscn::PackedScene::6578874085566438765::1723757540::0::1::::<><>::uid://dukgbairam5vc::::res://addons/shaderV/shaderV_icon.png<>res://addons/shaderV/uv/tilingNoffset.gd<>res://addons/shaderV/uv/pixelate.gd<>res://addons/shaderV/uv/lensDistortion.gd<>res://addons/shaderV/uv/flipUV.gd<>res://addons/shaderV/uv/distortionUV.gd<>res://addons/shaderV/uv/scaleUV.gd<>res://addons/shaderV/uv/sphericalUV.gd<>res://addons/shaderV/uv/rotate.gd<>res://addons/shaderV/uv/tileUV.gd<>res://addons/shaderV/uv/transformUV.gd<>res://addons/shaderV/uv/twirl.gd<>res://addons/shaderV/uv/animated/distortionUVAnimated.gd<>res://addons/shaderV/uv/animated/doodleUV.gd<>res://addons/shaderV/uv/animated/tilingNoffsetAnimated.gd<>res://addons/shaderV/tools/sinTime.gd<>res://addons/shaderV/uv/animated/rotateAnimated.gd<>res://addons/shaderV/tools/random/hash1d.gd<>res://addons/shaderV/uv/animated/swirlUV.gd<>res://addons/shaderV/tools/random/hash2d.gd<>res://addons/shaderV/tools/random/hash2dvector.gd<>res://addons/shaderV/tools/random/randomFloat.gd<>res://addons/shaderV/rgba/BCSAdjustment.gd<>res://addons/shaderV/tools/random/randomFloat4D.gd<>res://addons/shaderV/tools/random/randomGoldNoiseFloat.gd<>res://addons/shaderV/tools/vec2Compose.gd<>res://addons/shaderV/tools/remap.gd<>res://addons/shaderV/rgba/blur/blur9sample.gd<>res://addons/shaderV/rgba/blur/blurCustom.gd<>res://addons/shaderV/rgba/blur/zoomBlur.gd<>res://addons/shaderV/rgba/glow/innerGlow.gd<>res://addons/shaderV/rgba/glow/glowEmpty.gd<>res://addons/shaderV/rgba/glow/innerGlowEmpty.gd<>res://addons/shaderV/rgba/glow/outerGlow.gd<>res://addons/shaderV/rgba/glow/outerGlowEmpty.gd<>res://addons/shaderV/rgba/generate_shapes/chekerboardPattern.gd<>res://addons/shaderV/rgba/generate_shapes/generateCircle2.gd<>res://addons/shaderV/rgba/generate_shapes/generateCircle.gd<>res://addons/shaderV/rgba/generate_shapes/generateRegularNgon.gd<>res://addons/shaderV/rgba/generate_shapes/generateSpiral.gd<>res://addons/shaderV/rgba/generate_shapes/scanLinesSharp.gd<>res://addons/shaderV/rgba/generate_shapes/stripesRandom.gd<>res://addons/shaderV/rgba/noise/generic2d.gd<>res://addons/shaderV/rgba/noise/perlin2d.gd<>res://addons/shaderV/rgba/noise/perlin3d.gd<>res://addons/shaderV/rgba/noise/perlinPeriodic3d.gd<>res://addons/shaderV/rgba/noise/perlin4d.gd<>res://addons/shaderV/rgba/noise/simplex2d.gd<>res://addons/shaderV/rgba/noise/simplex3d.gd<>res://addons/shaderV/rgba/noise/simplex4d.gd<>res://addons/shaderV/rgba/noise/worley2d.gd<>res://addons/shaderV/rgba/noise/worley2x2.gd<>res://addons/shaderV/rgba/noise/worley2x2x2.gd<>res://addons/shaderV/rgba/noise/worley3d.gd<>res://addons/shaderV/rgba/blackNwhite.gd<>uid://ds4rnuhypjs8a::::res://addons/shaderV/examples/godot_logo.png<>res://addons/shaderV/rgba/blendAwithB.gd<>res://addons/shaderV/rgba/bloom.gd<>res://addons/shaderV/rgba/chromaticAberration.gd<>res://addons/shaderV/rgba/clamp.gd<>res://addons/shaderV/rgba/colorCorrectionAdjustment.gd<>res://addons/shaderV/rgba/emboss.gd<>res://addons/shaderV/rgba/fireFX.gd<>res://addons/shaderV/rgba/gradient4corners.gd<>res://addons/shaderV/rgba/gradientMapping.gd<>res://addons/shaderV/rgba/grayscale.gd<>res://addons/shaderV/rgba/hue.gd<>res://addons/shaderV/rgba/inverseColor.gd<>res://addons/shaderV/rgba/maskAlpha.gd<>res://addons/shaderV/rgba/posterize.gd<>res://addons/shaderV/rgba/shiftHSV.gd<>res://addons/shaderV/rgba/shineFX.gd<>res://addons/shaderV/rgba/tintRGBA.gd<>res://addons/shaderV/rgba/tonemap.gd<>res://addons/shaderV/rgba/turnCGA4Palette.gd<>res://addons/shaderV/rgba/turnGBPalette.gd<>res://addons/shaderV/tools/TimeScaled.gd<>res://addons/shaderV/rgba/noise/fractal/generic2d_fractal.gd<>res://addons/shaderV/rgba/noise/fractal/perlin2d_fractal.gd<>res://addons/shaderV/rgba/noise/fractal/worley2d_fractal.gd<>res://addons/shaderV/rgba/noise/fractal/simplex2d_fractal.gd<>res://addons/shaderV/rgba/noise/fractal/worley3d_fractal.gd<>res://addons/shaderV/rgba/noise/fractal/perlin3d_fractal.gd<>res://addons/shaderV/rgba/noise/fractal/simplex3d_fractal.gd<>res://addons/shaderV/rgba/noise/fractal/perlin4d_fractal.gd<>res://addons/shaderV/rgba/noise/fractal/simplex4d_fractal.gd<>res://addons/shaderV/rgba/normalFromHeightmap.gd<>res://addons/shaderV/tools/transformCoordinates/cartesianToPolar.gd<>res://addons/shaderV/tools/transformCoordinates/sphericalToCartesian.gd<>res://addons/shaderV/tools/transformCoordinates/cartesianToSpherical.gd<>res://addons/shaderV/tools/transformCoordinates/polarToCartesian.gd<>res://addons/shaderV/rgba/generate_shapes/gridShape.gd<>res://addons/shaderV/rgba/sobelEdge.gd
 godot_logo.png::CompressedTexture2D::8483584658020917794::1722130697::1730823785::1::::<><>::
 ::res://addons/shaderV/rgba/::1722130699
@@ -164,13 +167,13 @@ polarToCartesian.gd::GDScript::-1::1722130700::0::1::::VisualShaderToolsPolarToC
 polarToCartesian.gdshaderinc::ShaderInclude::-1::1722130700::0::1::::<><>::
 sphericalToCartesian.gd::GDScript::-1::1722130700::0::1::::VisualShaderToolsSphericalToCartesian<>VisualShaderNodeCustom<>::
 sphericalToCartesian.gdshaderinc::ShaderInclude::-1::1722130700::0::1::::<><>::
-::res://addons/shaderV/uv/::1730823762
+::res://addons/shaderV/uv/::1730832238
 distortionUV.gd::GDScript::-1::1722130700::0::1::::VisualShaderNodeUVdistortion<>VisualShaderNodeCustom<>::
 distortionUV.gdshaderinc::ShaderInclude::-1::1722130700::0::1::::<><>::
 flipUV.gd::GDScript::-1::1722130700::0::1::::VisualShaderNodeUVflip<>VisualShaderNodeCustom<>::
 flipUV.gdshaderinc::ShaderInclude::-1::1722130700::0::1::::<><>::
 lensDistortion.gd::GDScript::-1::1722130700::0::1::::VisualShaderNodeUVlensDistortion<>VisualShaderNodeCustom<>::
-lensDistortion.gdshaderinc::ShaderInclude::-1::1730823762::0::1::::<><>::
+lensDistortion.gdshaderinc::ShaderInclude::-1::1730832238::0::1::::<><>::
 pixelate.gd::GDScript::-1::1722130700::0::1::::VisualShaderNodeUVpixelate<>VisualShaderNodeCustom<>::
 pixelate.gdshaderinc::ShaderInclude::-1::1722130700::0::1::::<><>::
 rotate.gd::GDScript::-1::1722130700::0::1::::VisualShaderNodeUVrotate<>VisualShaderNodeCustom<>::
@@ -178,7 +181,7 @@ rotate.gdshaderinc::ShaderInclude::-1::1722130700::0::1::::<><>::
 scaleUV.gd::GDScript::-1::1722130700::0::1::::VisualShaderNodeUVscale<>VisualShaderNodeCustom<>::
 scaleUV.gdshaderinc::ShaderInclude::-1::1722130700::0::1::::<><>::
 sphericalUV.gd::GDScript::-1::1722130700::0::1::::VisualShaderNodeUVspherical<>VisualShaderNodeCustom<>::
-sphericalUV.gdshaderinc::ShaderInclude::-1::1730823762::0::1::::<><>::
+sphericalUV.gdshaderinc::ShaderInclude::-1::1730832238::0::1::::<><>::
 tileUV.gd::GDScript::-1::1722130700::0::1::::VisualShaderNodeUVtile<>VisualShaderNodeCustom<>::
 tileUV.gdshaderinc::ShaderInclude::-1::1722130700::0::1::::<><>::
 tilingNoffset.gd::GDScript::-1::1722130700::0::1::::VisualShaderNodeUVtilingNoffset<>VisualShaderNodeCustom<>::
@@ -199,7 +202,7 @@ swirlUV.gdshaderinc::ShaderInclude::-1::1722130700::0::1::::<><>::
 tilingNoffsetAnimated.gd::GDScript::-1::1722130700::0::1::::VisualShaderNodeUVtilingNoffsetAnimated<>VisualShaderNodeCustom<>::
 tilingNoffsetAnimated.gdshaderinc::ShaderInclude::-1::1722130700::0::1::::<><>::
 ::res://Assets/::1719358560
-::res://Assets/Art/::1730823762
+::res://Assets/Art/::1730823785
 background.png::CompressedTexture2D::2692573409097820182::1721910800::1730823785::1::::<><>::
 lowtenorchrt.jpg::CompressedTexture2D::8512932229324383104::1719352956::1730823785::1::::<><>::
 Note Circle.svg::CompressedTexture2D::3304685233918283732::1716749789::1730823785::1::::<><>::
@@ -207,13 +210,13 @@ Sprite-0001.svg::CompressedTexture2D::8656401849724490730::1716750026::173082378
 Sprite-0002.png::CompressedTexture2D::2724538033717241237::1720481357::1730823785::1::::<><>::
 white_circle-full.png::CompressedTexture2D::8801742375049360488::1722133219::1730823785::1::::<><>::
 white_circle.png::CompressedTexture2D::811522494467251583::1721955516::1730823785::1::::<><>::
-::res://Assets/Art/stick animation/::1730823762
+::res://Assets/Art/stick animation/::1730823785
 stick animation1.png::CompressedTexture2D::3303046693097423194::1725558365::1730823785::1::::<><>::
 stick animation2.png::CompressedTexture2D::2536335507660301758::1725558365::1730823785::1::::<><>::
 stick animation3.png::CompressedTexture2D::4632414545502315824::1725558365::1730823785::1::::<><>::
 ::res://Assets/Music/::1716749315
 ::res://Assets/sounds/::1719358560
-::res://Assets/sounds/steelpan notes/::1730823762
+::res://Assets/sounds/steelpan notes/::1730823785
 A5.mp3::AudioStreamMP3::4933850124879472915::1719358558::1730823785::1::::<><>::
 B5.mp3::AudioStreamMP3::7669931710342779500::1719358558::1730823785::1::::<><>::
 C5.mp3::AudioStreamMP3::8050240619792808799::1719358558::1730823785::1::::<><>::
@@ -221,30 +224,33 @@ D5.mp3::AudioStreamMP3::6885205189793542245::1719358558::1730823785::1::::<><>::
 E5.mp3::AudioStreamMP3::2361607116351232386::1719358558::1730823785::1::::<><>::
 F5.mp3::AudioStreamMP3::8217849441873767735::1719358558::1730823785::1::::<><>::
 G5.mp3::AudioStreamMP3::1266886311652054220::1719358558::1730823785::1::::<><>::
-::res://GUI Styling/::1730823762
-connect_to_server.gd::GDScript::-1::1730823762::0::1::::<>Control<>::
-connect_to_server.tscn::PackedScene::6647297502106959017::1730823762::0::1::::<><>::res://GUI Styling/connect_to_server.gd<>uid://ccq60t47rgtuy::::res://Themes/start_menu_theme.tres
-Login data.tscn::PackedScene::96637567966754120::1730823762::0::1::::<><>::uid://ccq60t47rgtuy::::res://Themes/start_menu_theme.tres<>res://Scripts/login_data.gd
+::res://bin/::1730832065
+::res://bin/libgdgodotmidi.macos.template_debug.framework/::1730832065
+::res://bin/libgdgodotmidi.macos.template_release.framework/::1730832065
+::res://GUI Styling/::1730831573
+connect_to_server.gd::GDScript::-1::1730827050::0::1::::<>Control<>::
+connect_to_server.tscn::PackedScene::6647297502106959017::1730831573::0::1::::<><>::res://GUI Styling/connect_to_server.gd<>uid://ccq60t47rgtuy::::res://Themes/start_menu_theme.tres
+Login data.tscn::PackedScene::96637567966754120::1730831573::0::1::::<><>::uid://ccq60t47rgtuy::::res://Themes/start_menu_theme.tres<>res://Scripts/login_data.gd
 ::res://Network/::1726138543
-::res://Objects/::1726104675
-notes_sound.tscn::PackedScene::7330160728646545761::1721876887::0::1::::<><>::res://Scripts/notes_sound.gd<>uid://dmxuj0uqe3ml0::::res://Assets/sounds/steelpan notes/C5.mp3<>uid://c5dilaahijj2d::::res://Assets/sounds/steelpan notes/D5.mp3<>uid://8v8la0hvlgqc::::res://Assets/sounds/steelpan notes/E5.mp3<>uid://dpc11rj7ggvat::::res://Assets/sounds/steelpan notes/F5.mp3<>uid://sbxox6l4o1lo::::res://Assets/sounds/steelpan notes/G5.mp3<>uid://ccj815cfh5urb::::res://Assets/sounds/steelpan notes/A5.mp3<>uid://dhjmwi2qgctsm::::res://Assets/sounds/steelpan notes/B5.mp3
-note_image.tscn::PackedScene::1786023606617219021::1725557524::0::1::::<><>::uid://bnc2xhr6slvdc::::res://Assets/Art/Note Circle.svg<>res://Scripts/note_image.gd
+::res://Objects/::1730832159
+notes_sound.tscn::PackedScene::7330160728646545761::1730832159::0::1::::<><>::res://Scripts/notes_sound.gd<>uid://dmxuj0uqe3ml0::::res://Assets/sounds/steelpan notes/C5.mp3<>uid://c5dilaahijj2d::::res://Assets/sounds/steelpan notes/D5.mp3<>uid://8v8la0hvlgqc::::res://Assets/sounds/steelpan notes/E5.mp3<>uid://dpc11rj7ggvat::::res://Assets/sounds/steelpan notes/F5.mp3<>uid://sbxox6l4o1lo::::res://Assets/sounds/steelpan notes/G5.mp3<>uid://ccj815cfh5urb::::res://Assets/sounds/steelpan notes/A5.mp3<>uid://dhjmwi2qgctsm::::res://Assets/sounds/steelpan notes/B5.mp3
+note_image.tscn::PackedScene::1786023606617219021::1730831573::0::1::::<><>::uid://bnc2xhr6slvdc::::res://Assets/Art/Note Circle.svg<>res://Scripts/note_image.gd
 pan_note.tscn::PackedScene::6646226927024490615::1725557525::0::1::::<><>::res://Scripts/play_note.gd<>uid://dvlhw54a2q5ac::::res://Assets/Art/Sprite-0001.svg
 rolling note.tscn::PackedScene::2528177679099613688::1725557524::0::1::::<><>::res://Scripts/rolling note.gd<>uid://be210jk3q2od6::::res://Assets/Art/Sprite-0002.png
 shockwave.tscn::PackedScene::5232615987304215862::1725978959::0::1::::<><>::uid://ltdwlnspjgff::::res://Assets/Art/white_circle.png<>res://Scripts/Shockwave.gd
 steelpan.tscn::PackedScene::7029926368407204176::1726104675::0::1::::<><>::res://Scripts/steelpan.gd<>uid://dtjy0rco4mw61::::res://Assets/Art/lowtenorchrt.jpg<>uid://c1xqne0rlk8pv::::res://Objects/pan_note.tscn
 ::res://Save Data/::1716853173
 ::res://Save Data/songs/::1716853184
-::res://Save Data/songs/test_song/::1721876011
-test song script.gd::GDScript::-1::1721876011::0::1::::song<>Resource<>::
+::res://Save Data/songs/test_song/::1730832159
+test song script.gd::GDScript::-1::1730832159::0::1::::song<>Resource<>::
 test song.tres::Resource/song::7883130438411093115::1716853751::0::1::::<><>::res://Save Data/songs/test_song/test song script.gd
-::res://Scenes/::1730823762
+::res://Scenes/::1730831573
 Mouse.tscn::PackedScene::3352943408807314536::1725978959::0::1::::<><>::uid://bncaxxdo00nnu::::res://Assets/Art/stick animation/stick animation1.png<>uid://bcevcs8sqxrjq::::res://Assets/Art/stick animation/stick animation2.png<>uid://b688gqrvyathw::::res://Assets/Art/stick animation/stick animation3.png<>res://Scripts/mouse.gd
 Select Song Screen.tscn::PackedScene::1376268810807491984::1725979347::0::1::::<><>::
-song_play.tscn::PackedScene::3831804733183066031::1730823762::0::1::::<><>::uid://bn1gquhgboypk::::res://Scenes/Mouse.tscn<>uid://c7fl4innwrghc::::res://Objects/steelpan.tscn<>uid://dco1w80mpoq86::::res://Objects/notes_sound.tscn
-Start Screen.tscn::PackedScene::7471165171044922976::1730823762::0::1::::<><>::uid://bm2uvi2qhjh5::::res://GUI Styling/Login data.tscn<>res://Scripts/start_screen.gd<>uid://c1yaavudi1rm4::::res://GUI Styling/connect_to_server.tscn
-::res://Scripts/::1730823762
-login_data.gd::GDScript::-1::1730823762::0::1::::<>Control<>::
+song_play.tscn::PackedScene::3831804733183066031::1730831573::0::1::::<><>::uid://bn1gquhgboypk::::res://Scenes/Mouse.tscn<>uid://c7fl4innwrghc::::res://Objects/steelpan.tscn<>uid://dco1w80mpoq86::::res://Objects/notes_sound.tscn
+Start Screen.tscn::PackedScene::7471165171044922976::1730831573::0::1::::<><>::uid://bm2uvi2qhjh5::::res://GUI Styling/Login data.tscn<>res://Scripts/start_screen.gd<>uid://c1yaavudi1rm4::::res://GUI Styling/connect_to_server.tscn
+::res://Scripts/::1730827864
+login_data.gd::GDScript::-1::1730827050::0::1::::<>Control<>::
 mouse.gd::GDScript::-1::1725562379::0::1::::<>AnimatedSprite2D<>::
 networking.gd::GDScript::-1::1730823762::0::1::::<>Node<>::
 notes_sound.gd::GDScript::-1::1723757539::0::1::::<>Node2D<>::
@@ -253,12 +259,20 @@ play_note.gd::GDScript::-1::1723757539::0::1::::<>Area2D<>::
 rolling note.gd::GDScript::-1::1721875472::0::1::::<>Node2D<>::
 Shockwave.gd::GDScript::-1::1725975413::0::1::::<>Sprite2D<>::
 song_play.gd::GDScript::-1::1720482842::0::1::::<>Node2D<>::
-start_screen.gd::GDScript::-1::1730823762::0::1::::<>Node2D<>::
-steelpan.gd::GDScript::-1::1723757540::0::1::::<>Node<>::
-::res://shaders/::1730823762
-shockwave.gdshader::Shader::-1::1730823762::0::1::::<><>::
+start_screen.gd::GDScript::-1::1730827864::0::1::::<>Node2D<>::
+steelpan.gd::GDScript::-1::1730824858::0::1::::<>Node<>::
+::res://shaders/::1730832238
+shockwave.gdshader::Shader::-1::1730832238::0::1::::<><>::
 white_circle.png::CompressedTexture2D::4181449602792222019::1721955574::1730823785::1::::<><>::
-::res://Themes/::1730823762
-start_menu_theme.tres::Theme::4948177014570496652::1730823762::0::1::::<><>::uid://cjuab6m6vrvr0::::res://Themes/Fonts/NerkoOne-Regular.ttf
-::res://Themes/Fonts/::1730823762
+::res://Themes/::1730832159
+start_menu_theme.tres::Theme::4948177014570496652::1730832159::0::1::::<><>::uid://cjuab6m6vrvr0::::res://Themes/Fonts/NerkoOne-Regular.ttf
+::res://Themes/Fonts/::1730823785
 NerkoOne-Regular.ttf::FontFile::5445831949202355687::1726054802::1730823785::1::::<><>::
+::res://views/::1730832065
+checkerboard.gdshader::Shader::-1::1730832065::0::1::::<><>::
+main_view.gd::GDScript::-1::1730832065::0::1::::<>Control<>::
+main_view.tscn::PackedScene::1748280145806688177::1730832065::0::1::::<><>::res://addons/godot_midi/views/main_view.gd
+note.gd::GDScript::-1::1730832065::0::1::::<>Control<>::
+note.tscn::PackedScene::6068067824573083375::1730832065::0::1::::<><>::res://addons/godot_midi/views/note.gd
+track.gd::GDScript::-1::1730832065::0::1::::<>Control<>::
+track.tscn::PackedScene::3861387928898908789::1730832065::0::1::::<><>::res://addons/godot_midi/views/track.gd<>res://addons/godot_midi/views/checkerboard.gdshader

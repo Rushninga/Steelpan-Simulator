@@ -9,13 +9,13 @@ script/source = "extends Node2D
 
 var counter:int = 0
 var song_time:float = 0
-var incoming_notes:Array = []
+var incoming_notes:Array = [] #imports all the notes from the song resource file
 var song_res:Resource = preload(\"res://Save Data/songs/test_song/test song.tres\")
-var note_image = preload(\"res://Objects/note_image.tscn\")
-var roll_note_image = preload(\"res://Objects/rolling note.tscn\")
-var shockwave = preload(\"res://Objects/shockwave.tscn\")
-var song_end = false
-@export var note_travel_time:float
+var note_image = preload(\"res://Objects/note_image.tscn\") # a single notes object
+var roll_note_image = preload(\"res://Objects/rolling note.tscn\") # a rolling note object
+var shockwave = preload(\"res://Objects/shockwave.tscn\") #shockwave object for mouse when note is played
+var song_end = false #false unitil the global timer reaches the song end time as dicated in the song resource file
+@export var note_travel_time:float #indicates how many seconds the note will travel from its spawn time to its actrual time in the song. The speed of the note will depend on this variable
 var hit_notes:Array = []
 var incoming_note
 var mouse
@@ -27,13 +27,8 @@ func _ready():
 		note_travel_time = 3
 	incoming_notes = song_res.incoming_notes
 	for i in incoming_notes :
-		i.start += note_travel_time
-		i.end +=  note_travel_time
-		
-	
-	
-	
-	pass
+		i.start += note_travel_time #adds note travel time. This is done in case a note starts at the time 0 seconds. This will put it up to 1 second where it will become playable
+		i.end +=  note_travel_time #this is done to accomidate the increase in travel time
 
 
 
@@ -42,7 +37,7 @@ func _process(delta):
 	if counter < incoming_notes.size():
 		if ( incoming_notes[counter].start - note_travel_time ) <= song_time :
 			for i in $Steelpan.get_children():
-				if \"note\" in i:
+				if \"note\" in i: #checks if the varable note is in the notes on the steelpan
 					if i.note == incoming_notes[counter].name:
 						if incoming_notes[counter].type == \"single\" :
 							incoming_note = note_image.instantiate()
@@ -56,6 +51,8 @@ func _process(delta):
 						$Incoming_notes.add_child(incoming_note)
 			counter += 1
 	song_time += delta
+	
+	#spawns a shockwave on the screen where the mouse clicks
 	if Input.is_action_just_pressed(\"play\") :
 		mouse = get_global_mouse_position()
 		var spawn = shockwave.instantiate()
@@ -63,7 +60,7 @@ func _process(delta):
 		add_child(spawn)
 	pass
 	
-func note_is_played(diff):
+func note_is_played(diff): # calculates how close the note was played to its actrual position in the song
 	if diff > -0.05 and diff < 0.05:
 		print(\"perfect\")
 	elif diff > -0.1 and diff < 0.1:

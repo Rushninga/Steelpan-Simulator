@@ -1,5 +1,5 @@
 extends Node2D
-var mode = "sign in"
+var mode = "connect"
 var time = 0.0
 var client = ENetMultiplayerPeer.new()
 var default_port = 8000
@@ -14,8 +14,20 @@ func _ready():
 	multiplayer.connection_failed.connect(connect_fail)
 	multiplayer.server_disconnected.connect(client_disconnect)
 
-
-
+	#centers control node at the center of the screen
+	$Control.global_position = $Camera2D.global_position
+	$Control2.global_position = $Camera2D.global_position
+	
+func _process(delta):
+	#sets control node visibility depending if the client is connected to the server
+	if mode == "connect":
+		$Control.visible = false
+		$Control2.visible = true
+	else:
+		$Control.visible = true
+		$Control2.visible = false
+	
+	
 func begin_data_send(username, password):
 	if multiplayer.multiplayer_peer.get_connection_status() == 2:
 		emit_signal("data_send", username, password, mode)
@@ -32,14 +44,14 @@ func connected():
 	$Control/Container/Button.disabled = false
 	$Control/Container/Button_change.disabled = false
 	$Control2/Container/Button.disabled = true
-	#send_user_info.rpc(str(multiplayer.get_unique_id()))
+	mode = "sign in"
 	
 func client_disconnect():
 	$Control/Container/Label.text = "clinet is disconnected"
 	$Control/Container/Button.disabled = true
 	$Control/Container/Button_change.disabled = true
 	$Control2/Container/Button.disabled = false
-	pass
+	mode = "connect"
 
 func connect_fail():
 	$Control/Container/Label.text = "clinet has failed to connect"

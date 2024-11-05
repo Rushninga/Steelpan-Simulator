@@ -1,8 +1,13 @@
-res://Scenes/Start Screen.tscn
+res://Scenes/song_play.tscn
 res://Themes/start_menu_theme.tres
 res://shaders/shockwave.gdshader
 res://addons/shaderV/uv/sphericalUV.gdshaderinc
 res://addons/shaderV/uv/lensDistortion.gdshaderinc
+res://Scripts/steelpan.gd
+res://Scenes/Start Screen.tscn
+res://GUI Styling/connect_to_server.gd
+res://Scripts/login_data.gd
+res://Scripts/start_screen.gd
 res://Main.tscn
 res://GUI Styling/Login data.tscn
-res://Scenes/song_play.tscn
+res://GUI Styling/connect_to_server.tscn

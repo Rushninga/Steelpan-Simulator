@@ -12,18 +12,12 @@ position = Vector2(642, 360)
 
 [node name="Control" parent="." instance=ExtResource("1_h7frx")]
 anchors_preset = 9
+anchor_left = 0.0
+anchor_top = 0.0
 anchor_right = 0.0
-offset_left = 684.0
-offset_top = 380.0
-offset_right = 684.0
-offset_bottom = 380.0
+anchor_bottom = 1.0
 grow_horizontal = 1
 scale = Vector2(1.5, 1.5)
-metadata/_edit_use_anchors_ = true
 
 [node name="Control2" parent="." instance=ExtResource("3_x0uf8")]
-offset_left = 192.0
-offset_top = 430.0
-offset_right = 462.0
-offset_bottom = 536.0
 scale = Vector2(1.5, 1.5)

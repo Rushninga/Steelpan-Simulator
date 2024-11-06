@@ -27,12 +27,12 @@ func add_note(note_name:String, start_time:float, end_time:float = 0.00):
 func _init():
 	
 	add_note("C1",2)
-	add_note("D1",3)
-	add_note("E1",4)
-	add_note("F1",5)
-	add_note("G1",6)
-	add_note("A1",7)
-	add_note("B1",8)
-	add_note("C2",9, 12)
+	add_note("D1",2.5)
+	add_note("E1",3)
+	add_note("F1",4.5)
+	add_note("G1",5)
+	add_note("A1",5.5)
+	add_note("B1",6)
+	add_note("C2",6.5,8)
 	
 	pass

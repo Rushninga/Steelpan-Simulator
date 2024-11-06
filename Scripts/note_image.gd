@@ -1,25 +1,22 @@
 extends Node2D
 var note_speed = Vector2()
-var note
-var start
-var end
-var speed = 0
-var distance
-var distance_to_kill 
-var type
-@onready var time_to_travel = get_parent().get_parent().note_travel_time
-var time_to_kill = 1
-var kill_speed = 0
-@onready var steelpan_obj_scale = get_parent().get_parent().get_node("Steelpan").scale
-var true_scale
+var note:String
+var start:float
+var end:float
+var speed:Vector2
+var distance:Vector2
+var distance_to_kill:Vector2 
+var type:String
+var time_to_kill:float = 1
+var kill_speed
+var true_scale:Vector2
+var time_to_travel 
+var delay
+
 
 
 func _ready():
 	scale = Vector2(20,20)
-	
-	for i in get_parent().get_parent().get_node("Steelpan").get_children():
-		if i.name == note:
-			true_scale = i.scale * steelpan_obj_scale
 	
 	distance = scale - true_scale
 	distance_to_kill =  true_scale
@@ -27,10 +24,11 @@ func _ready():
 	kill_speed = distance_to_kill/time_to_kill
 	note_speed = Vector2(speed)
 	
-	pass 
-
+	#removes scale to compisate delay between supposed spawn time and actrual spawn time
+	scale -= (speed * delay)
+	
 func _process(delta):
-	if scale.x >= steelpan_obj_scale.x :
+	if scale.x >= true_scale.x :
 		scale -= note_speed * delta
 	else: 
 		scale -= kill_speed * delta

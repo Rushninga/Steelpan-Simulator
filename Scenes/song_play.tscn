@@ -96,4 +96,4 @@ scale = Vector2(3, 3)
 top_level = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(636, 356)
+position = Vector2(633, 339)

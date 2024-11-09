@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://ccq60t47rgtuy"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://ccq60t47rgtuy"]
 
 [ext_resource type="FontFile" uid="uid://cjuab6m6vrvr0" path="res://Themes/Fonts/NerkoOne-Regular.ttf" id="1_ligi2"]
 
@@ -8,6 +8,10 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.1, 0.1, 0.1, 0.3)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -15,6 +19,11 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acn60"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -25,11 +34,16 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0, 0.705882, 0.345098, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+bg_color = Color(0.454524, 0.454524, 0.454524, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6yf0"]
@@ -37,12 +51,12 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.52549, 1, 0.341176, 1)
-border_width_left = 3
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 5
-border_color = Color(0.356863, 0.678431, 0.231373, 1)
+bg_color = Color(0.32549, 0.807843, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -54,19 +68,35 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.184177, 0.486774, 1.15514e-06, 1)
-border_width_left = 3
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 5
-border_color = Color(0.136235, 0.278638, 0.0817417, 1)
+bg_color = Color(0.286275, 0.717647, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
-[sub_resource type="Image" id="Image_spi1v"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cooae"]
+bg_color = Color(0, 0, 0, 0.372549)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Image" id="Image_6v3xv"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 1, 179, 179, 179, 20, 188, 188, 188, 19, 255, 255, 255, 1, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 179, 179, 179, 20, 180, 180, 180, 64, 180, 180, 180, 64, 188, 188, 188, 19, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 188, 188, 188, 19, 180, 180, 180, 64, 180, 180, 180, 64, 188, 188, 188, 19, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 1, 188, 188, 188, 19, 188, 188, 188, 19, 255, 255, 255, 1, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -76,9 +106,9 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_bppm3"]
-image = SubResource("Image_spi1v")
+image = SubResource("Image_6v3xv")
 
-[sub_resource type="Image" id="Image_adnxk"]
+[sub_resource type="Image" id="Image_mnw7q"]
 data = {
 "data": PackedByteArray(181, 181, 181, 48, 179, 179, 179, 50, 213, 213, 213, 6, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 179, 179, 179, 50, 180, 180, 180, 64, 180, 180, 180, 54, 213, 213, 213, 6, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 204, 204, 204, 5, 178, 178, 178, 53, 180, 180, 180, 64, 180, 180, 180, 54, 213, 213, 213, 6, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 255, 255, 255, 0, 204, 204, 204, 5, 182, 182, 182, 52, 180, 180, 180, 64, 180, 180, 180, 51, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 255, 255, 255, 0, 213, 213, 213, 6, 180, 180, 180, 54, 180, 180, 180, 64, 179, 179, 179, 50, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 213, 213, 213, 6, 180, 180, 180, 54, 180, 180, 180, 64, 183, 183, 183, 53, 170, 170, 170, 6, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 182, 182, 182, 49, 180, 180, 180, 64, 183, 183, 183, 53, 170, 170, 170, 6, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 181, 181, 181, 41, 182, 182, 182, 49, 170, 170, 170, 6, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64),
 "format": "RGBA8",
@@ -88,23 +118,24 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_3jcsu"]
-image = SubResource("Image_adnxk")
+image = SubResource("Image_mnw7q")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjtbs"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
+bg_color = Color(1, 1, 1, 0)
 draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 corner_detail = 5
 expand_margin_left = 2.0
 expand_margin_top = 2.0
@@ -116,13 +147,16 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+bg_color = Color(0.101961, 0.101961, 0.101961, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1fpb"]
@@ -131,8 +165,11 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.1, 0.1, 0.1, 0.3)
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 0.3)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -140,7 +177,7 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [resource]
-Button/colors/font_color = Color(0.154876, 0.154876, 0.154876, 1)
+Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 Button/colors/font_focus_color = Color(0.912289, 0.912289, 0.912289, 1)
 Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
@@ -156,25 +193,29 @@ Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
 Button/constants/align_to_largest_stylebox = 0
 Button/constants/h_separation = 4
 Button/constants/icon_max_width = 0
-Button/constants/outline_size = 0
-Button/font_sizes/font_size = 16
+Button/constants/outline_size = 2
+Button/font_sizes/font_size = 30
 Button/fonts/font = ExtResource("1_ligi2")
 Button/styles/disabled = SubResource("StyleBoxFlat_6pwid")
 Button/styles/focus = SubResource("StyleBoxFlat_acn60")
 Button/styles/hover = SubResource("StyleBoxFlat_odaqh")
 Button/styles/normal = SubResource("StyleBoxFlat_t6yf0")
 Button/styles/pressed = SubResource("StyleBoxFlat_wpnso")
+Label/constants/outline_size = 2
+Label/font_sizes/font_size = 30
+Label/fonts/font = ExtResource("1_ligi2")
+Panel/styles/panel = SubResource("StyleBoxFlat_cooae")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
-RichTextLabel/font_sizes/bold_font_size = 10
-RichTextLabel/font_sizes/normal_font_size = 12
+RichTextLabel/font_sizes/bold_font_size = 30
+RichTextLabel/font_sizes/normal_font_size = 20
 RichTextLabel/fonts/normal_font = ExtResource("1_ligi2")
-TextEdit/colors/background_color = Color(1, 1, 1, 1)
-TextEdit/colors/caret_background_color = Color(0.347817, 0.347817, 0.347817, 1)
-TextEdit/colors/caret_color = Color(0, 0, 0, 1)
+TextEdit/colors/background_color = Color(1, 1, 1, 0)
+TextEdit/colors/caret_background_color = Color(0.74558, 0.74558, 0.74558, 0.647059)
+TextEdit/colors/caret_color = Color(1, 1, 1, 1)
 TextEdit/colors/current_line_color = Color(0.0588235, 0, 0, 1)
-TextEdit/colors/font_color = Color(0, 0, 0, 1)
-TextEdit/colors/font_outline_color = Color(1, 0, 0, 0.215686)
-TextEdit/colors/font_placeholder_color = Color(0.450648, 0.450648, 0.450648, 1)
+TextEdit/colors/font_color = Color(1, 1, 1, 1)
+TextEdit/colors/font_outline_color = Color(1, 1, 1, 0)
+TextEdit/colors/font_placeholder_color = Color(0.61339, 0.61339, 0.61339, 1)
 TextEdit/colors/font_readonly_color = Color(0, 0, 0, 1)
 TextEdit/colors/font_selected_color = Color(0, 0, 0, 1)
 TextEdit/colors/search_result_border_color = Color(0.3, 0.3, 0.3, 0.4)
@@ -183,8 +224,8 @@ TextEdit/colors/selection_color = Color(0.31321, 0.522067, 1, 1)
 TextEdit/colors/word_highlighted_color = Color(0.937255, 0.0196078, 0, 0)
 TextEdit/constants/caret_width = 2
 TextEdit/constants/line_spacing = 4
-TextEdit/constants/outline_size = 0
-TextEdit/font_sizes/font_size = 16
+TextEdit/constants/outline_size = 2
+TextEdit/font_sizes/font_size = 30
 TextEdit/fonts/font = ExtResource("1_ligi2")
 TextEdit/icons/space = SubResource("ImageTexture_bppm3")
 TextEdit/icons/tab = SubResource("ImageTexture_3jcsu")

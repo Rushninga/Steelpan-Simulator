@@ -7,3 +7,5 @@ res://Main.tscn
 res://Scenes/song_play.tscn
 res://Objects/note_image.tscn
 res://Objects/rolling note.tscn
+res://GUI Styling/Login data.tscn
+res://GUI Styling/connect_to_server.tscn

@@ -20,7 +20,7 @@ func _ready():
 	multiplayer.connection_failed.connect(connect_fail)
 	multiplayer.server_disconnected.connect(client_disconnect)
 	
-	var size = Vector2i(820,700)
+	var size = Vector2i(800,600)
 	DisplayServer.window_set_min_size(size, 0)
 
 	

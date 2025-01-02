@@ -84,21 +84,28 @@ theme = ExtResource("1_pbac0")
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="username" type="TextEdit" parent="Container"]
+[node name="username" type="LineEdit" parent="Container"]
 custom_minimum_size = Vector2(400, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 placeholder_text = "Enter Username"
-scroll_fit_content_height = true
 
-[node name="password" type="TextEdit" parent="Container"]
+[node name="email" type="LineEdit" parent="Container"]
+custom_minimum_size = Vector2(400, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+placeholder_text = "Enter Email Address"
+
+[node name="password" type="LineEdit" parent="Container"]
 custom_minimum_size = Vector2(400, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 placeholder_text = "Enter Password"
-scroll_fit_content_height = true
+secret = true
+secret_character = "*"
 
 [node name="Button" type="Button" parent="Container"]
 custom_minimum_size = Vector2(100, 50)

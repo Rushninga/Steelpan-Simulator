@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=15 format=3 uid="uid://ccq60t47rgtuy"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://ccq60t47rgtuy"]
 
 [ext_resource type="FontFile" uid="uid://cjuab6m6vrvr0" path="res://Themes/Fonts/NerkoOne-Regular.ttf" id="1_ligi2"]
 
@@ -46,22 +46,17 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6yf0"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.32549, 0.807843, 0, 0)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2uwur"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-corner_detail = 5
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpnso"]
 content_margin_left = 4.0
@@ -69,10 +64,10 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.286275, 0.717647, 0, 0)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
@@ -83,6 +78,18 @@ expand_margin_left = 5.0
 expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mx67"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cooae"]
 bg_color = Color(0, 0, 0, 0.372549)
@@ -96,7 +103,7 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[sub_resource type="Image" id="Image_g7lb5"]
+[sub_resource type="Image" id="Image_t6jgx"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 1, 179, 179, 179, 20, 188, 188, 188, 19, 255, 255, 255, 1, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 179, 179, 179, 20, 180, 180, 180, 64, 180, 180, 180, 64, 188, 188, 188, 19, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 188, 188, 188, 19, 180, 180, 180, 64, 180, 180, 180, 64, 188, 188, 188, 19, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 1, 188, 188, 188, 19, 188, 188, 188, 19, 255, 255, 255, 1, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -106,9 +113,9 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_bppm3"]
-image = SubResource("Image_g7lb5")
+image = SubResource("Image_t6jgx")
 
-[sub_resource type="Image" id="Image_xrjl4"]
+[sub_resource type="Image" id="Image_r3xa3"]
 data = {
 "data": PackedByteArray(181, 181, 181, 48, 179, 179, 179, 50, 213, 213, 213, 6, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 179, 179, 179, 50, 180, 180, 180, 64, 180, 180, 180, 54, 213, 213, 213, 6, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 204, 204, 204, 5, 178, 178, 178, 53, 180, 180, 180, 64, 180, 180, 180, 54, 213, 213, 213, 6, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 255, 255, 255, 0, 204, 204, 204, 5, 182, 182, 182, 52, 180, 180, 180, 64, 180, 180, 180, 51, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 255, 255, 255, 0, 213, 213, 213, 6, 180, 180, 180, 54, 180, 180, 180, 64, 179, 179, 179, 50, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 213, 213, 213, 6, 180, 180, 180, 54, 180, 180, 180, 64, 183, 183, 183, 53, 170, 170, 170, 6, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 182, 182, 182, 49, 180, 180, 180, 64, 183, 183, 183, 53, 170, 170, 170, 6, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 181, 181, 181, 41, 182, 182, 182, 49, 170, 170, 170, 6, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64),
 "format": "RGBA8",
@@ -118,7 +125,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_3jcsu"]
-image = SubResource("Image_xrjl4")
+image = SubResource("Image_r3xa3")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjtbs"]
 content_margin_left = 4.0
@@ -193,17 +200,23 @@ Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
 Button/constants/align_to_largest_stylebox = 0
 Button/constants/h_separation = 4
 Button/constants/icon_max_width = 0
-Button/constants/outline_size = 2
+Button/constants/outline_size = 1
 Button/font_sizes/font_size = 30
 Button/fonts/font = ExtResource("1_ligi2")
 Button/styles/disabled = SubResource("StyleBoxFlat_6pwid")
 Button/styles/focus = SubResource("StyleBoxFlat_acn60")
 Button/styles/hover = SubResource("StyleBoxFlat_odaqh")
-Button/styles/normal = SubResource("StyleBoxFlat_t6yf0")
+Button/styles/normal = SubResource("StyleBoxFlat_2uwur")
 Button/styles/pressed = SubResource("StyleBoxFlat_wpnso")
 Label/constants/outline_size = 2
 Label/font_sizes/font_size = 30
 Label/fonts/font = ExtResource("1_ligi2")
+LineEdit/colors/caret_color = Color(0.95, 0.95, 0.95, 1)
+LineEdit/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+LineEdit/colors/selection_color = Color(0.337255, 0.321569, 1, 1)
+LineEdit/font_sizes/font_size = 30
+LineEdit/fonts/font = ExtResource("1_ligi2")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_5mx67")
 Panel/styles/panel = SubResource("StyleBoxFlat_cooae")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/font_sizes/bold_font_size = 30

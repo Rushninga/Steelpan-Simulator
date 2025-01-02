@@ -35,11 +35,10 @@ func _process(delta):
 		connect_menu.visible = false
 	
 	
-func begin_data_send(username, password):
+func begin_data_send(username, email, password):
 	if multiplayer.multiplayer_peer.get_connection_status() == 2:
-		emit_signal("data_send", username, password, mode)
-		pass
-	pass
+		emit_signal("data_send", username, email, password, mode)
+		
 	
 func begin_network_opp(ip):
 	client.create_client(ip, default_port)

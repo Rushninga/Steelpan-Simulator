@@ -6,12 +6,12 @@ func _ready():
 	$StartScreen.data_send.connect(send_data)
 	pass
 
-func send_data(username_send, password_send, mode_send):
-	send_user_info.rpc(username_send, password_send, mode_send)
+func send_data(username_send, email_send, password_send, mode_send):
+	send_user_info.rpc(username_send, email_send, password_send, mode_send)
 	
 
 @rpc("any_peer", "reliable", "call_local")
-func send_user_info(username_recieved, password_received, mode_received):
+func send_user_info(username_received, email_received , password_received, mode_received):
 	pass
 
 @rpc("authority", "unreliable_ordered", "call_remote")

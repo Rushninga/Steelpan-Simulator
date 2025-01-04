@@ -1,4 +1,10 @@
+Control
+Container
+AspectRatioContainer
+Button
+Label
 LineEdit
+VBoxContainer
 TextEdit
 Panel
 ColorRect
@@ -6,9 +12,3 @@ AnimatedSprite2D
 HBoxContainer
 VideoStreamPlayer
 CenterContainer
-Button
-Control
-Label
-RichTextLabel
-Camera2D
-VBoxContainer

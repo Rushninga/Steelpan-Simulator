@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6diqsa0y4i3w"]
+
+[ext_resource type="Theme" uid="uid://ccq60t47rgtuy" path="res://Themes/start_menu_theme.tres" id="1_unsvd"]
+[ext_resource type="Script" path="res://Scripts/verify.gd" id="1_wf5s1"]
+
+[node name="verify" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wf5s1")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -119.0
+offset_right = 260.0
+offset_bottom = 154.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_unsvd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.0
+offset_top = -95.5
+offset_right = 239.0
+offset_bottom = 95.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("1_unsvd")
+text = "Enter verification code sent to email below:"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="verify" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_unsvd")
+text = "Verify"
+
+[node name="cancel" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_unsvd")
+text = "Cancel"
+
+[connection signal="pressed" from="VBoxContainer/cancel" to="." method="_on_cancel_pressed"]

@@ -23,9 +23,9 @@ func _on_button_change_pressed():
 		$Container/Button.text = "Sign In"
 		$Container/Button_change.text = "Already Have An Account, Click Here To Login"
 		$Container/email.visible = true
-	pass # Replace with function body.
+	
 
 
 func _on_button_pressed():
 	emit_signal("send_data", $Container/username.text, $Container/email.text, $Container/password.text)
-	pass # Replace with function body.
+	

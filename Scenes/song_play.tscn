@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://buufi8lbseah8"]
+[gd_scene load_steps=4 format=3 uid="uid://buufi8lbseah8"]
 
-[ext_resource type="PackedScene" uid="uid://bn1gquhgboypk" path="res://Scenes/Mouse.tscn" id="1_v750k"]
 [ext_resource type="PackedScene" uid="uid://c7fl4innwrghc" path="res://Objects/steelpan.tscn" id="2_mj7i1"]
 [ext_resource type="PackedScene" uid="uid://dco1w80mpoq86" path="res://Objects/notes_sound.tscn" id="3_oph0d"]
 
@@ -21,7 +20,6 @@ var incoming_note
 var mouse
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$Steelpan.quality.connect(note_is_played)
 	$Steelpan.global_position = Vector2(get_viewport().size.x/2, get_viewport().size.y/2)
 	if note_travel_time == null:
@@ -91,9 +89,6 @@ scale = Vector2(3, 3)
 [node name="Incoming_notes" type="Node2D" parent="."]
 
 [node name="NotesSound" parent="." instance=ExtResource("3_oph0d")]
-
-[node name="Mouse" parent="." instance=ExtResource("1_v750k")]
-top_level = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(633, 339)

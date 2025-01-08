@@ -33,6 +33,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Control2" parent="." instance=ExtResource("3_x0uf8")]
+visible = false
 visibility_layer = 3
 z_index = 1
 layout_mode = 2

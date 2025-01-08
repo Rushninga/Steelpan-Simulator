@@ -1,16 +1,22 @@
 extends Node
+var server_ip
 var username
 var password
-var user_mode = 0 # 0 = not loged in/registering   1 = user is loged in     2 = user is registered    3 = user is registering
-var mode
+
 
 func _ready():
 	$StartScreen.data_send.connect(data_send)
-	mode = $StartScreen.mode
+	$StartScreen/verify.verify_code_sumbit.connect(verify_code_sumbit)
+	server_ip = $StartScreen.server_ip
+	
 	
 
 func data_send(username_send, email_send, password_send, mode_send):
 	send_user_info.rpc(username_send, email_send, password_send, mode_send)
+	
+func verify_code_sumbit(code):
+	sumbit_email_code.rpc(code)
+	pass
 	
 
 @rpc("any_peer", "reliable", "call_local")
@@ -23,8 +29,6 @@ func user_login_confirm(message):
 		$StartScreen/Control/Container/Label.text = "Username or password is incorrect"
 	elif message == 2:
 		$StartScreen/Control/Container/Label.text = "You are Loged in"
-		user_mode = 1
-		mode = "loged in"
 	else:
 		$StartScreen/Control/Container/Label.text = "Unknown error occurred"
 	
@@ -32,15 +36,21 @@ func user_login_confirm(message):
 @rpc("authority", "reliable", "call_remote")
 func valid_email(message):
 	if message == 0:
-		mode = "verify"
-		$StartScreen/verify.visible = true
-		$StartScreen/Control.visible = false
-		user_mode = 3
+		$StartScreen.switch_screen("verify")
 	elif message == 1:
-		mode = "sign in"
 		$StartScreen/Control/Container/Label.text = "Email is already being used"
-		$StartScreen/verify.visible = false
-		$StartScreen/Control.visible = true
+		$StartScreen.switch_screen("sign in")
 		
 		
+@rpc("any_peer", "reliable")
+func sumbit_email_code(code):
+	pass
+
+@rpc("authority", "reliable")
+func valid_email_code(message):
+	if message == 0:
+		$StartScreen.switch_screen("login")
+		$StartScreen/Control/Container/Label.text = "You can now login"
+	else:
+		$StartScreen/verify/VBoxContainer/Label.text = "The code you entered is invalid"
 	

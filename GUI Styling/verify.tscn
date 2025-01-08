@@ -74,4 +74,5 @@ size_flags_horizontal = 4
 theme = ExtResource("1_unsvd")
 text = "Cancel"
 
+[connection signal="pressed" from="VBoxContainer/verify" to="." method="_on_verify_pressed"]
 [connection signal="pressed" from="VBoxContainer/cancel" to="." method="_on_cancel_pressed"]

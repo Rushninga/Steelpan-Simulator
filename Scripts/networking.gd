@@ -2,6 +2,8 @@ extends Node
 var server_ip
 var username
 var password
+var crypto = Crypto.new()
+var net_key = CryptoKey.new()
 
 
 func _ready():
@@ -54,3 +56,10 @@ func valid_email_code(message):
 	else:
 		$StartScreen/verify/VBoxContainer/Label.text = "The code you entered is invalid"
 	
+@rpc("authority", "reliable")
+func send_key(message, test):
+	net_key.load_from_string(message)
+	
+	var plain_text = crypto.decrypt(net_key, test)
+	plain_text = plain_text.get_string_from_utf8()
+	print(plain_text)

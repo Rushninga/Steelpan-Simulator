@@ -3,7 +3,6 @@ res://Themes/start_menu_theme.tres
 res://shaders/shockwave.gdshader
 res://addons/shaderV/uv/sphericalUV.gdshaderinc
 res://addons/shaderV/uv/lensDistortion.gdshaderinc
-res://Scripts/networking.gd
 res://Scenes/Start Screen.tscn
 res://GUI Styling/Login data.tscn
 res://GUI Styling/verify.tscn

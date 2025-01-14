@@ -40,7 +40,7 @@ func valid_email(message):
 	if message == 0:
 		$StartScreen.switch_screen("verify")
 	elif message == 1:
-		$StartScreen/Control/Container/Label.text = "Email is already being used"
+		$StartScreen/Control/Container/Label.text = "Username or Email is already being used"
 		$StartScreen.switch_screen("sign in")
 		
 		

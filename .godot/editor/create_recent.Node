@@ -1,6 +1,7 @@
-Button
-ColorRect
 Control
+TextureRect
+ColorRect
+Button
 Container
 AspectRatioContainer
 Label
@@ -11,4 +12,3 @@ Panel
 AnimatedSprite2D
 HBoxContainer
 VideoStreamPlayer
-CenterContainer

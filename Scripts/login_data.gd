@@ -8,6 +8,26 @@ func _ready():
 	var size_a = $Container.size
 	pivot_offset = size_a/2
 
+func verify_email_format(email:String):
+	var ext
+	var at_pos = email.find("@", 1)
+	if at_pos == -1:
+		return false
+	else:
+		ext = email.right(email.length() - at_pos)
+		if ext == "@gmail.com":
+			return true
+		elif ext == "@outlook.com":
+			return true
+		elif ext == "@aol.com":
+			return true
+		elif ext == "@hotmail.com":
+			return true
+		elif ext == "@yahoo.com":
+			return true
+		else:
+			return false
+	
 
 func _process(_delta):
 	if parent.mode == "sign in":
@@ -30,11 +50,14 @@ func _on_button_change_pressed():
 
 
 func _on_button_pressed():
-	if parent.mode == "sign in":
+	if parent.mode == "sign in" :
 		if $Container/username.text == "" or $Container/password.text == "" or $Container/email.text == "":
 			$Container/Label.text = "All fields must be filled"
 		else:
-			emit_signal("send_data", $Container/username.text, $Container/email.text, $Container/password.text)
+			if verify_email_format($Container/email.text) == true:
+				emit_signal("send_data", $Container/username.text, $Container/email.text, $Container/password.text)
+			else:
+				$Container/Label.text = "Email format is invalid"
 	elif parent.mode == "login":
 		if $Container/username.text == "" or $Container/password.text == "":
 			$Container/Label.text = "All fields must be filled"

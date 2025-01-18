@@ -1,4 +1,4 @@
-extends CenterContainer
+extends Control
 var mode = "connect"
 var time = 0.0
 var client = ENetMultiplayerPeer.new()

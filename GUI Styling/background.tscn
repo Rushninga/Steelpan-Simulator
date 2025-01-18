@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctlbyyd2lb44v"]
+
+[ext_resource type="Texture2D" uid="uid://cbntwqxbpi3ta" path="res://Assets/Art/caribbean map.png" id="1_yji3t"]
+[ext_resource type="Texture2D" uid="uid://cm7uypjx4fqqp" path="res://Assets/Art/vectorsteelpan.svg" id="2_dnf8r"]
+
+[node name="background" type="Control"]
+modulate = Color(0.76662, 0.76662, 0.76662, 1)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.16197, 0.684047, 1, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yji3t")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -622.0
+offset_right = 730.0
+grow_vertical = 0
+texture = ExtResource("2_dnf8r")
+expand_mode = 2
+stretch_mode = 4
+flip_h = true

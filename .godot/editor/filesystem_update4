@@ -1,8 +1,13 @@
-res://Main.tscn
+res://Assets/Art/panarama.ogv
+res://Scenes/Start Screen.tscn
 res://Themes/start_menu_theme.tres
 res://shaders/shockwave.gdshader
 res://addons/shaderV/uv/sphericalUV.gdshaderinc
 res://addons/shaderV/uv/lensDistortion.gdshaderinc
-res://Scenes/Start Screen.tscn
-res://GUI Styling/Login data.tscn
+res://Main.tscn
+res://Scenes/song_play.tscn
 res://GUI Styling/verify.tscn
+res://GUI Styling/Login data.tscn
+res://GUI Styling/connect_to_server.tscn
+res://Scripts/networking.gd
+res://Scripts/login_data.gd

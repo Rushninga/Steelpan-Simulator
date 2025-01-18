@@ -30,5 +30,13 @@ func _on_button_change_pressed():
 
 
 func _on_button_pressed():
-	emit_signal("send_data", $Container/username.text, $Container/email.text, $Container/password.text)
-	
+	if parent.mode == "sign in":
+		if $Container/username.text == "" or $Container/password.text == "" or $Container/email.text == "":
+			$Container/Label.text = "All fields must be filled"
+		else:
+			emit_signal("send_data", $Container/username.text, $Container/email.text, $Container/password.text)
+	elif parent.mode == "login":
+		if $Container/username.text == "" or $Container/password.text == "":
+			$Container/Label.text = "All fields must be filled"
+		else:
+			emit_signal("send_data", $Container/username.text, $Container/email.text, $Container/password.text)

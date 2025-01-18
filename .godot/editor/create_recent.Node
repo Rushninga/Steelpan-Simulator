@@ -1,3 +1,4 @@
+ColorRect
 Control
 Container
 AspectRatioContainer
@@ -7,7 +8,6 @@ LineEdit
 VBoxContainer
 TextEdit
 Panel
-ColorRect
 AnimatedSprite2D
 HBoxContainer
 VideoStreamPlayer

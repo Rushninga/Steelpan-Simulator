@@ -5,11 +5,53 @@
 
 [sub_resource type="GDScript" id="GDScript_osh0b"]
 script/source = "extends Node2D
+var json = '[
+  {
+	\"note\": \"C1\",
+	\"start\": 1,
+	\"end\": 1
+  },
+  {
+	\"note\": \"D1\",
+	\"start\": 2,
+	\"end\": 2
+  },
+  {
+	\"note\": \"E1\",
+	\"start\": 3,
+	\"end\": 3
+  },
+  {
+	\"note\": \"F1\",
+	\"start\": 4,
+	\"end\": 4
+  },
+  {
+	\"note\": \"G1\",
+	\"start\": 5,
+	\"end\": 5
+  },
+  {
+	\"note\": \"A1\",
+	\"start\": 6,
+	\"end\": 6
+  },
+  {
+	\"note\": \"B1\",
+	\"start\": 7,
+	\"end\": 7
+  },
+  {
+	\"note\": \"C2\",
+	\"start\": 8,
+	\"end\": 8
+  }
+]'
+
 
 var counter:int = 0
 var song_time:float = 0
 var incoming_notes:Array = [] #imports all the notes from the song resource file
-var song_res:Resource = preload(\"res://Save Data/songs/test_song/test song.tres\")
 var note_image = preload(\"res://Objects/note_image.tscn\") # a single notes object
 var roll_note_image = preload(\"res://Objects/rolling note.tscn\") # a rolling note object
 var shockwave = preload(\"res://Objects/shockwave.tscn\") #shockwave object for mouse when note is played
@@ -24,29 +66,28 @@ func _ready():
 	$Steelpan.global_position = Vector2(get_viewport().size.x/2, get_viewport().size.y/2)
 	if note_travel_time == null:
 		note_travel_time = 3
-	incoming_notes = song_res.incoming_notes
 	for i in incoming_notes :
-		i.start += note_travel_time #adds note travel time. This is done in case a note starts at the time 0 seconds. This will put it up to 1 second where it will become playable
-		i.end +=  note_travel_time #this is done to accomidate the increase in travel time
+		i[\"start\"] += note_travel_time #adds note travel time. This is done in case a note starts at the time 0 seconds. This will put it up to 1 second where it will become playable
+		i[\"end\"] +=  note_travel_time #this is done to accomidate the increase in travel time
+	incoming_notes = JSON.parse_string(json)
 
 
 
 func _process(delta):
 	hit_notes = []
 	if counter < incoming_notes.size():
-		if ( incoming_notes[counter].start - note_travel_time ) <= song_time :
+		if ( incoming_notes[counter][\"start\"] - note_travel_time ) <= song_time :
 			for i in $Steelpan.get_children():
 				if \"note\" in i: #checks if the varable note is in the notes on the steelpan
-					if i.note == incoming_notes[counter].name:
-						if incoming_notes[counter].type == \"single\" :
+					if i[\"note\"] == incoming_notes[counter][\"note\"]:
+						if incoming_notes[counter][\"start\"] == incoming_notes[counter][\"end\"] :
 							incoming_note = note_image.instantiate()
 						else:
 							incoming_note = roll_note_image.instantiate()
 						var temp_note = incoming_notes[counter]
 						incoming_note.note = i.note
-						incoming_note.start = temp_note.start
-						incoming_note.end = temp_note.end
-						incoming_note.type = temp_note.type
+						incoming_note.start = temp_note[\"start\"]
+						incoming_note.end = temp_note[\"end\"]
 						incoming_note.true_scale = i.scale * $Steelpan.scale
 						incoming_note.global_position = i.global_position
 						incoming_note.time_to_travel = note_travel_time
@@ -62,7 +103,7 @@ func _process(delta):
 		var spawn = shockwave.instantiate()
 		spawn.global_position = mouse
 		add_child(spawn)
-	pass
+	
 	
 func note_is_played(diff): # calculates how close the note was played to its actrual position in the song
 	if diff > -0.05 and diff < 0.05:
@@ -75,7 +116,27 @@ func note_is_played(diff): # calculates how close the note was played to its act
 		print(\"Sh**\")
 	else:
 		print(\"U suck lmfao\")
-	pass
+	
+func reset():
+	counter = 0
+	song_time = 0
+	incoming_notes = [
+		{
+			\"note\" : \"C1\",
+			\"start\" : 1,
+			\"end\" : 1
+		},
+		{
+			\"note\" : \"D1\",
+			\"start\" : 2,
+			\"end\" : 2
+		},
+		{
+			\"note\" : \"E1\",
+			\"start\" : 3,
+			\"end\" : 3
+		}
+	]
 "
 
 [node name="song_play" type="Node2D"]

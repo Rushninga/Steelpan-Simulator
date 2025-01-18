@@ -16,6 +16,7 @@ signal data_send
 @onready var user_data_menu_label = $Control/Container/Label
 
 
+
 func _ready():
 	user_data_menu.send_data.connect(begin_data_send)
 	connect_menu.network_opp.connect(begin_network_opp)
@@ -30,6 +31,7 @@ func _ready():
 	DisplayServer.window_set_min_size(screen_size, 0)
 	
 	switch_screen("connect")
+	
 	
 	
 func begin_data_send(username, email, password):

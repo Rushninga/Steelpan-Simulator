@@ -30,7 +30,7 @@ func user_login_confirm(message):
 	if message == 1:
 		$StartScreen/Control/Container/Label.text = "Username or password is incorrect"
 	elif message == 2:
-		$StartScreen/Control/Container/Label.text = "You are Loged in"
+		$StartScreen/Control/Container/Label.text = "You are Logged in"
 	else:
 		$StartScreen/Control/Container/Label.text = "Unknown error occurred"
 	

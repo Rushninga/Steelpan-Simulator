@@ -6,7 +6,6 @@ var end:float
 var speed:Vector2
 var distance:Vector2
 var distance_to_kill:Vector2 
-var type:String
 var time_to_kill:float = 1
 var kill_speed
 var true_scale:Vector2

@@ -12,7 +12,7 @@ func _ready(): #connects the signal that is emitted when a note is played for al
 func note_played(play):
 	for i in get_parent().get_node("Incoming_notes").get_children():
 			if i.note == play:
-				if i.type == "single":
+				if i.start == i.end:
 					note_played_time_difference = get_parent().song_time - i.start
 					i.queue_free()
 					get_parent().hit_notes.append(play)

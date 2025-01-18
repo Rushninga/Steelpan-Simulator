@@ -7,7 +7,6 @@ var speed:Vector2
 var distance:Vector2
 var roll_time:float
 var roll_speed:float
-var type:String
 var true_scale:Vector2
 
 @onready var time_to_travel = get_parent().get_parent().note_travel_time

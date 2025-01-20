@@ -1,10 +1,10 @@
+res://Main.tscn
 res://Themes/start_menu_theme.tres
 res://shaders/shockwave.gdshader
 res://addons/shaderV/uv/sphericalUV.gdshaderinc
 res://addons/shaderV/uv/lensDistortion.gdshaderinc
-res://Scripts/login_data.gd
-res://throw_away_scene/node_2d.tscn
-res://Main.tscn
 res://Scenes/Start Screen.tscn
-res://GUI Styling/background.tscn
-res://GUI Styling/Login data.tscn
+res://GUI/main_menu.tscn
+res://GUI/connect_to_server.tscn
+res://Scripts/networking.gd
+res://Scripts/start_screen.gd

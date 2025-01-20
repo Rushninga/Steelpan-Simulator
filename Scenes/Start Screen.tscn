@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://depc87vqcl07e"]
+[gd_scene load_steps=7 format=3 uid="uid://depc87vqcl07e"]
 
-[ext_resource type="PackedScene" uid="uid://bm2uvi2qhjh5" path="res://GUI Styling/Login data.tscn" id="1_h7frx"]
+[ext_resource type="PackedScene" uid="uid://bm2uvi2qhjh5" path="res://GUI/Login data.tscn" id="1_h7frx"]
 [ext_resource type="Script" path="res://Scripts/start_screen.gd" id="1_iaivn"]
-[ext_resource type="PackedScene" uid="uid://ctlbyyd2lb44v" path="res://GUI Styling/background.tscn" id="2_mhm2l"]
-[ext_resource type="PackedScene" uid="uid://c1yaavudi1rm4" path="res://GUI Styling/connect_to_server.tscn" id="3_x0uf8"]
-[ext_resource type="PackedScene" uid="uid://c6diqsa0y4i3w" path="res://GUI Styling/verify.tscn" id="5_s7sco"]
+[ext_resource type="PackedScene" uid="uid://ctlbyyd2lb44v" path="res://GUI/background.tscn" id="2_mhm2l"]
+[ext_resource type="PackedScene" uid="uid://c1yaavudi1rm4" path="res://GUI/connect_to_server.tscn" id="3_x0uf8"]
+[ext_resource type="PackedScene" uid="uid://c6diqsa0y4i3w" path="res://GUI/verify.tscn" id="5_s7sco"]
+[ext_resource type="PackedScene" uid="uid://b0oj6gbtk8tor" path="res://GUI/main_menu.tscn" id="6_8e0ud"]
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -18,6 +19,7 @@ size_flags_vertical = 3
 script = ExtResource("1_iaivn")
 
 [node name="background" parent="." instance=ExtResource("2_mhm2l")]
+modulate = Color(0.385493, 0.385492, 0.385492, 1)
 layout_mode = 1
 
 [node name="Control" parent="." instance=ExtResource("1_h7frx")]
@@ -53,3 +55,7 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+
+[node name="MainMenu" parent="." instance=ExtResource("6_8e0ud")]
+visible = false
+layout_mode = 1

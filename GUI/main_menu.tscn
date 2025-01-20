@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=3 uid="uid://b0oj6gbtk8tor"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_th1rw"]
+[ext_resource type="Theme" uid="uid://ccq60t47rgtuy" path="res://Themes/start_menu_theme.tres" id="2_ee201"]
+[ext_resource type="Texture2D" uid="uid://cuhsakt1g4oy5" path="res://GUI/gui icons/play_circle_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" id="3_mclaf"]
+[ext_resource type="Texture2D" uid="uid://cnnhw3px1rxtl" path="res://GUI/gui icons/add_circle_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" id="4_w8b0s"]
+[ext_resource type="Texture2D" uid="uid://bieuq3r88xy00" path="res://GUI/gui icons/help_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" id="5_17uje"]
+[ext_resource type="Texture2D" uid="uid://dg3s1xtdjh431" path="res://GUI/gui icons/logout_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" id="6_mt7oj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2g4vp"]
+bg_color = Color(0, 0, 0, 0.372549)
+border_width_right = 2
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_th1rw")
+
+[node name="background_left" type="Panel" parent="."]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+theme = ExtResource("2_ee201")
+theme_override_styles/panel = SubResource("StyleBoxFlat_2g4vp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftSide" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme = ExtResource("2_ee201")
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Play" type="Button" parent="HBoxContainer/LeftSide"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("2_ee201")
+text = "Play Songs"
+icon = ExtResource("3_mclaf")
+expand_icon = true
+
+[node name="Create" type="Button" parent="HBoxContainer/LeftSide"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_ee201")
+text = "Create Song"
+icon = ExtResource("4_w8b0s")
+expand_icon = true
+
+[node name="HowToPlay" type="Button" parent="HBoxContainer/LeftSide"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_ee201")
+text = "How To Play"
+icon = ExtResource("5_17uje")
+expand_icon = true
+
+[node name="LogOut" type="Button" parent="HBoxContainer/LeftSide"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_ee201")
+text = "Log Out"
+icon = ExtResource("6_mt7oj")
+expand_icon = true
+
+[node name="RightSide" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Header" type="Label" parent="HBoxContainer/RightSide"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_ee201")
+theme_override_font_sizes/font_size = 96
+text = "Welcome 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="body" type="Label" parent="HBoxContainer/RightSide"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme = ExtResource("2_ee201")
+text = "Steel pan simulator is a desktop application designed to simulate the sound and playing experience of the steel pan, a musical instrument that originates from the Caribbean. With the help of this initiative, musicians, educators and students will be able to learn, practice and explore steel pan music without the real instrument. 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
+[connection signal="pressed" from="HBoxContainer/LeftSide/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/LeftSide/Create" to="." method="_on_create_pressed"]
+[connection signal="pressed" from="HBoxContainer/LeftSide/HowToPlay" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/LeftSide/LogOut" to="." method="_on_log_out_pressed"]

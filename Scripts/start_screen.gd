@@ -14,6 +14,7 @@ signal data_send
 @onready var connect_menu= $Control2
 @onready var verify = $verify
 @onready var user_data_menu_label = $Control/Container/Label
+@onready var main_menu = $MainMenu
 
 
 
@@ -59,7 +60,7 @@ func client_disconnect():
 	switch_screen("connect")
 
 func connect_fail():
-	user_data_menu_label.text = "clinet has failed to connect"
+	$Control2/Container/Label.text = "Client has failed to connect"
 
 func switch_screen(screen):
 	if screen == "sign in":
@@ -67,25 +68,35 @@ func switch_screen(screen):
 		user_data_menu.visible = true
 		connect_menu.visible = false
 		verify.visible = false
+		main_menu.visible = false
 	elif screen == "login":
 		mode = "login"
 		user_data_menu.visible = true
 		connect_menu.visible = false
 		verify.visible = false
+		main_menu.visible = false
 	elif  screen == "verify":
 		mode = "verify"
 		user_data_menu.visible = false
 		connect_menu.visible = false
 		verify.visible = true
+		main_menu.visible = false
 	elif screen == "connect":
 		mode = "connect"
 		user_data_menu.visible = false
 		connect_menu.visible = true
 		verify.visible = false
+		main_menu.visible = false
 	elif screen == "main":
 		mode = "main"
+		user_data_menu.visible = false
+		connect_menu.visible = false
+		verify.visible = false
+		main_menu.visible = true
 	elif screen == "play":
 		mode = "play"
+	elif screen == "song select":
+		mode = "song select"
 	elif screen == "record":
 		mode = "record"
 		

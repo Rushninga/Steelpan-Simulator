@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://depc87vqcl07e"]
+[gd_scene load_steps=8 format=3 uid="uid://depc87vqcl07e"]
 
 [ext_resource type="PackedScene" uid="uid://bm2uvi2qhjh5" path="res://GUI/Login data.tscn" id="1_h7frx"]
 [ext_resource type="Script" path="res://Scripts/start_screen.gd" id="1_iaivn"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c1yaavudi1rm4" path="res://GUI/connect_to_server.tscn" id="3_x0uf8"]
 [ext_resource type="PackedScene" uid="uid://c6diqsa0y4i3w" path="res://GUI/verify.tscn" id="5_s7sco"]
 [ext_resource type="PackedScene" uid="uid://b0oj6gbtk8tor" path="res://GUI/main_menu.tscn" id="6_8e0ud"]
+[ext_resource type="PackedScene" uid="uid://b0bh6s1duv6rf" path="res://GUI/song_list_menu.tscn" id="7_dn8x7"]
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -23,7 +24,6 @@ modulate = Color(0.385493, 0.385492, 0.385492, 1)
 layout_mode = 1
 
 [node name="Control" parent="." instance=ExtResource("1_h7frx")]
-visible = false
 visibility_layer = 3
 z_index = 1
 layout_mode = 1
@@ -57,5 +57,9 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 
 [node name="MainMenu" parent="." instance=ExtResource("6_8e0ud")]
+visible = false
+layout_mode = 1
+
+[node name="Play" parent="." instance=ExtResource("7_dn8x7")]
 visible = false
 layout_mode = 1

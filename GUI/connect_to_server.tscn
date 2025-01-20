@@ -43,7 +43,10 @@ grow_vertical = 2
 theme = ExtResource("1_day35")
 
 [node name="Label" type="Label" parent="Container"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Ip_address" type="TextEdit" parent="Container"]
 clip_contents = false

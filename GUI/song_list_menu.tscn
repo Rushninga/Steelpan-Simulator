@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0bh6s1duv6rf"]
+
+[ext_resource type="Script" path="res://Scripts/song_list.gd" id="1_ibhka"]
+[ext_resource type="Theme" uid="uid://ccq60t47rgtuy" path="res://Themes/start_menu_theme.tres" id="2_mj8wh"]
+[ext_resource type="Texture2D" uid="uid://cwjfettr301b2" path="res://GUI/gui icons/arrow_back_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" id="3_awj34"]
+[ext_resource type="Texture2D" uid="uid://dtjmm4l2hp3jm" path="res://GUI/gui icons/restart_alt_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" id="4_1trhl"]
+
+[node name="Play" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ibhka")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Back" type="Button" parent="VBoxContainer/Top"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("2_mj8wh")
+text = "Back"
+icon = ExtResource("3_awj34")
+
+[node name="Reload" type="Button" parent="VBoxContainer/Top"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("2_mj8wh")
+text = "Reload"
+icon = ExtResource("4_1trhl")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SongList" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="VBoxContainer/Top/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/Top/Reload" to="." method="_on_reload_pressed"]

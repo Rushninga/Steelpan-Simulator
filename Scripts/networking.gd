@@ -5,8 +5,9 @@ var username
 var password
 var crypto = Crypto.new()
 var net_key = CryptoKey.new()
-var verify_session_interval = 1
+var verify_session_interval = 60
 var login:bool = false
+var song_container = preload("res://GUI/song_container.tscn")
 
 func _ready():
 	$StartScreen.data_send.connect(data_send)
@@ -23,7 +24,16 @@ func _process(delta):
 		verify_session_interval -= delta
 		if verify_session_interval < 0:
 			verify_session.rpc_id(1)
-			verify_session_interval = 1
+			verify_session_interval = 60
+			
+
+func add_song(id, song_name):
+	var new_song = song_container.instantiate()
+	new_song.id = id
+	new_song.song_name = song_name
+	new_song.select_song.connect($StartScreen.select_song)
+	$StartScreen/Play/VBoxContainer/ScrollContainer/SongList.add_child(new_song)
+	
 
 #code ran by signals from StartScreen and its children
 func data_send(username_send, email_send, password_send, mode_send):
@@ -32,6 +42,8 @@ func data_send(username_send, email_send, password_send, mode_send):
 	
 func verify_code_sumbit(code):
 	sumbit_email_code.rpc_id(1, code)
+	
+
 	
 func menu_option_select(option):
 	# respective data transimitted when menu_option_select when one of the buttons are pressed
@@ -100,3 +112,15 @@ func verify_session_response(message): #0 = session is valid, 1 = session is val
 @rpc("any_peer", "reliable")
 func log_out():
 	pass
+	
+@rpc("any_peer", "reliable")
+func request_download_song():
+	pass
+	
+@rpc("authority", "reliable")
+func download_song(song_id, song_name, song_data):
+	print(song_id)
+	print(song_name)
+	var json = JSON.parse_string(song_data)
+	for i in json:
+		print(i)

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dco1w80mpoq86" path="res://Objects/notes_sound.tscn" id="3_oph0d"]
 
 [sub_resource type="GDScript" id="GDScript_osh0b"]
-script/source = "extends Node2D
+script/source = "extends Control
 var json = '[
   {
 	\"note\": \"C1\",
@@ -13,38 +13,38 @@ var json = '[
   },
   {
 	\"note\": \"D1\",
-	\"start\": 2,
-	\"end\": 2
-  },
-  {
-	\"note\": \"E1\",
 	\"start\": 3,
 	\"end\": 3
   },
   {
-	\"note\": \"F1\",
+	\"note\": \"E1\",
 	\"start\": 4,
-	\"end\": 4
-  },
-  {
-	\"note\": \"G1\",
-	\"start\": 5,
-	\"end\": 5
-  },
-  {
-	\"note\": \"A1\",
-	\"start\": 6,
 	\"end\": 6
   },
   {
+	\"note\": \"F1\",
+	\"start\": 8,
+	\"end\": 10
+  },
+  {
+	\"note\": \"G1\",
+	\"start\": 11,
+	\"end\": 11
+  },
+  {
+	\"note\": \"A1\",
+	\"start\": 12,
+	\"end\": 12
+  },
+  {
 	\"note\": \"B1\",
-	\"start\": 7,
-	\"end\": 7
+	\"start\": 13,
+	\"end\": 13
   },
   {
 	\"note\": \"C2\",
-	\"start\": 8,
-	\"end\": 8
+	\"start\": 15,
+	\"end\": 20
   }
 ]'
 
@@ -120,36 +120,22 @@ func note_is_played(diff): # calculates how close the note was played to its act
 func reset():
 	counter = 0
 	song_time = 0
-	incoming_notes = [
-		{
-			\"note\" : \"C1\",
-			\"start\" : 1,
-			\"end\" : 1
-		},
-		{
-			\"note\" : \"D1\",
-			\"start\" : 2,
-			\"end\" : 2
-		},
-		{
-			\"note\" : \"E1\",
-			\"start\" : 3,
-			\"end\" : 3
-		}
-	]
+	
 "
 
-[node name="song_play" type="Node2D"]
+[node name="song_play" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = SubResource("GDScript_osh0b")
 note_travel_time = 1.0
 
 [node name="Steelpan" parent="." instance=ExtResource("2_mj7i1")]
-position = Vector2(631, 337)
-scale = Vector2(3, 3)
+scale = Vector2(3.2, 3.2)
 
 [node name="Incoming_notes" type="Node2D" parent="."]
 
 [node name="NotesSound" parent="." instance=ExtResource("3_oph0d")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(633, 339)

@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 var note_played_time_difference 
 signal quality(difference)
 signal rolling
@@ -7,7 +7,7 @@ func _ready(): #connects the signal that is emitted when a note is played for al
 	for i in get_children():
 		if i is Area2D:
 			i.play_note.connect(note_played)
-	pass
+	
 	
 func note_played(play):
 	for i in get_parent().get_node("Incoming_notes").get_children():
@@ -21,4 +21,3 @@ func note_played(play):
 				elif i.scale.x <= i.true_scale.x:
 					print("rolling")
 					break
-	pass

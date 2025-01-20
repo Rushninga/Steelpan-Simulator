@@ -33,10 +33,12 @@ func _process(_delta):
 	if parent.mode == "sign in":
 		$Container/Button.text = "Sign In"
 		$Container/Button_change.text = "Already Have An Account, Click Here To Login"
+		$Container/enter2.visible = true
 		$Container/email.visible = true
 	elif parent.mode == "login":
 		$Container/Button.text = "Login"
 		$Container/Button_change.text = "Haven't Created An Account Yet? Click Here To Sign In"
+		$Container/enter2.visible = false
 		$Container/email.visible = false
 		
 		

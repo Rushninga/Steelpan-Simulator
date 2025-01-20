@@ -7,7 +7,7 @@ signal menu_option_select
 # log out = _on_log_out_pressed():
 
 func _on_play_pressed():
-	pass # Replace with function body.
+	get_parent().switch_screen("song select")
 
 
 func _on_create_pressed():

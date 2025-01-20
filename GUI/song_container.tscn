@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=3 uid="uid://c4san0bf2qeok"]
+
+[ext_resource type="Script" path="res://Scripts/song_container.gd" id="1_2cagw"]
+[ext_resource type="Theme" uid="uid://ccq60t47rgtuy" path="res://Themes/start_menu_theme.tres" id="2_c5so5"]
+[ext_resource type="Texture2D" uid="uid://cuhsakt1g4oy5" path="res://GUI/gui icons/play_circle_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" id="3_lvhgy"]
+[ext_resource type="FontFile" uid="uid://cjuab6m6vrvr0" path="res://Themes/Fonts/NerkoOne-Regular.ttf" id="3_tdrfo"]
+
+[sub_resource type="Theme" id="Theme_nk4it"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4df8y"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ap6c"]
+bg_color = Color(1, 1, 1, 0.215686)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.259, 0.74, 0.185, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7e2l"]
+bg_color = Color(1, 1, 1, 0.215686)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.259, 0.74, 0.185, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k83ls"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.259, 0.74, 0.185, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uku4v"]
+bg_color = Color(0, 0, 0, 0.243137)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0627451, 0.470588, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Theme" id="Theme_8kwfd"]
+Button/colors/font_color = Color(0.0986666, 0.74, 0, 1)
+Button/colors/font_focus_color = Color(0.0980392, 0.741176, 0, 1)
+Button/colors/font_hover_color = Color(0.342373, 0.74, 0.2812, 1)
+Button/colors/font_hover_pressed_color = Color(0.0627451, 0.470588, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.0627451, 0.470588, 0, 1)
+Button/colors/icon_focus_color = Color(0.0980392, 0.741176, 0, 1)
+Button/colors/icon_hover_color = Color(0.341176, 0.741176, 0.282353, 1)
+Button/colors/icon_hover_pressed_color = Color(0.0626666, 0.47, 0, 1)
+Button/colors/icon_normal_color = Color(0.0980392, 0.741176, 0, 1)
+Button/colors/icon_pressed_color = Color(0.0627451, 0.470588, 0, 1)
+Button/font_sizes/font_size = 42
+Button/fonts/font = ExtResource("3_tdrfo")
+Button/icons/icon = ExtResource("3_lvhgy")
+Button/styles/focus = SubResource("StyleBoxFlat_3ap6c")
+Button/styles/hover = SubResource("StyleBoxFlat_x7e2l")
+Button/styles/normal = SubResource("StyleBoxFlat_k83ls")
+Button/styles/pressed = SubResource("StyleBoxFlat_uku4v")
+
+[node name="SongContainer" type="HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 100)
+offset_right = 603.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = SubResource("Theme_nk4it")
+script = ExtResource("1_2cagw")
+
+[node name="SongName" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_c5so5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_4df8y")
+text = "Test Song"
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="."]
+show_behind_parent = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = SubResource("Theme_8kwfd")
+text = "Play"
+icon_alignment = 2
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

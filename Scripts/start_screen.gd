@@ -15,14 +15,16 @@ signal data_send
 @onready var verify = $verify
 @onready var user_data_menu_label = $Control/Container/Label
 @onready var main_menu = $MainMenu
-
+@onready var song_list_menu = $Play
+@onready var song_list = $Play/VBoxContainer/ScrollContainer/SongList
 
 
 func _ready():
 	user_data_menu.send_data.connect(begin_data_send)
 	connect_menu.network_opp.connect(begin_network_opp)
 	verify.cancel_email_verifcation.connect(cancel_email_verification)
-	
+
+
 	
 	multiplayer.connected_to_server.connect(connected)
 	multiplayer.connection_failed.connect(connect_fail)
@@ -42,7 +44,9 @@ func begin_data_send(username, email, password):
 	
 func begin_network_opp(ip):
 	server_ip = ip
-	client.create_client(ip, default_port)
+	var err = client.create_client(ip, default_port)
+	if err != 0:
+		$Control2/Container/Label.text = "Your client has failed to connect to the sever \n please verify the ip address entered \n Otherwise sever may be down"
 	multiplayer.multiplayer_peer = client
 	
 
@@ -60,6 +64,7 @@ func client_disconnect():
 	switch_screen("connect")
 
 func connect_fail():
+	print("connection failed")
 	$Control2/Container/Label.text = "Client has failed to connect"
 
 func switch_screen(screen):
@@ -69,39 +74,56 @@ func switch_screen(screen):
 		connect_menu.visible = false
 		verify.visible = false
 		main_menu.visible = false
+		song_list_menu.visible = false
 	elif screen == "login":
 		mode = "login"
 		user_data_menu.visible = true
 		connect_menu.visible = false
 		verify.visible = false
 		main_menu.visible = false
+		song_list_menu.visible = false
 	elif  screen == "verify":
 		mode = "verify"
 		user_data_menu.visible = false
 		connect_menu.visible = false
 		verify.visible = true
 		main_menu.visible = false
+		song_list_menu.visible = false
 	elif screen == "connect":
 		mode = "connect"
 		user_data_menu.visible = false
 		connect_menu.visible = true
 		verify.visible = false
 		main_menu.visible = false
+		song_list_menu.visible = false
 	elif screen == "main":
 		mode = "main"
 		user_data_menu.visible = false
 		connect_menu.visible = false
 		verify.visible = false
 		main_menu.visible = true
-	elif screen == "play":
-		mode = "play"
+		song_list_menu.visible = false
 	elif screen == "song select":
 		mode = "song select"
+		user_data_menu.visible = false
+		connect_menu.visible = false
+		verify.visible = false
+		main_menu.visible = false
+		song_list_menu.visible = true
+	elif screen == "play song":
+		mode = "play song"
 	elif screen == "record":
 		mode = "record"
 		
 
 func cancel_email_verification():
 	switch_screen("sign in")
-	mode = "sign in"
+
+
 	
+
+
+func select_song(id, song_name, song_data):
+	print(id)
+	print(song_name)
+	print(song_data)

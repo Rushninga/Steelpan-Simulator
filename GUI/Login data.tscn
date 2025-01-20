@@ -73,10 +73,17 @@ offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_pbac0")
+theme_override_constants/separation = 4
 
 [node name="Label" type="Label" parent="Container"]
 layout_mode = 2
 size_flags_horizontal = 4
+
+[node name="enter1" type="Label" parent="Container"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Enter username:"
 
 [node name="username" type="LineEdit" parent="Container"]
 custom_minimum_size = Vector2(400, 60)
@@ -86,6 +93,12 @@ size_flags_vertical = 6
 placeholder_text = "Enter Username"
 max_length = 20
 caret_blink = true
+
+[node name="enter2" type="Label" parent="Container"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Enter Email Address:"
 
 [node name="email" type="LineEdit" parent="Container"]
 custom_minimum_size = Vector2(400, 60)
@@ -97,6 +110,12 @@ max_length = 40
 caret_blink = true
 secret_character = "O"
 structured_text_bidi_override = 3
+
+[node name="enter3" type="Label" parent="Container"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Enter Password:"
 
 [node name="password" type="LineEdit" parent="Container"]
 custom_minimum_size = Vector2(400, 60)

@@ -15,7 +15,7 @@ var delay
 
 
 func _ready():
-	scale = Vector2(5,5)
+	scale = Vector2(2,2)
 	
 	distance = scale - true_scale
 	distance_to_kill =  true_scale

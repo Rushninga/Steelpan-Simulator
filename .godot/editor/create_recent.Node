@@ -1,3 +1,5 @@
+TextureProgressBar
+Sprite2D
 Node2D
 Label
 Control
@@ -11,5 +13,3 @@ TextureRect
 ColorRect
 Container
 AspectRatioContainer
-LineEdit
-TextEdit

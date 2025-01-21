@@ -13,13 +13,14 @@ var true_scale:Vector2
 @onready var delay
 
 func _ready():
-	scale = Vector2(20,20) - (speed * delay)
+	scale = Vector2(5,5) - (speed * delay)
 	distance = scale - true_scale
 	speed = distance/time_to_travel
 	note_speed = Vector2(speed)
 	roll_time =  end - start
 	roll_speed = $TextureProgressBar.value / roll_time
-	 
+	var tween = create_tween()
+	tween.tween_property($".", "modulate", Color("ffffff"), time_to_travel).set_trans(Tween.TRANS_LINEAR)
 	
 	
 func _process(delta):

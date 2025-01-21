@@ -15,13 +15,15 @@ var delay
 
 
 func _ready():
-	scale = Vector2(20,20)
+	scale = Vector2(5,5)
 	
 	distance = scale - true_scale
 	distance_to_kill =  true_scale
 	speed = distance/time_to_travel
 	kill_speed = distance_to_kill/time_to_kill
 	note_speed = Vector2(speed)
+	var tween = create_tween()
+	tween.tween_property($".", "modulate", Color("ffffff"), time_to_travel).set_trans(Tween.TRANS_LINEAR)
 	
 	#removes scale to compisate delay between supposed spawn time and actrual spawn time
 	scale -= (speed * delay)
@@ -32,5 +34,6 @@ func _process(delta):
 	else: 
 		scale -= kill_speed * delta
 		if scale.x <= 0 :
+
 			queue_free()
 	pass

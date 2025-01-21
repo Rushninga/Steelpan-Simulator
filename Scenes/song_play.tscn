@@ -13,8 +13,8 @@ var json = '[
   },
   {
 	\"note\": \"D1\",
-	\"start\": 3,
-	\"end\": 3
+	\"start\": 2,
+	\"end\": 2
   },
   {
 	\"note\": \"E1\",
@@ -66,10 +66,12 @@ func _ready():
 	$Steelpan.global_position = Vector2(get_viewport().size.x/2, get_viewport().size.y/2)
 	if note_travel_time == null:
 		note_travel_time = 3
+	
+	incoming_notes = JSON.parse_string(json)
 	for i in incoming_notes :
 		i[\"start\"] += note_travel_time #adds note travel time. This is done in case a note starts at the time 0 seconds. This will put it up to 1 second where it will become playable
 		i[\"end\"] +=  note_travel_time #this is done to accomidate the increase in travel time
-	incoming_notes = JSON.parse_string(json)
+	
 
 
 
@@ -96,6 +98,9 @@ func _process(delta):
 			counter += 1
 			incoming_note = null
 	song_time += delta
+	for i in $Incoming_notes.get_children():
+		if song_time > i.start:
+			pass
 	
 	#spawns a shockwave on the screen where the mouse clicks
 	if Input.is_action_just_pressed(\"play\") :
@@ -124,6 +129,7 @@ func reset():
 "
 
 [node name="song_play" type="Control"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -131,10 +137,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_osh0b")
-note_travel_time = 1.0
+note_travel_time = 3.0
 
 [node name="Steelpan" parent="." instance=ExtResource("2_mj7i1")]
-scale = Vector2(3.2, 3.2)
+scale = Vector2(0.25, 0.25)
 
 [node name="Incoming_notes" type="Node2D" parent="."]
 

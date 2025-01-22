@@ -1,0 +1,9 @@
+res://Main.tscn
+res://Themes/start_menu_theme.tres
+res://shaders/shockwave.gdshader
+res://addons/shaderV/uv/sphericalUV.gdshaderinc
+res://addons/shaderV/uv/lensDistortion.gdshaderinc
+res://Scenes/Start Screen.tscn
+res://GUI/song_list_menu.tscn
+res://Scenes/song_play.tscn
+res://GUI/song_container.tscn

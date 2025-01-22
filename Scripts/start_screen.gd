@@ -6,6 +6,7 @@ var server_ip
 var default_port = 8000
 var port = 1080
 var pause = 0
+var song_play = preload("res://Scenes/song_play.tscn")
 signal data_send
 
 
@@ -112,6 +113,11 @@ func switch_screen(screen):
 		song_list_menu.visible = true
 	elif screen == "play song":
 		mode = "play song"
+		user_data_menu.visible = false
+		connect_menu.visible = false
+		verify.visible = false
+		main_menu.visible = false
+		song_list_menu.visible = false
 	elif screen == "record":
 		mode = "record"
 		
@@ -124,6 +130,9 @@ func cancel_email_verification():
 
 
 func select_song(id, song_name, song_data):
-	print(id)
-	print(song_name)
-	print(song_data)
+	var new_song_play = song_play.instantiate()
+	new_song_play.song_id = id
+	new_song_play.song_name = song_name
+	new_song_play.json = song_data
+	add_child(new_song_play)
+	switch_screen("play song")

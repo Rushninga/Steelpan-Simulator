@@ -18,7 +18,7 @@ func play():
 			
 	pass
 
-func _process(delta):
+func _process(_delta):
 	play()
 	pass
 	

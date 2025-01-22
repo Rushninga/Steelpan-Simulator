@@ -1,3 +1,4 @@
+Camera2D
 TextureProgressBar
 Sprite2D
 Node2D
@@ -12,4 +13,3 @@ RichTextLabel
 TextureRect
 ColorRect
 Container
-AspectRatioContainer

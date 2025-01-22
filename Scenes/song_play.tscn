@@ -47,7 +47,8 @@ var json = '[
 	\"end\": 9
   }
 ]'
-
+var song_id
+var song_name
 
 var counter:int = 0
 var song_time:float = 0
@@ -145,3 +146,6 @@ scale = Vector2(0.25, 0.25)
 [node name="Incoming_notes" type="Node2D" parent="."]
 
 [node name="NotesSound" parent="." instance=ExtResource("3_oph0d")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(648, 356)

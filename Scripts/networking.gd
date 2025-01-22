@@ -119,8 +119,14 @@ func request_download_song():
 	
 @rpc("authority", "reliable")
 func download_song(song_id, song_name, song_data):
-	print(song_id)
-	print(song_name)
-	var json = JSON.parse_string(song_data)
-	for i in json:
-		print(i)
+	var new_song = song_container.instantiate()
+	new_song.song_id = song_id
+	new_song.song_name = song_name
+	new_song.song_data = song_data
+	new_song.select_song.connect($StartScreen.select_song)
+	$StartScreen/Play/VBoxContainer/ScrollContainer/SongList.add_child(new_song)
+	
+
+@rpc("any_peer", "reliable")
+func cancel_download_song():
+	pass

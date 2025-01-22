@@ -1,8 +1,8 @@
+Label
 Camera2D
 TextureProgressBar
 Sprite2D
 Node2D
-Label
 Control
 Panel
 VBoxContainer
@@ -12,4 +12,3 @@ HBoxContainer
 RichTextLabel
 TextureRect
 ColorRect
-Container

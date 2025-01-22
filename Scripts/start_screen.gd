@@ -76,6 +76,7 @@ func switch_screen(screen):
 		verify.visible = false
 		main_menu.visible = false
 		song_list_menu.visible = false
+		get_window().unresizable = false
 	elif screen == "login":
 		mode = "login"
 		user_data_menu.visible = true
@@ -83,6 +84,7 @@ func switch_screen(screen):
 		verify.visible = false
 		main_menu.visible = false
 		song_list_menu.visible = false
+		get_window().unresizable = false
 	elif  screen == "verify":
 		mode = "verify"
 		user_data_menu.visible = false
@@ -90,6 +92,7 @@ func switch_screen(screen):
 		verify.visible = true
 		main_menu.visible = false
 		song_list_menu.visible = false
+		get_window().unresizable = false
 	elif screen == "connect":
 		mode = "connect"
 		user_data_menu.visible = false
@@ -97,6 +100,7 @@ func switch_screen(screen):
 		verify.visible = false
 		main_menu.visible = false
 		song_list_menu.visible = false
+		get_window().unresizable = false
 	elif screen == "main":
 		mode = "main"
 		user_data_menu.visible = false
@@ -104,6 +108,7 @@ func switch_screen(screen):
 		verify.visible = false
 		main_menu.visible = true
 		song_list_menu.visible = false
+		get_window().unresizable = false
 	elif screen == "song select":
 		mode = "song select"
 		user_data_menu.visible = false
@@ -111,6 +116,7 @@ func switch_screen(screen):
 		verify.visible = false
 		main_menu.visible = false
 		song_list_menu.visible = true
+		get_window().unresizable = false
 	elif screen == "play song":
 		mode = "play song"
 		user_data_menu.visible = false
@@ -118,6 +124,7 @@ func switch_screen(screen):
 		verify.visible = false
 		main_menu.visible = false
 		song_list_menu.visible = false
+		get_window().unresizable = true
 	elif screen == "record":
 		mode = "record"
 		

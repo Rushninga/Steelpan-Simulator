@@ -23,7 +23,7 @@ func _ready():
 	kill_speed = distance_to_kill/time_to_kill
 	note_speed = Vector2(speed)
 	var tween = create_tween()
-	tween.tween_property($".", "modulate", Color("ffffff"), time_to_travel).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property($".", "modulate", Color("ffffff"), time_to_travel/4).set_trans(Tween.TRANS_LINEAR)
 	
 	#removes scale to compisate delay between supposed spawn time and actrual spawn time
 	scale -= (speed * delay)

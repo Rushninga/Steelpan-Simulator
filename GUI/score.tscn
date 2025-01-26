@@ -1,0 +1,105 @@
+[gd_scene load_steps=3 format=3 uid="uid://crlvt0j2gak5j"]
+
+[ext_resource type="Script" path="res://Scripts/score.gd" id="1_bp2op"]
+[ext_resource type="Theme" uid="uid://ccq60t47rgtuy" path="res://Themes/start_menu_theme.tres" id="2_k8b40"]
+
+[node name="Score" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bp2op")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(600, 2000)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_k8b40")
+
+[node name="Container" type="VBoxContainer" parent="."]
+top_level = true
+z_index = 1
+custom_minimum_size = Vector2(600, 280)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_right = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_k8b40")
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="SongName" type="Label" parent="Container"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Song Name: "
+
+[node name="Creator" type="Label" parent="Container"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Creator: "
+
+[node name="Score" type="Label" parent="Container"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Score: "
+autowrap_mode = 2
+
+[node name="Accuracy" type="Label" parent="Container"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Accuracy:"
+autowrap_mode = 2
+
+[node name="HighScore" type="Label" parent="Container"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "High Score: "
+autowrap_mode = 2
+
+[node name="HighestAccuracy" type="Label" parent="Container"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "High Accuracy: "
+autowrap_mode = 2
+
+[node name="Rank" type="Label" parent="Container"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Rank:"
+autowrap_mode = 3
+
+[node name="Retry" type="Button" parent="Container"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_k8b40")
+text = "Retry"
+
+[node name="Back" type="Button" parent="Container"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_k8b40")
+text = "Back"
+
+[connection signal="pressed" from="Container/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Container/Back" to="." method="_on_back_pressed"]

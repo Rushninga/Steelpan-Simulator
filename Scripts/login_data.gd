@@ -37,7 +37,7 @@ func _process(_delta):
 		$Container/email.visible = true
 	elif parent.mode == "login":
 		$Container/Button.text = "Login"
-		$Container/Button_change.text = "Haven't Created An Account Yet? Click Here To Sign In"
+		$Container/Button_change.text = "Haven't Created An Account Yet? Click Here To Sign Up"
 		$Container/enter2.visible = false
 		$Container/email.visible = false
 		

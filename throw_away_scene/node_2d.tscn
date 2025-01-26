@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbhos307qr5gu"]
+
+[sub_resource type="GDScript" id="GDScript_punl5"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	var num_of_notes = 400
+	var score = 3165
+	
+	var acc:float = (score / (num_of_notes * 100.0)) * 100
+	
+	print(snappedf(acc,0.01))
+"
+
+[node name="Node2D" type="Node2D"]
+script = SubResource("GDScript_punl5")

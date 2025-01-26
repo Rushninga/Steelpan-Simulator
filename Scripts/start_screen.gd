@@ -18,12 +18,14 @@ signal data_send
 @onready var main_menu = $MainMenu
 @onready var song_list_menu = $Play
 @onready var song_list = $Play/VBoxContainer/ScrollContainer/SongList
+@onready var score_menu = $Score
 
 
 func _ready():
 	user_data_menu.send_data.connect(begin_data_send)
 	connect_menu.network_opp.connect(begin_network_opp)
 	verify.cancel_email_verifcation.connect(cancel_email_verification)
+	
 
 
 	
@@ -76,6 +78,7 @@ func switch_screen(screen):
 		verify.visible = false
 		main_menu.visible = false
 		song_list_menu.visible = false
+		score_menu.visible = false
 		get_window().unresizable = false
 	elif screen == "login":
 		mode = "login"
@@ -84,6 +87,7 @@ func switch_screen(screen):
 		verify.visible = false
 		main_menu.visible = false
 		song_list_menu.visible = false
+		score_menu.visible = false
 		get_window().unresizable = false
 	elif  screen == "verify":
 		mode = "verify"
@@ -92,6 +96,7 @@ func switch_screen(screen):
 		verify.visible = true
 		main_menu.visible = false
 		song_list_menu.visible = false
+		score_menu.visible = false
 		get_window().unresizable = false
 	elif screen == "connect":
 		mode = "connect"
@@ -100,6 +105,7 @@ func switch_screen(screen):
 		verify.visible = false
 		main_menu.visible = false
 		song_list_menu.visible = false
+		score_menu.visible = false
 		get_window().unresizable = false
 	elif screen == "main":
 		mode = "main"
@@ -108,6 +114,7 @@ func switch_screen(screen):
 		verify.visible = false
 		main_menu.visible = true
 		song_list_menu.visible = false
+		score_menu.visible = false
 		get_window().unresizable = false
 	elif screen == "song select":
 		mode = "song select"
@@ -116,6 +123,7 @@ func switch_screen(screen):
 		verify.visible = false
 		main_menu.visible = false
 		song_list_menu.visible = true
+		score_menu.visible = false
 		get_window().unresizable = false
 	elif screen == "play song":
 		mode = "play song"
@@ -124,7 +132,17 @@ func switch_screen(screen):
 		verify.visible = false
 		main_menu.visible = false
 		song_list_menu.visible = false
+		score_menu.visible = false
 		get_window().unresizable = true
+	elif screen == "score":
+		mode = "score"
+		user_data_menu.visible = false
+		connect_menu.visible = false
+		verify.visible = false
+		main_menu.visible = false
+		song_list_menu.visible = false
+		score_menu.visible = true
+		get_window().unresizable = false
 	elif screen == "record":
 		mode = "record"
 		
@@ -135,11 +153,35 @@ func cancel_email_verification():
 
 	
 
-
-func select_song(id, song_name, song_data):
-	var new_song_play = song_play.instantiate()
+var previous_song_id
+func select_song(id, song_name, creator_name, song_data):
+	var new_song_play
+	new_song_play = song_play.instantiate()
 	new_song_play.song_id = id
 	new_song_play.song_name = song_name
+	new_song_play.creator_name = creator_name
 	new_song_play.json = song_data
-	add_child(new_song_play)
+	new_song_play.song_complete.connect(song_complete)
+	
+	previous_song_id = id #stores current song id in this variable for retring the song
+	
 	switch_screen("play song")
+	add_child(new_song_play)
+
+	
+func retry_song(): #searches the song list for the previous id stored in the select song function and emits the select song signal to run the select song function function
+	for i in song_list.get_children():
+		if i.song_id == previous_song_id:
+			i.select_song.emit(i.song_id, i.song_name, i.creator_name, i.song_data)
+	
+	
+	
+
+
+func song_complete(song_id, song_name, creator_name, score, acc):
+	score_menu.get_node("Container/SongName").text = "Song Name: " + song_name
+	score_menu.get_node("Container/Creator").text = "Creator Name: " + creator_name
+	score_menu.get_node("Container/Score").text = "Score: " + str(score)
+	score_menu.get_node("Container/Accuracy").text = "Accuracy: " + str(acc) + "%"
+	get_parent().request_rankings.rpc_id(1, song_id, score, acc)
+	switch_screen("score")

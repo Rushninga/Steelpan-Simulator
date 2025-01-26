@@ -118,11 +118,12 @@ func request_download_song():
 	pass
 	
 @rpc("authority", "reliable")
-func download_song(song_id, song_name, song_data):
+func download_song(song_id, song_name, creator_name, song_data):
 	var new_song = song_container.instantiate()
 	new_song.song_id = song_id
 	new_song.song_name = song_name
 	new_song.song_data = song_data
+	new_song.creator_name = str(creator_name)
 	new_song.select_song.connect($StartScreen.select_song)
 	$StartScreen/Play/VBoxContainer/ScrollContainer/SongList.add_child(new_song)
 	
@@ -130,3 +131,18 @@ func download_song(song_id, song_name, song_data):
 @rpc("any_peer", "reliable")
 func cancel_download_song():
 	pass
+
+@rpc("any_peer", "reliable")
+func request_rankings(song_id, score, accuracy):
+	pass
+	
+@rpc("authority", "reliable")
+func rankings(score, accuracy, rank):
+	if score == null or accuracy == null or rank == null:
+		$StartScreen/Score/Container/HighScore.text = "An error has occured"
+		$StartScreen/Score/Container/HighestAccuracy.text = "An error has occured"
+		$StartScreen/Score/Container/Rank.text = "An error has occured"
+	else:
+		$StartScreen/Score/Container/HighScore.text = "High Score: " + str(score)
+		$StartScreen/Score/Container/HighestAccuracy.text = "Highest Accuracy: " + str(accuracy) + "%"
+		$StartScreen/Score/Container/Rank.text = "Server Rank: " + str(rank)

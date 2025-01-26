@@ -3,13 +3,8 @@ res://Themes/start_menu_theme.tres
 res://shaders/shockwave.gdshader
 res://addons/shaderV/uv/sphericalUV.gdshaderinc
 res://addons/shaderV/uv/lensDistortion.gdshaderinc
-res://Scripts/note_image.gd
-res://Scripts/rolling note.gd
 res://Scenes/Start Screen.tscn
-res://GUI/song_list_menu.tscn
+res://GUI/score.tscn
 res://Scenes/song_play.tscn
 res://GUI/song_container.tscn
-res://Objects/note_image.tscn
-res://Objects/rolling note.tscn
-res://Objects/steelpan.tscn
-res://Objects/pan_note.tscn
+res://Scripts/networking.gd

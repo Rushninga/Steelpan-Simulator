@@ -11,24 +11,42 @@ var json = '[
 	\"note\": \"C1\",
 	\"start\": 2,
 	\"end\": 2
+  },
+{
+	\"note\": \"C1\",
+	\"start\": 3,
+	\"end\": 3
+  },
+	{
+	\"note\": \"C1\",
+	\"start\": 5,
+	\"end\": 5
+  },
+	{
+	\"note\": \"C1\",
+	\"start\": 6,
+	\"end\": 6
   }
 ]'
 var song_id
 var song_name
+var creator_name
 var score:int = 0
 var counter:int = 0
 var end_counter:int = 0
+var song_end:bool = false
 var song_time:float = 0
 var incoming_notes:Array = [] #imports all the notes from the song resource file
 var note_image = preload(\"res://Objects/note_image.tscn\") # a single notes object
 var roll_note_image = preload(\"res://Objects/rolling note.tscn\") # a rolling note object
 var shockwave = preload(\"res://Objects/shockwave.tscn\") #shockwave object for mouse when note is played
-var song_end = false #false unitil the global timer reaches the song end time as dicated in the song resource file
 @export var note_travel_time:float = 1 #indicates how many seconds the note will travel from its spawn time to its actrual time in the song. The speed of the note will depend on this variable
 var hit_notes:Array = []
 var incoming_note
 var mouse
 var current_note
+var queue_free_timer = 1
+signal song_complete
 
 func _ready():
 	$Steelpan.quality.connect(note_is_played)
@@ -44,6 +62,17 @@ func _ready():
 
 
 func _process(delta):
+	song_time += delta
+	
+	#spawns a shockwave on the screen where the mouse clicks
+	if Input.is_action_just_pressed(\"play\") :
+		mouse = get_global_mouse_position()
+		var spawn = shockwave.instantiate()
+		spawn.global_position = mouse
+		add_child(spawn)
+	
+	
+	
 	$Label.text = \"score: \" + str(score)
 	if counter < incoming_notes.size():
 		if ( incoming_notes[counter][\"start\"] - note_travel_time ) <= song_time :
@@ -65,28 +94,35 @@ func _process(delta):
 						$Incoming_notes.add_child(incoming_note)
 			counter += 1
 			incoming_note = null
-	song_time += delta
 	
-	current_note = $Incoming_notes.get_child(0) #selects the first note in the the incoming notes
-	for note in $Steelpan.get_children():
-		if \"note\" in note and \"note\" in current_note:
+	
+	if $Incoming_notes.get_children().size() > 0:
+		current_note = $Incoming_notes.get_child(0) #selects the first note in the the incoming notes
+		
+	for note in $Steelpan.get_children(): #highlights the most current note by making the hitbox visible
+		if \"note\" in note and current_note != null:
 			if note.note == current_note.note:
 				note.visible = true
 			else:
 				note.visible = false
 		
+		
 	
-	if counter == end_counter:
-		if $Incoming_notes.get_child_count() == 0:
-			get_parent().switch_screen(\"song select\")
+	if counter >= end_counter: #ends song and switches to main menu once song is completed
+		if $Incoming_notes.get_child_count() == 0 :
+			var acc:float = 0
+			var num_of_single_notes:int = 0
+
+			for i in incoming_notes: # calculates how many single notes was in the song. Rolling notes do not count towards accuracy
+				if i[\"start\"] == i[\"end\"]:
+					num_of_single_notes += 1
+			acc = (score / (num_of_single_notes * 100.0)) * 100
+			acc = snappedf(acc, 0.01)
+			song_complete.emit(song_id, song_name, creator_name, score, acc)
 			queue_free()
+			
 	
-	#spawns a shockwave on the screen where the mouse clicks
-	if Input.is_action_just_pressed(\"play\") :
-		mouse = get_global_mouse_position()
-		var spawn = shockwave.instantiate()
-		spawn.global_position = mouse
-		add_child(spawn)
+
 	
 	
 func note_is_played(diff): # calculates how close the note was played to its actrual position in the song

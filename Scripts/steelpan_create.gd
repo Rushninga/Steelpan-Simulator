@@ -4,7 +4,7 @@ var buffer_note = {
 	"start": 0,
 	"end": 0
 }
-var roll_note_cut_off = 0.3
+var roll_note_cut_off = 1
 
 func note_played(note):
 	if get_parent().create_state == 1:
@@ -37,7 +37,7 @@ func _process(delta):
 				buffer_note["end"] = buffer_note["start"]
 				get_parent().stored_notes.append(buffer_note)
 				reset_buffer_note()
-			roll_note_cut_off = 0.3
+			roll_note_cut_off = 1
 	
 
 func reset_buffer_note():

@@ -21,4 +21,4 @@ func note_played(play):
 				elif i.scale.x <= i.true_scale.x:
 					print("rolling")
 					break
-				
+				break

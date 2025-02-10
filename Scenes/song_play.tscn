@@ -14,7 +14,7 @@ var json = '[
   },
 {
 	\"note\": \"C1\",
-	\"start\": 0.5,
+	\"start\": 0,
 	\"end\": 0.5
   },
 	{
@@ -61,7 +61,7 @@ func _ready():
 
 func _process(delta):
 	song_time += delta
-	print(song_time)
+
 	#spawns a shockwave on the screen where the mouse clicks
 	if Input.is_action_just_pressed(\"play\") :
 		mouse = get_global_mouse_position()

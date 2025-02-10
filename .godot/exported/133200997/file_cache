@@ -1,19 +1,26 @@
 res://addons/shaderV/examples/basic_examples.tscn::cd4f3642cb5fed2b0fe8f6ded3214950::1723761140::res://.godot/exported/133200997/export-67f298ea4f836b8bbf932dd217949c64-basic_examples.scn
-res://Objects/notes_sound.tscn::e020eb2072e45d234d69e7106da2bf97::1730852859::res://.godot/exported/133200997/export-9bf05090a85779a1ff7b20e5f65cadef-notes_sound.scn
-res://Objects/note_image.tscn::9c639ad8b150903a934316d1bc996160::1736993929::res://.godot/exported/133200997/export-3a6c1b7d2cbb0d33d30bbf7ed3ef049f-note_image.scn
-res://Objects/pan_note.tscn::85a876c48c1ba60c3be5527f0ec4985f::1725561125::res://.godot/exported/133200997/export-ce7c7f42cc56392d169d0e941fd7dd2a-pan_note.scn
-res://Objects/rolling note.tscn::6aceb9695941f07f99412d64933a3d44::1736993929::res://.godot/exported/133200997/export-e7f3d1e90ae457a89c564ccceb767d61-rolling note.scn
+res://Objects/notes_sound.tscn::e020eb2072e45d234d69e7106da2bf97::1737480679::res://.godot/exported/133200997/export-9bf05090a85779a1ff7b20e5f65cadef-notes_sound.scn
+res://Objects/note_image.tscn::af6b3844a263b444afdea745134ff400::1737632145::res://.godot/exported/133200997/export-3a6c1b7d2cbb0d33d30bbf7ed3ef049f-note_image.scn
+res://Objects/pan_note.tscn::4089d50f3995008a80f9e31096e0a52b::1737632145::res://.godot/exported/133200997/export-ce7c7f42cc56392d169d0e941fd7dd2a-pan_note.scn
+res://Objects/rolling note.tscn::1f8a52b011da492e339113a8ef2209d9::1737559511::res://.godot/exported/133200997/export-e7f3d1e90ae457a89c564ccceb767d61-rolling note.scn
 res://Objects/shockwave.tscn::c1eba62841009f0b9cbb254f8f9809e0::1725982559::res://.godot/exported/133200997/export-7fce0dc445352b067da73f80d5196d92-shockwave.scn
-res://Objects/steelpan.tscn::4725025442f5ab836cbea3a623dc78c1::1736994651::res://.godot/exported/133200997/export-bc6949f5779cf8655ee43489c60e712e-steelpan.scn
+res://Objects/steelpan.tscn::96609ad72c0d7ce3ea4c917839306928::1738957601::res://.godot/exported/133200997/export-bc6949f5779cf8655ee43489c60e712e-steelpan.scn
 res://Save Data/songs/test_song/test song.tres::58c6e310090ddf6fbdc3cdcce2e939ef::1716857351::res://.godot/exported/133200997/export-a37ccdb9e59b858383320a6eb62c1b9e-test song.res
 res://Scenes/Mouse.tscn::27bec2f58f3ca58be4e9de9684d55ee1::1725982559::res://.godot/exported/133200997/export-c53f53d873cf61968bfaa1cce1725f59-Mouse.scn
 res://Scenes/Select Song Screen.tscn::29c1ebb3aa8a241720943af725762b07::1725982947::res://.godot/exported/133200997/export-abc14608b1a4ca18f7c98bc800496852-Select Song Screen.scn
-res://Scenes/song_play.tscn::8b4e58bff3bbec0f1f3210800b6f0a95::1737159799::res://.godot/exported/133200997/export-5a20380009fc57ab5019f9a6c1baab07-song_play.scn
-res://Scenes/Start Screen.tscn::b6fbbf8a4b181831da83f4ce33280e64::1737339309::res://.godot/exported/133200997/export-12356a69adc7061a1b5a5f56720192ae-Start Screen.scn
-res://Themes/start_menu_theme.tres::fa508c041201c37b953a55171f68bb81::1737339308::res://.godot/exported/133200997/export-d339e565494161d86b65d7e541bbef03-start_menu_theme.res
-res://Main.tscn::3b94bfdcc2c78abeb822276300b5ef03::1737339308::res://.godot/exported/133200997/export-bcb0d2eb5949c52b6a65bfe9de3e985b-Main.scn
+res://Scenes/song_play.tscn::1990a59c27f13ddc9aec9c8525e33835::1738957601::res://.godot/exported/133200997/export-5a20380009fc57ab5019f9a6c1baab07-song_play.scn
+res://Scenes/Start Screen.tscn::2a50fe0556c614d52aa18e1c5ea48e8e::1738957601::res://.godot/exported/133200997/export-12356a69adc7061a1b5a5f56720192ae-Start Screen.scn
+res://Themes/start_menu_theme.tres::3c28ab544d9915905bdd1a135a5d33de::1738957469::res://.godot/exported/133200997/export-d339e565494161d86b65d7e541bbef03-start_menu_theme.res
+res://Main.tscn::3b94bfdcc2c78abeb822276300b5ef03::1738957600::res://.godot/exported/133200997/export-bcb0d2eb5949c52b6a65bfe9de3e985b-Main.scn
 res://GUI/background.tscn::7c364ea4b1d8926b2800d4d9f4ec92ee::1737328942::res://.godot/exported/133200997/export-3c7d77ae227c57f8259cec469f44c06e-background.scn
-res://GUI/connect_to_server.tscn::de9c17036a12bf9e9a578ce7732e8642::1737339309::res://.godot/exported/133200997/export-407374e5c4995c60fafab970aeab29cd-connect_to_server.scn
-res://GUI/Login data.tscn::a509e06415ad779baa297472cc46e24f::1737239903::res://.godot/exported/133200997/export-4ec807847b512f178bbece747b3eda97-Login data.scn
-res://GUI/main_menu.tscn::e5652444c7260ca4c49f40765121c564::1737339309::res://.godot/exported/133200997/export-b360dd9e67d0be2385e98b8a117ee075-main_menu.scn
-res://GUI/verify.tscn::d45fb6e156f877af63cc1592caf09d8f::1737161801::res://.godot/exported/133200997/export-6400a66b03d60c2e36a0daf329d2b53a-verify.scn
+res://GUI/connect_to_server.tscn::5dab00820e08753594705aa40ba022f0::1737399552::res://.godot/exported/133200997/export-407374e5c4995c60fafab970aeab29cd-connect_to_server.scn
+res://GUI/Login data.tscn::f7287c505a429be9ecbb3fdbdcd30642::1737746904::res://.godot/exported/133200997/export-4ec807847b512f178bbece747b3eda97-Login data.scn
+res://GUI/main_menu.tscn::e5652444c7260ca4c49f40765121c564::1737510137::res://.godot/exported/133200997/export-b360dd9e67d0be2385e98b8a117ee075-main_menu.scn
+res://GUI/verify.tscn::57a681e86974613a47f62953b1cb4fda::1737374032::res://.godot/exported/133200997/export-6400a66b03d60c2e36a0daf329d2b53a-verify.scn
+res://GUI/score.tscn::a96dc2e2a72f9be546c68d8d19ecc54b::1738957601::res://.godot/exported/133200997/export-37d0e8036242bc1f6660afa13d58deac-score.scn
+res://GUI/song_container.tscn::de6386d64ba6dd4ebe458ce57a5d211e::1738957601::res://.godot/exported/133200997/export-8cab2599e85d5c547ab98534979eb795-song_container.scn
+res://GUI/song_list_menu.tscn::98209d093f57c5820a1449c08e666e50::1737632145::res://.godot/exported/133200997/export-eb0d847f1258513b69220006731c9809-song_list_menu.scn
+res://throw_away_scene/node_2d.tscn::1732a8d937a118a2d717cd841a010959::1737719335::res://.godot/exported/133200997/export-0bf61383367fba1ea81ecac6af86302c-node_2d.scn
+res://Objects/steelpan_create.tscn::907dce2806267dfe6e31f2f0ef98a63b::1738957601::res://.godot/exported/133200997/export-a77b414b2fe531ac11d89bcf76c8b60d-steelpan_create.scn
+res://Scenes/song_create.tscn::1bbc269019b153067781e3512cbaa894::1738957601::res://.godot/exported/133200997/export-ea971f78358659353116594ad732b638-song_create.scn
+res://Themes/song_create_theme.tres::37f1b79024af69cdda3308739d76787b::1738957469::res://.godot/exported/133200997/export-6d441d0228c9b5bd3c15b2beda2149ba-song_create_theme.res

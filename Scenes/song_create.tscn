@@ -1,0 +1,248 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1clp40heva8q"]
+
+[ext_resource type="PackedScene" uid="uid://drnxotl5rm3yq" path="res://Objects/steelpan_create.tscn" id="1_2m4mx"]
+[ext_resource type="PackedScene" uid="uid://dco1w80mpoq86" path="res://Objects/notes_sound.tscn" id="2_cr3g1"]
+[ext_resource type="Theme" uid="uid://di7nwijpiuy7r" path="res://Themes/song_create_theme.tres" id="3_fl1ff"]
+[ext_resource type="Theme" uid="uid://ccq60t47rgtuy" path="res://Themes/start_menu_theme.tres" id="4_bj0bs"]
+
+[sub_resource type="GDScript" id="GDScript_osh0b"]
+script/source = "extends Control
+var json = '[]'
+var song_id
+var song_name
+var creator_name
+var score:int = 0
+var counter:int = 0
+var end_counter:int = 0
+var song_end:bool = false
+var song_time:float = 0
+var pre_song_time:float = 0
+var create_state = 0 #0 - pause, 1 - recording, 2-previewing
+var incoming_notes:Array = [] #imports all the notes from the song resource file
+var note_image = preload(\"res://Objects/note_image.tscn\") # a single notes object
+var roll_note_image = preload(\"res://Objects/rolling note.tscn\") # a rolling note object
+var shockwave = preload(\"res://Objects/shockwave.tscn\") #shockwave object for mouse when note is played
+@export var note_travel_time:float = 1 #indicates how many seconds the note will travel from its spawn time to its actrual time in the song. The speed of the note will depend on this variable
+var hit_notes:Array = []
+var incoming_note
+var mouse
+var current_note
+var stored_notes:Array = []
+
+signal song_complete
+
+func _ready():
+	$Steelpan.quality.connect(note_is_played)
+	$Steelpan.global_position = get_viewport_rect().size/2
+	
+
+	
+	
+
+
+
+func _process(delta):
+	
+	
+	
+	#spawns a shockwave on the screen where the mouse clicks
+	if Input.is_action_just_pressed(\"play\") :
+		mouse = get_global_mouse_position()
+		var spawn = shockwave.instantiate()
+		spawn.global_position = mouse
+		add_child(spawn)
+	
+	
+	match create_state:
+		0:
+			pass
+		1:
+			$Label.text = str(snappedf(song_time, 0.01))
+			song_time += delta
+		2:
+			$Label.text = str(snappedf(song_time, 0.01))
+			if counter < incoming_notes.size():
+				if ( incoming_notes[counter][\"start\"] - note_travel_time ) <= song_time :
+					for i in $Steelpan.get_children():
+						if \"note\" in i: #checks if the varable note is in the notes on the steelpan
+							if i[\"note\"] == incoming_notes[counter][\"note\"]:
+								if incoming_notes[counter][\"start\"] == incoming_notes[counter][\"end\"] :
+									incoming_note = note_image.instantiate()
+								else:
+									incoming_note = roll_note_image.instantiate()
+								var temp_note = incoming_notes[counter]
+								incoming_note.note = i.note
+								incoming_note.start = temp_note[\"start\"]
+								incoming_note.end = temp_note[\"end\"]
+								incoming_note.true_scale = i.scale * $Steelpan.scale
+								incoming_note.global_position = i.global_position
+								incoming_note.time_to_travel = note_travel_time
+								incoming_note.delay = song_time - (incoming_note.start - note_travel_time)  
+								$Incoming_notes.add_child(incoming_note)
+					counter += 1
+					incoming_note = null
+			
+			if $Incoming_notes.get_children().size() > 0:
+				current_note = $Incoming_notes.get_child(0) #selects the first note in the the incoming notes
+				
+			for note in $Steelpan.get_children(): #highlights the most current note by making the hitbox visible
+				if \"note\" in note and current_note != null:
+					if note.note == current_note.note:
+						note.visible = true
+					else:
+						note.visible = false
+			song_time += delta
+			
+			if counter >= end_counter: #ends song and switches to main menu once song is completed
+				if $Incoming_notes.get_child_count() == 0 :
+					create_state = 0
+					$Container/Record.disabled = false
+					$Container/Clear.disabled = false
+					$Container/Preview.text = \"Preview\"
+					for note in $Steelpan.get_children():
+						if \"note\" in note:
+							note.visible = false
+					for i in $Incoming_notes.get_children():
+						i.queue_free()
+	
+	
+
+	
+	
+func note_is_played(diff): # calculates how close the note was played to its actrual position in the song
+	if diff > -0.05 and diff < 0.05:
+		print(\"perfect\")
+		score += 100
+	elif diff > -0.1 and diff < 0.1:
+		print(\"good\")
+		score += 50
+	elif diff > -0.2 and diff < 0.2:
+		print(\"Sloppy\")
+		score += 25
+	elif diff > -0.5 and diff < 0.5:
+		print(\"Sh**\")
+		score += 10
+	else:
+		print(\"U suck lmfao\")
+		score += 5
+	
+
+	
+
+
+func _on_record_pressed():
+	if create_state == 0:
+		song_time = pre_song_time
+		$Container/Record.text = \"Pause\"
+		create_state = 1
+		$Container/Clear.disabled = true
+		$Container/Preview.disabled = true
+	elif create_state == 1:
+		pre_song_time = song_time
+		$Container/Record.text = \"Play\"
+		create_state = 0
+		$Container/Clear.disabled = false
+		$Container/Preview.disabled = false
+		for i in stored_notes:
+			print(i)
+
+
+
+func _on_clear_pressed():
+	incoming_notes = []
+	pre_song_time = 0
+	$Label.text = str(0)
+
+
+func _on_preview_pressed():
+	if create_state == 0:
+		print(create_state)
+		song_time = note_travel_time * -1
+		counter = 0
+		create_state = 2
+		$Container/Preview.text = \"Stop Previewing\"
+		$Container/Clear.disabled = true
+		$Container/Record.disabled = true
+		end_counter = stored_notes.size()
+		incoming_notes = stored_notes
+	elif create_state == 2:
+		create_state = 0
+		$Container/Record.disabled = false
+		$Container/Clear.disabled = false
+		$Container/Preview.text = \"Preview\"
+		for note in $Steelpan.get_children():
+			if \"note\" in note:
+				note.visible = false
+		for i in $Incoming_notes.get_children():
+			i.queue_free()
+"
+
+[sub_resource type="Theme" id="Theme_fqdw6"]
+
+[node name="song_play" type="Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_osh0b")
+note_travel_time = 2.0
+
+[node name="Steelpan" parent="." instance=ExtResource("1_2m4mx")]
+scale = Vector2(0.25, 0.25)
+
+[node name="Incoming_notes" type="Node2D" parent="."]
+
+[node name="NotesSound" parent="." instance=ExtResource("2_cr3g1")]
+
+[node name="Container" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 250.0
+grow_vertical = 2
+theme = SubResource("Theme_fqdw6")
+theme_override_constants/separation = 50
+
+[node name="Record" type="Button" parent="Container"]
+layout_mode = 2
+theme = ExtResource("3_fl1ff")
+text = "Start"
+
+[node name="Clear" type="Button" parent="Container"]
+layout_mode = 2
+theme = ExtResource("3_fl1ff")
+text = "Clear Notes"
+
+[node name="Preview" type="Button" parent="Container"]
+layout_mode = 2
+theme = ExtResource("3_fl1ff")
+text = "Preview"
+
+[node name="Submit" type="Button" parent="Container"]
+layout_mode = 2
+theme = ExtResource("3_fl1ff")
+text = "Submit"
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("4_bj0bs")
+theme_override_font_sizes/font_size = 50
+text = "0.00"
+
+[connection signal="pressed" from="Container/Record" to="." method="_on_record_pressed"]
+[connection signal="pressed" from="Container/Clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="Container/Preview" to="." method="_on_preview_pressed"]

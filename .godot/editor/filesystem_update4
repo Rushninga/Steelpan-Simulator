@@ -1,10 +1,13 @@
 res://Main.tscn
 res://Themes/start_menu_theme.tres
+res://Themes/song_create_theme.tres
 res://shaders/shockwave.gdshader
 res://addons/shaderV/uv/sphericalUV.gdshaderinc
 res://addons/shaderV/uv/lensDistortion.gdshaderinc
+res://Scenes/song_create.tscn
 res://Scenes/Start Screen.tscn
-res://GUI/score.tscn
 res://Scenes/song_play.tscn
-res://GUI/song_container.tscn
-res://Scripts/networking.gd
+res://Objects/steelpan_create.tscn
+res://Objects/steelpan.tscn
+res://Scripts/steelpan_create.gd
+res://Scripts/steelpan.gd

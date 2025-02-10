@@ -46,10 +46,17 @@ func begin_data_send(username, email, password):
 		
 	
 func begin_network_opp(ip):
+	if OS.get_name() == "Android":
+		OS.request_permission("android.permission.ACCESS_NETWORK_STATE")
+		OS.request_permission("android.permission.INTERNET")
+		if OS.request_permissions() == false:
+			$Control2/Container/Label.text == "Please grant permissions"
+	
 	server_ip = ip
 	var err = client.create_client(ip, default_port)
 	if err != 0:
 		$Control2/Container/Label.text = "Your client has failed to connect to the sever \n please verify the ip address entered \n Otherwise sever may be down"
+		print(err)
 	multiplayer.multiplayer_peer = client
 	
 

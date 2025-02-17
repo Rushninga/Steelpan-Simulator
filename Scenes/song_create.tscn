@@ -193,7 +193,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_osh0b")
-note_travel_time = 2.0
+note_travel_time = 1.5
 
 [node name="Steelpan" parent="." instance=ExtResource("1_2m4mx")]
 scale = Vector2(0.25, 0.25)

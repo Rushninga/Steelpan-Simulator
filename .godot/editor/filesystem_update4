@@ -1,12 +1,17 @@
-res://Objects/notes_sound.tscn
+res://Main.tscn
 res://Themes/start_menu_theme.tres
 res://Themes/song_create_theme.tres
 res://shaders/shockwave.gdshader
 res://addons/shaderV/uv/sphericalUV.gdshaderinc
 res://addons/shaderV/uv/lensDistortion.gdshaderinc
-res://Objects/steelpan.tscn
-res://Main.tscn
 res://Scenes/Start Screen.tscn
 res://Scenes/song_create.tscn
 res://GUI/main_menu.tscn
 res://GUI/song_list_menu.tscn
+res://Objects/notes_sound.tscn
+res://Objects/steelpan.tscn
+res://Scripts/note_image.gd
+res://Scripts/rolling note.gd
+res://Objects/note_image.tscn
+res://Objects/rolling note.tscn
+res://Scenes/song_play.tscn

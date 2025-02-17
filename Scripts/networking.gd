@@ -27,12 +27,6 @@ func _process(delta):
 			verify_session_interval = 60
 			
 
-func add_song(id, song_name):
-	var new_song = song_container.instantiate()
-	new_song.id = id
-	new_song.song_name = song_name
-	new_song.select_song.connect($StartScreen.select_song)
-	$StartScreen/Play/VBoxContainer/ScrollContainer/SongList.add_child(new_song)
 	
 
 #code ran by signals from StartScreen and its children

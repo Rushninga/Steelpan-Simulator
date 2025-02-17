@@ -6,7 +6,10 @@ var server_ip
 var default_port = 8000
 var port = 1080
 var pause = 0
+
 var song_play = preload("res://Scenes/song_play.tscn")
+var record_song = preload("res://Scenes/song_create.tscn")
+
 signal data_send
 
 
@@ -86,7 +89,6 @@ func switch_screen(screen):
 		main_menu.visible = false
 		song_list_menu.visible = false
 		score_menu.visible = false
-		get_window().unresizable = false
 	elif screen == "login":
 		mode = "login"
 		user_data_menu.visible = true
@@ -95,7 +97,6 @@ func switch_screen(screen):
 		main_menu.visible = false
 		song_list_menu.visible = false
 		score_menu.visible = false
-		get_window().unresizable = false
 	elif  screen == "verify":
 		mode = "verify"
 		user_data_menu.visible = false
@@ -104,7 +105,6 @@ func switch_screen(screen):
 		main_menu.visible = false
 		song_list_menu.visible = false
 		score_menu.visible = false
-		get_window().unresizable = false
 	elif screen == "connect":
 		mode = "connect"
 		user_data_menu.visible = false
@@ -113,7 +113,6 @@ func switch_screen(screen):
 		main_menu.visible = false
 		song_list_menu.visible = false
 		score_menu.visible = false
-		get_window().unresizable = false
 	elif screen == "main":
 		mode = "main"
 		user_data_menu.visible = false
@@ -122,7 +121,6 @@ func switch_screen(screen):
 		main_menu.visible = true
 		song_list_menu.visible = false
 		score_menu.visible = false
-		get_window().unresizable = false
 	elif screen == "song select":
 		mode = "song select"
 		user_data_menu.visible = false
@@ -152,6 +150,15 @@ func switch_screen(screen):
 		get_window().unresizable = false
 	elif screen == "record":
 		mode = "record"
+		user_data_menu.visible = false
+		connect_menu.visible = false
+		verify.visible = false
+		main_menu.visible = false
+		song_list_menu.visible = false
+		score_menu.visible = false
+		var record_menu = record_song.instantiate()
+		add_child(record_menu)
+		
 		
 
 func cancel_email_verification():

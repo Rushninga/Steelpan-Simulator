@@ -7,10 +7,12 @@ var buffer_note = {
 var roll_note_cut_off = 1
 
 func note_played(note):
-	if get_parent().create_state == 1:
+	if get_parent().first_note_played == false:
+		get_parent().first_note_played = true
+	if get_parent().create_state == 1: #code run when recording song. Stores the note that is played and what time it is played. When the mouse is released, the note is stored in stored_notes which makes up the recorded song
 		buffer_note["note"] = note
 		buffer_note["start"] = get_parent().song_time
-	if get_parent().create_state == 2:
+	if get_parent().create_state == 2: # Code run when previewing song
 		for i in get_parent().get_node("Incoming_notes").get_children():
 			if i.note == note:
 				if i.start == i.end:

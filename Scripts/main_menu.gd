@@ -11,7 +11,7 @@ func _on_play_pressed():
 
 
 func _on_create_pressed():
-	pass # Replace with function body.
+	get_parent().switch_screen("record")
 
 
 func _on_how_to_play_pressed():

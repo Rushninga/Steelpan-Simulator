@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://few86mll762x"
+path="res://.godot/imported/Ab4.mp3-5f5c99bcf833974b8e13384b234d1b44.mp3str"
+
+[deps]
+
+source_file="res://Assets/sounds/steelpan notes/Ab4.mp3"
+dest_files=["res://.godot/imported/Ab4.mp3-5f5c99bcf833974b8e13384b234d1b44.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

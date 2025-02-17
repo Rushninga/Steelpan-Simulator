@@ -27,6 +27,7 @@ var hit_notes:Array = []
 var incoming_note
 var mouse
 var current_note
+var first_note_played = false
 var stored_notes:Array = []
 
 signal song_complete
@@ -58,7 +59,12 @@ func _process(delta):
 			pass
 		1:
 			$Label.text = str(snappedf(song_time, 0.01))
-			song_time += delta
+			if stored_notes.size() > 0:
+				song_time += delta
+			else:
+				if first_note_played == true:
+					song_time += delta
+				
 		2:
 			$Label.text = str(snappedf(song_time, 0.01))
 			if counter < incoming_notes.size():
@@ -91,9 +97,8 @@ func _process(delta):
 						note.visible = true
 					else:
 						note.visible = false
-			song_time += delta
 			
-			if counter >= end_counter: #ends song and switches to main menu once song is completed
+			if counter >= end_counter: #ends preview
 				if $Incoming_notes.get_child_count() == 0 :
 					create_state = 0
 					$Container/Record.disabled = false
@@ -102,10 +107,9 @@ func _process(delta):
 					for note in $Steelpan.get_children():
 						if \"note\" in note:
 							note.visible = false
-					for i in $Incoming_notes.get_children():
-						i.queue_free()
-	
-	
+							
+			song_time += delta #Resumes time
+
 
 	
 	
@@ -127,29 +131,25 @@ func note_is_played(diff): # calculates how close the note was played to its act
 		score += 5
 	
 
-	
-
-
 func _on_record_pressed():
-	if create_state == 0:
+	if create_state == 0: #record
 		song_time = pre_song_time
 		$Container/Record.text = \"Pause\"
 		create_state = 1
 		$Container/Clear.disabled = true
 		$Container/Preview.disabled = true
-	elif create_state == 1:
+	elif create_state == 1: #pause
+		first_note_played = false
 		pre_song_time = song_time
-		$Container/Record.text = \"Play\"
 		create_state = 0
+		$Container/Record.text = \"Play\"
 		$Container/Clear.disabled = false
 		$Container/Preview.disabled = false
-		for i in stored_notes:
-			print(i)
 
 
-
+ 
 func _on_clear_pressed():
-	incoming_notes = []
+	stored_notes = []
 	pre_song_time = 0
 	$Label.text = str(0)
 
@@ -175,6 +175,11 @@ func _on_preview_pressed():
 				note.visible = false
 		for i in $Incoming_notes.get_children():
 			i.queue_free()
+
+
+func _on_back_pressed():
+	get_parent().switch_screen(\"main\")
+	queue_free()
 "
 
 [sub_resource type="Theme" id="Theme_fqdw6"]
@@ -206,6 +211,11 @@ offset_right = 250.0
 grow_vertical = 2
 theme = SubResource("Theme_fqdw6")
 theme_override_constants/separation = 50
+
+[node name="Back" type="Button" parent="Container"]
+layout_mode = 2
+theme = ExtResource("3_fl1ff")
+text = "Back"
 
 [node name="Record" type="Button" parent="Container"]
 layout_mode = 2
@@ -243,6 +253,7 @@ theme = ExtResource("4_bj0bs")
 theme_override_font_sizes/font_size = 50
 text = "0.00"
 
+[connection signal="pressed" from="Container/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Container/Record" to="." method="_on_record_pressed"]
 [connection signal="pressed" from="Container/Clear" to="." method="_on_clear_pressed"]
 [connection signal="pressed" from="Container/Preview" to="." method="_on_preview_pressed"]

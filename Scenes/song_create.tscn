@@ -1,16 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1clp40heva8q"]
+[gd_scene load_steps=16 format=3 uid="uid://d1clp40heva8q"]
 
 [ext_resource type="PackedScene" uid="uid://drnxotl5rm3yq" path="res://Objects/steelpan_create.tscn" id="1_2m4mx"]
 [ext_resource type="PackedScene" uid="uid://dco1w80mpoq86" path="res://Objects/notes_sound.tscn" id="2_cr3g1"]
 [ext_resource type="Theme" uid="uid://di7nwijpiuy7r" path="res://Themes/song_create_theme.tres" id="3_fl1ff"]
 [ext_resource type="Theme" uid="uid://ccq60t47rgtuy" path="res://Themes/start_menu_theme.tres" id="4_bj0bs"]
+[ext_resource type="Texture2D" uid="uid://cnhvpwfblr2pj" path="res://GUI/gui icons/arrow_back_56dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.svg" id="4_yapc3"]
+[ext_resource type="Texture2D" uid="uid://cuhsakt1g4oy5" path="res://GUI/gui icons/play_circle_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" id="5_8bnab"]
+[ext_resource type="Texture2D" uid="uid://d4b314t0ho7ja" path="res://GUI/gui icons/delete_56dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.svg" id="6_bid4p"]
+[ext_resource type="Texture2D" uid="uid://2x2qmg1bdiaj" path="res://GUI/gui icons/preview_56dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.svg" id="7_7ovm8"]
+[ext_resource type="Texture2D" uid="uid://cyqd8fj1iwavn" path="res://GUI/gui icons/upload_56dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.svg" id="8_2ptu6"]
+[ext_resource type="Texture2D" uid="uid://cwjfettr301b2" path="res://GUI/gui icons/arrow_back_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" id="10_wpajn"]
 
 [sub_resource type="GDScript" id="GDScript_osh0b"]
 script/source = "extends Control
+var root
 var json = '[]'
-var song_id
 var song_name
-var creator_name
 var score:int = 0
 var counter:int = 0
 var end_counter:int = 0
@@ -35,16 +40,15 @@ signal song_complete
 func _ready():
 	$Steelpan.quality.connect(note_is_played)
 	$Steelpan.global_position = get_viewport_rect().size/2
-	
+	root = get_tree().current_scene
+	root.invalid_song_name.connect(invalid_song_name)
 
-	
-	
 
 
 
 func _process(delta):
-	
-	
+	if(get_parent().mode != \"record\"):
+		queue_free()
 	
 	#spawns a shockwave on the screen where the mouse clicks
 	if Input.is_action_just_pressed(\"play\") :
@@ -111,8 +115,7 @@ func _process(delta):
 			song_time += delta #Resumes time
 
 
-	
-	
+
 func note_is_played(diff): # calculates how close the note was played to its actrual position in the song
 	if diff > -0.05 and diff < 0.05:
 		print(\"perfect\")
@@ -177,12 +180,78 @@ func _on_preview_pressed():
 			i.queue_free()
 
 
-func _on_back_pressed():
+func _on_back_pressed(): #goes back to main screen
 	get_parent().switch_screen(\"main\")
 	queue_free()
+	
+
+
+func _on_submit_pressed(): #shows upload pop up
+	$Upload_popup.visible = true
+	$Panel.visible = true
+
+
+func _on_cancel_pressed(): #hides upload pop up
+	$Upload_popup.visible = false
+	$Panel.visible = false
+
+func _on_line_edit_text_changed(new_text): #changes the song name whenever the line edit changed
+	song_name = $Upload_popup/LineEdit.text
+
+func _on_upload_pressed():#uploads the song to server
+	if stored_notes.size() > 0:
+		json = JSON.stringify(stored_notes)
+		root.upload_song.rpc_id(1, song_name, json)
+	else:
+		$Upload_popup/Label.text = \"Song must have at least one note\"
+
+func invalid_song_name(message):
+	if message == 1:
+		$Upload_popup/Label.text = \"Song name is already used\"
+	else:
+		$Label.text = \"Song has been uploaded to server\"
+		$Upload_popup.visible = false
+		$Panel.visible = false
+		
 "
 
 [sub_resource type="Theme" id="Theme_fqdw6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qo2lu"]
+bg_color = Color(0.435937, 0.000413124, 0.000226455, 1)
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+shadow_color = Color(0, 0, 0, 0.721569)
+shadow_size = 10
+shadow_offset = Vector2(5, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dc2ps"]
+bg_color = Color(0.776471, 0, 0, 1)
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+shadow_color = Color(0, 0, 0, 0.721569)
+shadow_size = 10
+shadow_offset = Vector2(5, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0x6j"]
+bg_color = Color(0, 0, 0, 0.596078)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="song_play" type="Control"]
 self_modulate = Color(1, 1, 1, 0)
@@ -203,39 +272,123 @@ scale = Vector2(0.25, 0.25)
 [node name="NotesSound" parent="." instance=ExtResource("2_cr3g1")]
 
 [node name="Container" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 250.0
+offset_right = 262.0
 grow_vertical = 2
 theme = SubResource("Theme_fqdw6")
 theme_override_constants/separation = 50
 
 [node name="Back" type="Button" parent="Container"]
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 theme = ExtResource("3_fl1ff")
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.873298, 0.873298, 0.873298, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_qo2lu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dc2ps")
 text = "Back"
+icon = ExtResource("4_yapc3")
 
 [node name="Record" type="Button" parent="Container"]
 layout_mode = 2
 theme = ExtResource("3_fl1ff")
 text = "Start"
+icon = ExtResource("5_8bnab")
+expand_icon = true
 
 [node name="Clear" type="Button" parent="Container"]
 layout_mode = 2
 theme = ExtResource("3_fl1ff")
 text = "Clear Notes"
+icon = ExtResource("6_bid4p")
+expand_icon = true
 
 [node name="Preview" type="Button" parent="Container"]
 layout_mode = 2
 theme = ExtResource("3_fl1ff")
 text = "Preview"
+icon = ExtResource("7_7ovm8")
+expand_icon = true
 
 [node name="Submit" type="Button" parent="Container"]
 layout_mode = 2
 theme = ExtResource("3_fl1ff")
 text = "Submit"
+icon = ExtResource("8_2ptu6")
+expand_icon = true
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(650, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_fl1ff")
+theme_override_styles/panel = SubResource("StyleBoxFlat_v0x6j")
+
+[node name="Upload_popup" type="VBoxContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(600, 250)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Upload_popup"]
+layout_mode = 2
+theme = ExtResource("4_bj0bs")
+text = "Enter Song Name:"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Upload_popup"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("4_bj0bs")
+placeholder_text = "Song Name"
+alignment = 1
+
+[node name="Upload" type="Button" parent="Upload_popup"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_bj0bs")
+text = "Sumbit"
+icon = ExtResource("8_2ptu6")
+expand_icon = true
+
+[node name="Cancel" type="Button" parent="Upload_popup"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_bj0bs")
+text = "Cancel"
+icon = ExtResource("10_wpajn")
+expand_icon = true
 
 [node name="Label" type="Label" parent="."]
 custom_minimum_size = Vector2(200, 60)
@@ -257,3 +410,8 @@ text = "0.00"
 [connection signal="pressed" from="Container/Record" to="." method="_on_record_pressed"]
 [connection signal="pressed" from="Container/Clear" to="." method="_on_clear_pressed"]
 [connection signal="pressed" from="Container/Preview" to="." method="_on_preview_pressed"]
+[connection signal="pressed" from="Container/Submit" to="." method="_on_submit_pressed"]
+[connection signal="text_changed" from="Upload_popup/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="Upload_popup/LineEdit" to="." method="_on_upload_pressed"]
+[connection signal="pressed" from="Upload_popup/Upload" to="." method="_on_upload_pressed"]
+[connection signal="pressed" from="Upload_popup/Cancel" to="." method="_on_cancel_pressed"]

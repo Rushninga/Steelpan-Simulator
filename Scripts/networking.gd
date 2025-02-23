@@ -9,6 +9,7 @@ var verify_session_interval = 60
 var login:bool = false
 var song_container = preload("res://GUI/song_container.tscn")
 
+
 func _ready():
 	$StartScreen.data_send.connect(data_send)
 	$StartScreen/verify.verify_code_sumbit.connect(verify_code_sumbit)
@@ -27,7 +28,6 @@ func _process(delta):
 			verify_session_interval = 60
 			
 
-	
 
 #code ran by signals from StartScreen and its children
 func data_send(username_send, email_send, password_send, mode_send):
@@ -121,7 +121,6 @@ func download_song(song_id, song_name, creator_name, song_data):
 	new_song.select_song.connect($StartScreen.select_song)
 	$StartScreen/Play/VBoxContainer/ScrollContainer/SongList.add_child(new_song)
 	
-
 @rpc("any_peer", "reliable")
 func cancel_download_song():
 	pass
@@ -140,3 +139,13 @@ func rankings(score, accuracy, rank):
 		$StartScreen/Score/Container/HighScore.text = "High Score: " + str(score)
 		$StartScreen/Score/Container/HighestAccuracy.text = "Highest Accuracy: " + str(accuracy) + "%"
 		$StartScreen/Score/Container/Rank.text = "Server Rank: " + str(rank)
+
+@rpc("any_peer", "reliable")
+func upload_song(song_name, song_json):
+	pass
+
+signal invalid_song_name
+@rpc("authority", "reliable")
+func valid_song_name(message):
+	invalid_song_name.emit(message)
+	

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://s6lly0wf5ejs"
+path="res://.godot/imported/D5-Shernan.mp3-0c3f249be8a88b3bab9f5e2c44483c44.mp3str"
+
+[deps]
+
+source_file="res://Assets/sounds/steelpan notes/D5-Shernan.mp3"
+dest_files=["res://.godot/imported/D5-Shernan.mp3-0c3f249be8a88b3bab9f5e2c44483c44.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

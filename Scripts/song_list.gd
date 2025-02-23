@@ -18,7 +18,7 @@ func _on_reload_pressed():
 
 
 func _on_visibility_changed():
-	for i in $VBoxContainer/ScrollContainer/SongList.get_children():
-		i.queue_free()
 	if visible == true:
+		for i in $VBoxContainer/ScrollContainer/SongList.get_children():
+			i.queue_free()
 		root.request_download_song.rpc_id(1)

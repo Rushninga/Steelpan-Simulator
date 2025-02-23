@@ -16,6 +16,7 @@ signal data_send
 #link to node refrences
 @onready var user_data_menu = $Control
 @onready var connect_menu= $Control2
+@onready var connect_menu_label = $Control2/Container/Label
 @onready var verify = $verify
 @onready var user_data_menu_label = $Control/Container/Label
 @onready var main_menu = $MainMenu
@@ -69,11 +70,7 @@ func connected():
 	switch_screen("sign in")
 	
 func client_disconnect():
-	user_data_menu_label.text = "clinet is disconnected"
-	mode = "connect"
-	user_data_menu.visible = false
-	connect_menu.visible = true
-	verify.visible = false
+	connect_menu_label.text = "clinet has disconnected"
 	switch_screen("connect")
 
 func connect_fail():

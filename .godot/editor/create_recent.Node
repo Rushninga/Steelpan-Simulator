@@ -1,14 +1,14 @@
 Label
-VBoxContainer
+Panel
 Button
+LineEdit
+VBoxContainer
 HBoxContainer
 Camera2D
 TextureProgressBar
 Sprite2D
 Node2D
 Control
-Panel
 ScrollContainer
 RichTextLabel
 TextureRect
-ColorRect

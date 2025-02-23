@@ -60,6 +60,9 @@ func _ready():
 
 
 func _process(delta):
+	if(get_parent().mode != \"play song\"):
+		queue_free()
+	
 	song_time += delta
 
 	#spawns a shockwave on the screen where the mouse clicks

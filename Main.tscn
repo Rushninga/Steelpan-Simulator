@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://butap4b0axcwt"]
 
-[ext_resource type="Script" path="res://Scripts/networking.gd" id="1_y8jpx"]
+[ext_resource type="Script" uid="uid://dt5ukk7wub28c" path="res://Scripts/networking.gd" id="1_y8jpx"]
 [ext_resource type="PackedScene" uid="uid://depc87vqcl07e" path="res://Scenes/Start Screen.tscn" id="2_7ycu5"]
 
 [node name="Networking" type="Node"]

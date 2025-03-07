@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b0bh6s1duv6rf"]
 
-[ext_resource type="Script" path="res://Scripts/song_list.gd" id="1_ibhka"]
+[ext_resource type="Script" uid="uid://k8qpr580uuoq" path="res://Scripts/song_list.gd" id="1_ibhka"]
 [ext_resource type="Theme" uid="uid://ccq60t47rgtuy" path="res://Themes/start_menu_theme.tres" id="2_mj8wh"]
 [ext_resource type="Texture2D" uid="uid://cwjfettr301b2" path="res://GUI/gui icons/arrow_back_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" id="3_awj34"]
 [ext_resource type="Texture2D" uid="uid://dtjmm4l2hp3jm" path="res://GUI/gui icons/restart_alt_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" id="4_1trhl"]

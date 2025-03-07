@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://c4san0bf2qeok"]
 
-[ext_resource type="Script" path="res://Scripts/song_container.gd" id="1_2cagw"]
+[ext_resource type="Script" uid="uid://bpn03rg1i3nls" path="res://Scripts/song_container.gd" id="1_2cagw"]
 [ext_resource type="Theme" uid="uid://ccq60t47rgtuy" path="res://Themes/start_menu_theme.tres" id="2_c5so5"]
 [ext_resource type="Texture2D" uid="uid://cuhsakt1g4oy5" path="res://GUI/gui icons/play_circle_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" id="3_lvhgy"]
 [ext_resource type="FontFile" uid="uid://cjuab6m6vrvr0" path="res://Themes/Fonts/NerkoOne-Regular.ttf" id="3_tdrfo"]

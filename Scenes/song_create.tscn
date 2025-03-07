@@ -195,11 +195,10 @@ func _on_cancel_pressed(): #hides upload pop up
 	$Upload_popup.visible = false
 	$Panel.visible = false
 
-func _on_line_edit_text_changed(new_text): #changes the song name whenever the line edit changed
-	song_name = $Upload_popup/LineEdit.text
 
 func _on_upload_pressed():#uploads the song to server
 	if stored_notes.size() > 0:
+		song_name = $Upload_popup/LineEdit.text
 		json = JSON.stringify(stored_notes)
 		root.upload_song.rpc_id(1, song_name, json)
 	else:
@@ -411,7 +410,6 @@ text = "0.00"
 [connection signal="pressed" from="Container/Clear" to="." method="_on_clear_pressed"]
 [connection signal="pressed" from="Container/Preview" to="." method="_on_preview_pressed"]
 [connection signal="pressed" from="Container/Submit" to="." method="_on_submit_pressed"]
-[connection signal="text_changed" from="Upload_popup/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="text_submitted" from="Upload_popup/LineEdit" to="." method="_on_upload_pressed"]
 [connection signal="pressed" from="Upload_popup/Upload" to="." method="_on_upload_pressed"]
 [connection signal="pressed" from="Upload_popup/Cancel" to="." method="_on_cancel_pressed"]

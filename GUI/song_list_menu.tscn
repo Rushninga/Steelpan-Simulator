@@ -48,6 +48,13 @@ theme = ExtResource("2_mj8wh")
 text = "Reload"
 icon = ExtResource("4_1trhl")
 
+[node name="Search" type="LineEdit" parent="VBoxContainer/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_mj8wh")
+placeholder_text = "Enter Song Name"
+max_length = 50
+
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -60,3 +67,4 @@ size_flags_vertical = 3
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="VBoxContainer/Top/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="VBoxContainer/Top/Reload" to="." method="_on_reload_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Top/Search" to="." method="_on_search_text_changed"]

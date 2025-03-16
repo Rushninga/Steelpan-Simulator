@@ -3,6 +3,7 @@ var server_ip
 var client
 var username
 var password
+var temp_password
 var crypto = Crypto.new()
 var net_key = CryptoKey.new()
 var verify_session_interval = 60
@@ -33,6 +34,7 @@ func _process(delta):
 func data_send(username_send, email_send, password_send, mode_send):
 	send_user_info.rpc_id(1,username_send, email_send, password_send, mode_send)
 	username = username_send
+	password = password_send
 	
 func verify_code_sumbit(code):
 	sumbit_email_code.rpc_id(1, code)
@@ -94,7 +96,7 @@ func verify_session():
 	pass
 	
 @rpc("authority", "reliable")
-func verify_session_response(message): #0 = session is valid, 1 = session is valid
+func verify_session_response(message): #0 = session is invalid, 1 = session is valid
 	print(message)
 	if message == 0:
 		$StartScreen.switch_screen("login")
@@ -149,3 +151,34 @@ signal invalid_song_name
 func valid_song_name(message):
 	invalid_song_name.emit(message)
 	
+@rpc("any_peer", "reliable")
+func change_password():
+	pass
+
+@rpc("any_peer", "reliable")
+func cpassword_code(code):
+	pass
+
+@rpc("authority", "reliable")
+func cpassword_code_response(message):
+	if message == 0:
+		$StartScreen/Account/ScrollContainer/VBoxContainer/CPasswordMenu/Verify.visible = false
+		$StartScreen/Account/ScrollContainer/VBoxContainer/CPasswordMenu/PasswordChange.visible = true
+	else:
+		$StartScreen/Account/ScrollContainer/VBoxContainer/CPasswordMenu/Verify/Label.text = "The code entered was incorrect, Please try again"
+	
+@rpc("any_peer", "reliable")
+func change_password_to(password):
+	pass
+
+@rpc("authority", "reliable")
+func change_password_to_response(message):
+	if message == 1:
+		$StartScreen/Account/ScrollContainer/VBoxContainer/CPasswordMenu/Verify/Label.text = "An error has occured, Cancel the current operation and try again"
+	else:
+		password = temp_password
+		$StartScreen/Account/Label.text = "Password has been changed successfully"
+		$StartScreen/Account.password = password #updates password value
+		$StartScreen/Account.password_visible = false #changes password visibility state to invisible
+		$StartScreen/Account.password_visibility(false) #makes password invisible
+		$StartScreen/Account/ScrollContainer/VBoxContainer/CPasswordMenu.visible = false #hides change password menu

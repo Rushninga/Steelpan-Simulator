@@ -23,6 +23,7 @@ signal data_send
 @onready var song_list_menu = $Play
 @onready var song_list = $Play/VBoxContainer/ScrollContainer/SongList
 @onready var score_menu = $Score
+@onready var account_menu = $Account
 
 
 func _ready():
@@ -66,97 +67,76 @@ func begin_network_opp(ip):
 
 func connected():
 	user_data_menu_label.text = "clinet is connected"
-	mode = "sign in"
 	switch_screen("sign in")
 	
 func client_disconnect():
 	connect_menu_label.text = "clinet has disconnected"
 	switch_screen("connect")
+	
 
 func connect_fail():
 	print("connection failed")
 	$Control2/Container/Label.text = "Client has failed to connect"
 
 func switch_screen(screen):
-	if screen == "sign in":
-		mode = "sign in"
-		user_data_menu.visible = true
-		connect_menu.visible = false
-		verify.visible = false
-		main_menu.visible = false
-		song_list_menu.visible = false
-		score_menu.visible = false
-	elif screen == "login":
-		mode = "login"
-		user_data_menu.visible = true
-		connect_menu.visible = false
-		verify.visible = false
-		main_menu.visible = false
-		song_list_menu.visible = false
-		score_menu.visible = false
-	elif  screen == "verify":
-		mode = "verify"
-		user_data_menu.visible = false
-		connect_menu.visible = false
-		verify.visible = true
-		main_menu.visible = false
-		song_list_menu.visible = false
-		score_menu.visible = false
-	elif screen == "connect":
+	if screen == "connect":
 		mode = "connect"
-		user_data_menu.visible = false
 		connect_menu.visible = true
+	else:
+		connect_menu.visible = false
+	
+	if screen == "sign in" or screen == "login": #hides menu based on sign in and login
+		user_data_menu.visible = true
+	else:
+		user_data_menu.visible = false
+	
+	if screen == "login": #switches mode based on login or sign in
+		mode = "login"
+		
+	if screen == "sign in": #switches mode based on login or sign in
+		mode = "sign in"
+
+	if  screen == "verify":
+		mode = "verify"
+		verify.visible = true
+	else:
 		verify.visible = false
-		main_menu.visible = false
-		song_list_menu.visible = false
-		score_menu.visible = false
-	elif screen == "main":
+		
+	if screen == "main":
 		mode = "main"
-		user_data_menu.visible = false
-		connect_menu.visible = false
-		verify.visible = false
 		main_menu.visible = true
-		song_list_menu.visible = false
-		score_menu.visible = false
-	elif screen == "song select":
+	else:
+		main_menu.visible = false
+		
+	if screen == "song select":
 		mode = "song select"
-		user_data_menu.visible = false
-		connect_menu.visible = false
-		verify.visible = false
-		main_menu.visible = false
 		song_list_menu.visible = true
-		score_menu.visible = false
-		get_window().unresizable = false
-	elif screen == "play song":
+	else:
+		song_list_menu.visible = false
+	
+	if screen == "play song":
 		mode = "play song"
-		user_data_menu.visible = false
-		connect_menu.visible = false
-		verify.visible = false
-		main_menu.visible = false
-		song_list_menu.visible = false
-		score_menu.visible = false
 		get_window().unresizable = true
-	elif screen == "score":
-		mode = "score"
-		user_data_menu.visible = false
-		connect_menu.visible = false
-		verify.visible = false
-		main_menu.visible = false
-		song_list_menu.visible = false
-		score_menu.visible = true
+	else:
 		get_window().unresizable = false
-	elif screen == "record":
-		mode = "record"
-		user_data_menu.visible = false
-		connect_menu.visible = false
-		verify.visible = false
-		main_menu.visible = false
-		song_list_menu.visible = false
+		
+	if screen == "score":
+		mode = "score"
+		score_menu.visible = true
+	else:
 		score_menu.visible = false
+		
+	if screen == "record":
+		mode = "record"
 		var record_menu = record_song.instantiate()
 		add_child(record_menu)
-		
-		
+	
+	if screen == "account":
+		mode = "account"
+		account_menu.visible = true
+	else:
+		account_menu.visible = false
+
 
 func cancel_email_verification():
 	switch_screen("sign in")

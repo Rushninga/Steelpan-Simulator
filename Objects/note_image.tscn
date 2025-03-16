@@ -1,14 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://0pfsvlcupdeb"]
 
-[ext_resource type="Script" path="res://Scripts/note_image.gd" id="1_deqps"]
+[ext_resource type="Script" uid="uid://cc06vdk5ko7s7" path="res://Scripts/note_image.gd" id="1_deqps"]
 [ext_resource type="Texture2D" uid="uid://dbfmf0pv88aue" path="res://Assets/Art/note_image.svg" id="2_35ers"]
 
 [node name="NoteImage" type="Node2D"]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.188235)
 scale = Vector2(3, 3)
 script = ExtResource("1_deqps")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.78814e-07, 4.47035e-07)
-scale = Vector2(1.026, 1)
 texture = ExtResource("2_35ers")

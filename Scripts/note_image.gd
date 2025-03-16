@@ -25,8 +25,6 @@ func _ready():
 	scale -= (speed * delay) #removes scale to compisate delay between supposed spawn time and actrual spawn time
 	
 	
-	var tween = create_tween()
-	tween.tween_property($".", "modulate", Color("ffffff"), time_to_travel/4).set_trans(Tween.TRANS_LINEAR)
 	
 	
 	

@@ -35,7 +35,7 @@ var current_note
 var first_note_played = false
 var stored_notes:Array = []
 
-signal song_complete
+
 
 func _ready():
 	$Steelpan.quality.connect(note_is_played)
@@ -94,6 +94,7 @@ func _process(delta):
 			
 			if $Incoming_notes.get_children().size() > 0:
 				current_note = $Incoming_notes.get_child(0) #selects the first note in the the incoming notes
+				current_note.modulate = Color(\"ffffff\")
 				
 			for note in $Steelpan.get_children(): #highlights the most current note by making the hitbox visible
 				if \"note\" in note and current_note != null:
@@ -158,8 +159,7 @@ func _on_clear_pressed():
 
 
 func _on_preview_pressed():
-	if create_state == 0:
-		print(create_state)
+	if create_state == 0: #Paused
 		song_time = note_travel_time * -1
 		counter = 0
 		create_state = 2
@@ -168,12 +168,12 @@ func _on_preview_pressed():
 		$Container/Record.disabled = true
 		end_counter = stored_notes.size()
 		incoming_notes = stored_notes
-	elif create_state == 2:
+	elif create_state == 2: #previewing
 		create_state = 0
 		$Container/Record.disabled = false
 		$Container/Clear.disabled = false
 		$Container/Preview.text = \"Preview\"
-		for note in $Steelpan.get_children():
+		for note in $Steelpan.get_children(): #hides preview of incoming notes
 			if \"note\" in note:
 				note.visible = false
 		for i in $Incoming_notes.get_children():
@@ -212,6 +212,10 @@ func invalid_song_name(message):
 		$Upload_popup.visible = false
 		$Panel.visible = false
 		
+
+
+func _on_resized():
+	$Steelpan.global_position = get_viewport_rect().size/2
 "
 
 [sub_resource type="Theme" id="Theme_fqdw6"]
@@ -264,7 +268,7 @@ script = SubResource("GDScript_osh0b")
 note_travel_time = 1.5
 
 [node name="Steelpan" parent="." instance=ExtResource("1_2m4mx")]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.24, 0.24)
 
 [node name="Incoming_notes" type="Node2D" parent="."]
 
@@ -405,6 +409,7 @@ theme = ExtResource("4_bj0bs")
 theme_override_font_sizes/font_size = 50
 text = "0.00"
 
+[connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="pressed" from="Container/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Container/Record" to="." method="_on_record_pressed"]
 [connection signal="pressed" from="Container/Clear" to="." method="_on_clear_pressed"]

@@ -7,6 +7,7 @@ func _ready(): #connects the signal that is emitted when a note is played for al
 	for i in get_children():
 		if i is Area2D:
 			i.play_note.connect(note_played)
+			i.visible = false
 	
 	
 func note_played(play):

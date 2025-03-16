@@ -47,4 +47,3 @@ func _on_search_text_changed(new_text):
 		else:
 			i.visible = true
 	
-	pass # Replace with function body.

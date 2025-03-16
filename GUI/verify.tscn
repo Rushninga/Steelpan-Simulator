@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6diqsa0y4i3w"]
 
 [ext_resource type="Theme" uid="uid://ccq60t47rgtuy" path="res://Themes/start_menu_theme.tres" id="1_unsvd"]
-[ext_resource type="Script" path="res://Scripts/verify.gd" id="1_wf5s1"]
+[ext_resource type="Script" uid="uid://bfj8xqwgm32sv" path="res://Scripts/verify.gd" id="1_wf5s1"]
 
 [node name="verify" type="Control"]
 layout_mode = 3

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bm2uvi2qhjh5"]
 
 [ext_resource type="Theme" uid="uid://ccq60t47rgtuy" path="res://Themes/start_menu_theme.tres" id="1_pbac0"]
-[ext_resource type="Script" path="res://Scripts/login_data.gd" id="2_mm8ae"]
+[ext_resource type="Script" uid="uid://c7p3d5j0ephvl" path="res://Scripts/login_data.gd" id="2_mm8ae"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_je50p"]
 bg_color = Color(1, 1, 1, 1)
@@ -142,8 +142,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.441961, 0.603096, 0.75678, 1)
-theme_override_colors/font_pressed_color = Color(0.0807833, 0.0807833, 0.0807833, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.0807833, 0.0807833, 0.0807833, 1)
 theme_override_font_sizes/font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxFlat_je50p")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_xhxsl")

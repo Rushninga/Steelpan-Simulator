@@ -37,7 +37,7 @@ var end_counter:int = 0
 var song_end:bool = false
 var song_time:float
 var incoming_notes:Array = [] #imports all the notes from the song resource file
-var note_image = preload(\"res://Objects/note_image.tscn\") # a single notes object
+var note_image = preload(\"uid://0pfsvlcupdeb\") # a single notes object
 var roll_note_image = preload(\"res://Objects/rolling note.tscn\") # a rolling note object
 var shockwave = preload(\"res://Objects/shockwave.tscn\") #shockwave object for mouse when note is played
 @export var note_travel_time:float = 1 #indicates how many seconds the note will travel from its spawn time to its actrual time in the song. The speed of the note will depend on this variable
@@ -99,6 +99,7 @@ func _process(delta):
 	
 	if $Incoming_notes.get_children().size() > 0:
 		current_note = $Incoming_notes.get_child(0) #selects the first note in the the incoming notes
+		current_note.modulate = Color(\"ffffff\")
 		
 	for note in $Steelpan.get_children(): #highlights the most current note by making the hitbox visible
 		if \"note\" in note and current_note != null:
@@ -159,7 +160,7 @@ script = SubResource("GDScript_osh0b")
 note_travel_time = 1.5
 
 [node name="Steelpan" parent="." instance=ExtResource("2_mj7i1")]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.24, 0.24)
 
 [node name="Incoming_notes" type="Node2D" parent="."]
 

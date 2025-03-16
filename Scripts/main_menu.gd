@@ -21,3 +21,7 @@ func _on_how_to_play_pressed():
 func _on_log_out_pressed():
 	menu_option_select.emit("log out")
 	
+
+
+func _on_account_pressed():
+	get_parent().switch_screen("account")

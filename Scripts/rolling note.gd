@@ -19,8 +19,7 @@ func _ready():
 	note_speed = Vector2(speed)
 	roll_time =  end - start
 	roll_speed = $TextureProgressBar.value / roll_time
-	var tween = create_tween()
-	tween.tween_property($".", "modulate", Color("ffffff"), time_to_travel/4).set_trans(Tween.TRANS_LINEAR)
+
 	
 	
 func _process(delta):

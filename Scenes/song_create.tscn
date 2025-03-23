@@ -159,16 +159,17 @@ func _on_clear_pressed():
 
 
 func _on_preview_pressed():
-	if create_state == 0: #Paused
-		song_time = note_travel_time * -1
-		counter = 0
-		create_state = 2
-		$Container/Preview.text = \"Stop Previewing\"
-		$Container/Clear.disabled = true
-		$Container/Record.disabled = true
-		end_counter = stored_notes.size()
-		incoming_notes = stored_notes
-	elif create_state == 2: #previewing
+	if create_state == 0: #Paused, pressing this starts the preview
+		if stored_notes.size() > 0:
+			song_time = note_travel_time * -1
+			counter = 0
+			create_state = 2
+			$Container/Preview.text = \"Stop Previewing\"
+			$Container/Clear.disabled = true
+			$Container/Record.disabled = true
+			end_counter = stored_notes.size()
+			incoming_notes = stored_notes
+	elif create_state == 2: #previewing, pressing this pauses the preview
 		create_state = 0
 		$Container/Record.disabled = false
 		$Container/Clear.disabled = false
@@ -374,6 +375,7 @@ layout_mode = 2
 theme = ExtResource("4_bj0bs")
 placeholder_text = "Song Name"
 alignment = 1
+max_length = 50
 
 [node name="Upload" type="Button" parent="Upload_popup"]
 custom_minimum_size = Vector2(200, 60)

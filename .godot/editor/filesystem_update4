@@ -1,15 +1,13 @@
+res://Scripts/login_data.gd
+res://GUI/Login data.tscn
 res://Themes/start_menu_theme.tres
 res://Themes/song_create_theme.tres
 res://shaders/shockwave.gdshader
 res://addons/shaderV/uv/sphericalUV.gdshaderinc
 res://addons/shaderV/uv/lensDistortion.gdshaderinc
-res://Scripts/c_password.gd
+res://Scripts/networking.gd
 res://Main.tscn
-res://Scripts/start_screen.gd
 res://Scenes/Start Screen.tscn
 res://GUI/account.tscn
-res://GUI/Login data.tscn
-res://GUI/verify.tscn
 res://GUI/c_password.tscn
-res://Scripts/account.gd
-res://Scripts/networking.gd
+res://Scenes/song_create.tscn

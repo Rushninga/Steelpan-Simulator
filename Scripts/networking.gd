@@ -50,6 +50,7 @@ func menu_option_select(option):
 	if option == "log out":
 		log_out.rpc_id(1)
 		$StartScreen.switch_screen("login")
+		$StartScreen/Control/Container/Label.text = ""
 		login = false
 
 
@@ -180,5 +181,17 @@ func change_password_to_response(message):
 		$StartScreen/Account/Label.text = "Password has been changed successfully"
 		$StartScreen/Account.password = password #updates password value
 		$StartScreen/Account.password_visible = false #changes password visibility state to invisible
-		$StartScreen/Account.password_visibility(false) #makes password invisible
+		var new_password = $StartScreen/Account.password_visibility(false) 
+		$StartScreen/Account/ScrollContainer/VBoxContainer/HBoxContainer/Password.text = "Password: " + new_password #makes password invisible
 		$StartScreen/Account/ScrollContainer/VBoxContainer/CPasswordMenu.visible = false #hides change password menu
+
+@rpc("any_peer", "reliable")
+func forgot_password(username):
+	pass
+	
+@rpc("authority", "reliable")
+func forgot_password_response(message):#0 = account exsists, 1 = account doesn't exsist
+	if message == 1:
+		$StartScreen/Control/Container/Label.text = "The account entered doesn't exsist \n Please enter the correct username in the username field"
+	else:
+		$StartScreen/Control/Container/Label.text = "Your password has been sent to your email"

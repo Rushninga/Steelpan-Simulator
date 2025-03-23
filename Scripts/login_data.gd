@@ -1,7 +1,7 @@
 extends Control
 signal send_data
 @onready var parent = get_parent()
-
+@onready var root = get_tree().get_current_scene()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,11 +35,13 @@ func _process(_delta):
 		$Container/Button_change.text = "Already Have An Account, Click Here To Login"
 		$Container/enter2.visible = true
 		$Container/email.visible = true
+		$Container/Forgot_password.visible = false
 	elif parent.mode == "login":
 		$Container/Button.text = "Login"
 		$Container/Button_change.text = "Haven't Created An Account Yet? Click Here To Sign Up"
 		$Container/enter2.visible = false
 		$Container/email.visible = false
+		$Container/Forgot_password.visible = true
 		
 		
 
@@ -49,7 +51,6 @@ func _on_button_change_pressed():
 	elif get_parent().mode == "login":
 		parent.switch_screen("sign in")
 	
-
 
 func _on_button_pressed():
 	if parent.mode == "sign in" :
@@ -65,3 +66,7 @@ func _on_button_pressed():
 			$Container/Label.text = "All fields must be filled"
 		else:
 			emit_signal("send_data", $Container/username.text, $Container/email.text, $Container/password.text)
+
+func _on_forgot_password_pressed():
+	var username = $Container/username.text
+	root.forgot_password.rpc_id(1, username)

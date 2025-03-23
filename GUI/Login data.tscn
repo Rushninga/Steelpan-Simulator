@@ -76,8 +76,10 @@ theme = ExtResource("1_pbac0")
 theme_override_constants/separation = 4
 
 [node name="Label" type="Label" parent="Container"]
+custom_minimum_size = Vector2(600, 60)
 layout_mode = 2
-size_flags_horizontal = 4
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="enter1" type="Label" parent="Container"]
 custom_minimum_size = Vector2(400, 0)
@@ -128,15 +130,8 @@ caret_blink = true
 secret = true
 secret_character = "#"
 
-[node name="Button" type="Button" parent="Container"]
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.0
-text = "Sign up"
-
-[node name="Button_change" type="Button" parent="Container"]
+[node name="Forgot_password" type="Button" parent="Container"]
+visible = false
 custom_minimum_size = Vector2(600, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -153,7 +148,35 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_w0nho")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_8rccb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2gwal")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v34g2")
+text = "Forgotten Your Password? Click Here!"
+
+[node name="Button" type="Button" parent="Container"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+text = "Sign up"
+
+[node name="Button_change" type="Button" parent="Container"]
+custom_minimum_size = Vector2(600, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.441961, 0.603096, 0.75678, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.0807833, 0.0807833, 0.0807833, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxFlat_je50p")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_xhxsl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_xjity")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_pjaha")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w0nho")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_8rccb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2gwal")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v34g2")
 text = "Already Have An Account? Click Here To Login!"
 
+[connection signal="pressed" from="Container/Forgot_password" to="." method="_on_forgot_password_pressed"]
 [connection signal="pressed" from="Container/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Container/Button_change" to="." method="_on_button_change_pressed"]

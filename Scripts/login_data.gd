@@ -56,14 +56,20 @@ func _on_button_pressed():
 	if parent.mode == "sign in" :
 		if $Container/username.text == "" or $Container/password.text == "" or $Container/email.text == "":
 			$Container/Label.text = "All fields must be filled"
+			var conn_label = $Container/Label
+			get_parent().flash_tween(conn_label)
 		else:
 			if verify_email_format($Container/email.text) == true:
 				emit_signal("send_data", $Container/username.text, $Container/email.text, $Container/password.text)
 			else:
 				$Container/Label.text = "Email format is invalid"
+				var conn_label = $Container/Label
+				get_parent().flash_tween(conn_label)
 	elif parent.mode == "login":
 		if $Container/username.text == "" or $Container/password.text == "":
 			$Container/Label.text = "All fields must be filled"
+			var conn_label = $Container/Label
+			get_parent().flash_tween(conn_label)
 		else:
 			emit_signal("send_data", $Container/username.text, $Container/email.text, $Container/password.text)
 

@@ -3,6 +3,7 @@ extends Control
 @onready var root = get_tree().get_current_scene()
 var username
 var password
+var email
 var password_visible = false
 var icon_visible = "uid://pp7bif2nvuma"
 var icon_nonvisible = "uid://dwrk7qv8ospyt"
@@ -10,6 +11,7 @@ var icon_nonvisible = "uid://dwrk7qv8ospyt"
 func _ready():
 	username = root.username
 	password = root.password
+	email = root.user_email
 
 func password_visibility(show:bool):
 	if show == true:
@@ -27,6 +29,7 @@ func _on_visibility_changed():
 	if visible == true:
 		username = root.username
 		password = root.password
+		email = root.user_email
 		$Label.text = ""
 		#hides password upon enetering menu
 		password_visible = false
@@ -34,7 +37,7 @@ func _on_visibility_changed():
 		$ScrollContainer/VBoxContainer/HBoxContainer/Password.text = "Password: " + password_visibility(password_visible)
 		
 		$ScrollContainer/VBoxContainer/Username.text = "Username: " + username
-		
+		$ScrollContainer/VBoxContainer/Email.text = "Email: " + email
 
 
 func _on_button_pressed(): #back_button

@@ -34,7 +34,7 @@ var mouse
 var current_note
 var first_note_played = false
 var stored_notes:Array = []
-
+@onready var conn_label = $Upload_popup/Label
 
 
 func _ready():
@@ -204,10 +204,12 @@ func _on_upload_pressed():#uploads the song to server
 		root.upload_song.rpc_id(1, song_name, json)
 	else:
 		$Upload_popup/Label.text = \"Song must have at least one note\"
+		get_parent().flash_tween(conn_label)
 
 func invalid_song_name(message):
 	if message == 1:
 		$Upload_popup/Label.text = \"Song name is already used\"
+		get_parent().flash_tween(conn_label)
 	else:
 		$Label.text = \"Song has been uploaded to server\"
 		$Upload_popup.visible = false

@@ -44,7 +44,6 @@ func _ready():
 	switch_screen("connect")
 	
 	
-	
 func begin_data_send(username, email, password):
 	if multiplayer.multiplayer_peer.get_connection_status() == 2:
 		emit_signal("data_send", username, email, password, mode)
@@ -61,7 +60,8 @@ func begin_network_opp(ip):
 	var err = client.create_client(ip, default_port)
 	if err != 0:
 		$Control2/Container/Label.text = "Your client has failed to connect to the sever \n please verify the ip address entered \n Otherwise sever may be down"
-		print(err)
+		var conn_label = $Control2/Container/Label
+		flash_tween(conn_label)
 	multiplayer.multiplayer_peer = client
 	
 
@@ -72,12 +72,16 @@ func connected():
 func client_disconnect():
 	connect_menu_label.text = "clinet has disconnected"
 	switch_screen("connect")
+	var conn_label = $Control2/Container/Label
+	flash_tween(conn_label)
 	
 
 func connect_fail():
 	print("connection failed")
 	$Control2/Container/Label.text = "Client has failed to connect"
-
+	var conn_label = $Control2/Container/Label
+	flash_tween(conn_label)
+	
 func switch_screen(screen):
 	if screen == "connect":
 		mode = "connect"
@@ -142,7 +146,6 @@ func cancel_email_verification():
 	switch_screen("sign in")
 
 
-	
 
 var previous_song_id
 func select_song(id, song_name, creator_name, song_data):
@@ -165,9 +168,6 @@ func retry_song(): #searches the song list for the previous id stored in the sel
 		if i.song_id == previous_song_id:
 			i.select_song.emit(i.song_id, i.song_name, i.creator_name, i.song_data)
 	
-	
-	
-
 
 func song_complete(song_id, song_name, creator_name, score, acc):
 	score_menu.get_node("Container/SongName").text = "Song Name: " + song_name
@@ -176,3 +176,11 @@ func song_complete(song_id, song_name, creator_name, score, acc):
 	score_menu.get_node("Container/Accuracy").text = "Accuracy: " + str(acc) + "%"
 	get_parent().request_rankings.rpc_id(1, song_id, score, acc)
 	switch_screen("score")
+
+func flash_tween(node:Label):
+	for i in range(5):
+		node.modulate = Color(255, 0, 0)
+		await get_tree().create_timer(0.1).timeout
+		node.modulate = Color(255, 255, 255)
+		await get_tree().create_timer(0.05).timeout
+	

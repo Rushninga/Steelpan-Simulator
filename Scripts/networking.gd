@@ -3,6 +3,7 @@ var server_ip
 var client
 var username
 var password
+var user_email
 var temp_password
 var crypto = Crypto.new()
 var net_key = CryptoKey.new()
@@ -60,15 +61,20 @@ func send_user_info(username_received, email_received , password_received, mode_
 	pass
 
 @rpc("authority", "unreliable_ordered", "call_remote")
-func user_login_confirm(message):
+func user_login_confirm(message, email):
 	if message == 1:
 		$StartScreen/Control/Container/Label.text = "Username or password is incorrect"
+		var conn_label = $StartScreen/Control/Container/Label
+		$StartScreen.flash_tween(conn_label)
 	elif message == 2:
 		$StartScreen.switch_screen("main")
 		$StartScreen/MainMenu/HBoxContainer/RightSide/Header.text = "Welcome \n " + username
+		user_email = email
 		login = true
 	else:
 		$StartScreen/Control/Container/Label.text = "Unknown error occurred"
+		var conn_label = $StartScreen/Control/Container/Label
+		$StartScreen.flash_tween(conn_label)
 	
 
 @rpc("authority", "reliable", "call_remote")
@@ -167,7 +173,9 @@ func cpassword_code_response(message):
 		$StartScreen/Account/ScrollContainer/VBoxContainer/CPasswordMenu/PasswordChange.visible = true
 	else:
 		$StartScreen/Account/ScrollContainer/VBoxContainer/CPasswordMenu/Verify/Label.text = "The code entered was incorrect, Please try again"
-	
+		var conn_label = $StartScreen/Account/ScrollContainer/VBoxContainer/CPasswordMenu/Verify/Labelcancel_download_song
+		$StartScreen.flash_tween(conn_label)
+		
 @rpc("any_peer", "reliable")
 func change_password_to(password):
 	pass
@@ -193,5 +201,7 @@ func forgot_password(username):
 func forgot_password_response(message):#0 = account exsists, 1 = account doesn't exsist
 	if message == 1:
 		$StartScreen/Control/Container/Label.text = "The account entered doesn't exsist \n Please enter the correct username in the username field"
+		var conn_label = $StartScreen/Control/Container/Label
+		$StartScreen.flash_tween(conn_label)
 	else:
 		$StartScreen/Control/Container/Label.text = "Your password has been sent to your email"

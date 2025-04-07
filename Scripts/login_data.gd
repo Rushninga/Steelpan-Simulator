@@ -25,6 +25,10 @@ func verify_email_format(email:String):
 			return true
 		elif ext == "@yahoo.com":
 			return true
+		elif ext == "@salcc.edu.lc":
+			return true
+		elif ext == "@apps.salcc.edu.lc":
+			return true
 		else:
 			return false
 	

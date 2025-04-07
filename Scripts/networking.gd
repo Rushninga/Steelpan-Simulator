@@ -23,6 +23,9 @@ func _ready():
 	
 
 func _process(delta):
+	if Input.is_key_pressed(KEY_TAB):
+		admin_info_request.rpc_id(1)
+	
 	if login == true:
 		verify_session_interval -= delta
 		if verify_session_interval < 0:
@@ -205,3 +208,16 @@ func forgot_password_response(message):#0 = account exsists, 1 = account doesn't
 		$StartScreen.flash_tween(conn_label)
 	else:
 		$StartScreen/Control/Container/Label.text = "Your password has been sent to your email"
+
+@rpc("any_peer", "reliable")
+func admin_info_request():
+	
+	pass
+	
+@rpc("authority", "reliable")
+func admin_info_response(type:String, username:String, email:String, song_name:String, creator:String, accuracy):
+	pass
+
+@rpc("any_peer", "reliable")
+func admin_info_cancel():
+	pass

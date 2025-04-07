@@ -108,6 +108,7 @@ func _process(delta):
 					create_state = 0
 					$Container/Record.disabled = false
 					$Container/Clear.disabled = false
+					$Container/Submit.disabled = false
 					$Container/Preview.text = \"Preview\"
 					for note in $Steelpan.get_children():
 						if \"note\" in note:
@@ -142,6 +143,7 @@ func _on_record_pressed():
 		create_state = 1
 		$Container/Clear.disabled = true
 		$Container/Preview.disabled = true
+		$Container/Submit.disabled = true
 	elif create_state == 1: #pause
 		first_note_played = false
 		pre_song_time = song_time
@@ -149,6 +151,7 @@ func _on_record_pressed():
 		$Container/Record.text = \"Play\"
 		$Container/Clear.disabled = false
 		$Container/Preview.disabled = false
+		$Container/Submit.disabled = false
 
 
  
@@ -167,12 +170,14 @@ func _on_preview_pressed():
 			$Container/Preview.text = \"Stop Previewing\"
 			$Container/Clear.disabled = true
 			$Container/Record.disabled = true
+			$Container/Submit.disabled = true
 			end_counter = stored_notes.size()
 			incoming_notes = stored_notes
 	elif create_state == 2: #previewing, pressing this pauses the preview
 		create_state = 0
 		$Container/Record.disabled = false
 		$Container/Clear.disabled = false
+		$Container/Submit.disabled = false
 		$Container/Preview.text = \"Preview\"
 		for note in $Steelpan.get_children(): #hides preview of incoming notes
 			if \"note\" in note:
@@ -200,6 +205,9 @@ func _on_cancel_pressed(): #hides upload pop up
 func _on_upload_pressed():#uploads the song to server
 	if stored_notes.size() > 0:
 		song_name = $Upload_popup/LineEdit.text
+		if song_name == \"\":
+			$Upload_popup/Label.text = \"Please enter the song name\"
+			return
 		json = JSON.stringify(stored_notes)
 		root.upload_song.rpc_id(1, song_name, json)
 	else:
@@ -224,26 +232,26 @@ func _on_resized():
 [sub_resource type="Theme" id="Theme_fqdw6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qo2lu"]
-bg_color = Color(0.435937, 0.000413124, 0.000226455, 1)
+bg_color = Color(0.435294, 0, 0, 0)
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
-shadow_color = Color(0, 0, 0, 0.721569)
+shadow_color = Color(0, 0, 0, 0)
 shadow_size = 10
 shadow_offset = Vector2(5, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dc2ps"]
-bg_color = Color(0.776471, 0, 0, 1)
+bg_color = Color(0.776471, 0, 0, 0)
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(0, 0, 0, 1)
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
-shadow_color = Color(0, 0, 0, 0.721569)
+shadow_color = Color(0, 0, 0, 0)
 shadow_size = 10
 shadow_offset = Vector2(5, 2)
 
@@ -296,7 +304,7 @@ theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.873298, 0.873298, 0.873298, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/hover = SubResource("StyleBoxFlat_qo2lu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dc2ps")
 text = "Back"

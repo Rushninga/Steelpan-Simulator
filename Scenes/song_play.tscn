@@ -54,7 +54,7 @@ func _ready():
 	
 	incoming_notes = JSON.parse_string(json)
 	end_counter = incoming_notes.size()
-	song_time = note_travel_time * -1
+	song_time = -2
 	
 
 

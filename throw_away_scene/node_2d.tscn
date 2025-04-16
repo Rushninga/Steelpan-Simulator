@@ -6,12 +6,21 @@ script/source = "extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var num_of_notes = 400
-	var score = 3165
-	
-	var acc:float = (score / (num_of_notes * 100.0)) * 100
-	
-	print(snappedf(acc,0.01))
+	var username = \"funnnnnnnnn\"
+	if username.length() > 5:
+		print(\"XXXX\")
+		var regex = RegEx.new()
+		var regex_string = \"[^a-zA-Z0-9]\"
+		regex.compile(regex_string)
+		var result = regex.search(username)
+		if result == null:
+			print(\"valid\")
+		else:
+			print(result.get_string())
+			print(\"not\")
+	else:
+		print(username.length())
+		print(\"not\")
 "
 
 [node name="Node2D" type="Node2D"]

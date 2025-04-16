@@ -39,10 +39,18 @@ func _on_visibility_changed():
 		$ScrollContainer/VBoxContainer/Username.text = "Username: " + username
 		$ScrollContainer/VBoxContainer/Email.text = "Email: " + email
 
+func _on_c_password_menu_visibility_changed():
+	password_visible = false
+	$ScrollContainer/VBoxContainer/HBoxContainer/show.icon = ResourceLoader.load(icon_visible) 
+	$ScrollContainer/VBoxContainer/HBoxContainer/Password.text = "Password: " + password_visibility(password_visible)
 
 func _on_button_pressed(): #back_button
 	start_screen.switch_screen("main")
-	
+	$ScrollContainer/VBoxContainer/CPasswordMenu/PasswordChange/Password.text = "Enter new password"
+	$ScrollContainer/VBoxContainer/CPasswordMenu/Verify/Label.text = "Enter verification code sent to email below:"
+	$ScrollContainer/VBoxContainer/CPasswordMenu/PasswordChange.visible = false
+	$ScrollContainer/VBoxContainer/CPasswordMenu/Verify.visible = true
+	$ScrollContainer/VBoxContainer/CPasswordMenu.visible = false
 
 
 

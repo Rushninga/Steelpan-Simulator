@@ -177,4 +177,5 @@ theme_override_font_sizes/font_size = 50
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer/show" to="." method="_on_show_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/CPassword" to="." method="_on_c_password_pressed"]
+[connection signal="visibility_changed" from="ScrollContainer/VBoxContainer/CPasswordMenu" to="." method="_on_c_password_menu_visibility_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

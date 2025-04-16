@@ -1,11 +1,11 @@
 Label
-Button
 HBoxContainer
-Panel
-Control
 VBoxContainer
 ScrollContainer
 LineEdit
+Button
+Panel
+Control
 Camera2D
 TextureProgressBar
 Sprite2D

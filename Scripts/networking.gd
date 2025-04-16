@@ -10,7 +10,7 @@ var net_key = CryptoKey.new()
 var verify_session_interval = 60
 var login:bool = false
 var song_container = preload("res://GUI/song_container.tscn")
-
+var entry = preload("res://GUI/adminpanel_score.tscn")
 
 func _ready():
 	$StartScreen.data_send.connect(data_send)
@@ -24,7 +24,7 @@ func _ready():
 
 func _process(delta):
 	if Input.is_key_pressed(KEY_TAB):
-		admin_info_request.rpc_id(1)
+		$StartScreen.switch_screen("admin")
 	
 	if login == true:
 		verify_session_interval -= delta
@@ -176,7 +176,7 @@ func cpassword_code_response(message):
 		$StartScreen/Account/ScrollContainer/VBoxContainer/CPasswordMenu/PasswordChange.visible = true
 	else:
 		$StartScreen/Account/ScrollContainer/VBoxContainer/CPasswordMenu/Verify/Label.text = "The code entered was incorrect, Please try again"
-		var conn_label = $StartScreen/Account/ScrollContainer/VBoxContainer/CPasswordMenu/Verify/Labelcancel_download_song
+		var conn_label = $StartScreen/Account/ScrollContainer/VBoxContainer/CPasswordMenu/Verify/Label
 		$StartScreen.flash_tween(conn_label)
 		
 @rpc("any_peer", "reliable")
@@ -216,8 +216,17 @@ func admin_info_request():
 	
 @rpc("authority", "reliable")
 func admin_info_response(type:String, username:String, email:String, song_name:String, creator:String, accuracy):
-	pass
-
+	
+	if type == "score":
+		var new_entry = entry.instantiate()
+		new_entry.get_node("Username").text = str(username)
+		new_entry.get_node("Song").text = str(song_name)
+		new_entry.get_node("Accuracy").text = str(accuracy)
+		$StartScreen/AdminPanel/VBoxContainer/ScrollContainer/List.add_child(new_entry)
+	else:
+		$StartScreen.switch_screen("main")
+	
+	
 @rpc("any_peer", "reliable")
 func admin_info_cancel():
 	pass

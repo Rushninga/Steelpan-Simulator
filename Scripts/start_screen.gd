@@ -140,6 +140,12 @@ func switch_screen(screen):
 		account_menu.visible = true
 	else:
 		account_menu.visible = false
+		
+	if screen == "admin":
+		mode = "admin"
+		$AdminPanel.visible = true
+	else:
+		$AdminPanel.visible = false
 
 
 func cancel_email_verification():

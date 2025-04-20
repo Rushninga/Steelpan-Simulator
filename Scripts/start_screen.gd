@@ -146,7 +146,12 @@ func switch_screen(screen):
 		$AdminPanel.visible = true
 	else:
 		$AdminPanel.visible = false
-
+	
+	if screen == "how to play":
+		mode = "how to play"
+		$HowToPlay.visible = true
+	else:
+		$HowToPlay.visible = false
 
 func cancel_email_verification():
 	switch_screen("sign in")

@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxow35ourg10u"]
+
+[ext_resource type="Theme" uid="uid://ccq60t47rgtuy" path="res://Themes/start_menu_theme.tres" id="1_rmito"]
+[ext_resource type="Script" uid="uid://byyyjkxfxxukc" path="res://Scripts/howtoplay.gd" id="2_p8sod"]
+[ext_resource type="Texture2D" uid="uid://cwjfettr301b2" path="res://GUI/gui icons/arrow_back_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" id="3_acc0r"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_rmito")
+script = ExtResource("2_p8sod")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="Back" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("1_rmito")
+text = "Back"
+icon = ExtResource("3_acc0r")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 66
+text = "How to play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "You can select a song to play by pressing \"Play\" in the main menu and then pressing \"Play\" again on one of the songs in the list in the Song List menu. This will bring you to the song playing menu."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "In the Song playing menu, there are two main elements, your score and the steelpan.
+The steelpan is what you will use to play. Pressing any one of the notes of the steelpan will play that note.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]

@@ -1,7 +1,10 @@
-Label
-HBoxContainer
+VideoStreamPlayer
+TextureRect
 VBoxContainer
 ScrollContainer
+Label
+RichTextLabel
+HBoxContainer
 LineEdit
 Button
 Panel
@@ -10,5 +13,3 @@ Camera2D
 TextureProgressBar
 Sprite2D
 Node2D
-RichTextLabel
-TextureRect

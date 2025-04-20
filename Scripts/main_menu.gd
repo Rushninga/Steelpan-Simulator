@@ -15,7 +15,7 @@ func _on_create_pressed():
 
 
 func _on_how_to_play_pressed():
-	pass # Replace with function body.
+	get_parent().switch_screen("how to play")
 
 
 func _on_log_out_pressed():

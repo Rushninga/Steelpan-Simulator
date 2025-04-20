@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://depc87vqcl07e"]
+[gd_scene load_steps=12 format=3 uid="uid://depc87vqcl07e"]
 
 [ext_resource type="PackedScene" uid="uid://bm2uvi2qhjh5" path="res://GUI/Login data.tscn" id="1_h7frx"]
 [ext_resource type="Script" uid="uid://c48u07x0xd4pr" path="res://Scripts/start_screen.gd" id="1_iaivn"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://crlvt0j2gak5j" path="res://GUI/score.tscn" id="8_xkc8l"]
 [ext_resource type="PackedScene" uid="uid://dg4bdh0k58ng4" path="res://GUI/account.tscn" id="9_2n2a2"]
 [ext_resource type="PackedScene" uid="uid://by7g3014o582h" path="res://GUI/admin_panel.tscn" id="10_gggut"]
+[ext_resource type="PackedScene" uid="uid://bxow35ourg10u" path="res://GUI/HowToPlay.tscn" id="11_dhceh"]
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -78,4 +79,7 @@ layout_mode = 1
 
 [node name="AdminPanel" parent="." instance=ExtResource("10_gggut")]
 visible = false
+layout_mode = 1
+
+[node name="HowToPlay" parent="." instance=ExtResource("11_dhceh")]
 layout_mode = 1

@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxow35ourg10u"]
+[gd_scene load_steps=10 format=3 uid="uid://bxow35ourg10u"]
 
 [ext_resource type="Theme" uid="uid://ccq60t47rgtuy" path="res://Themes/start_menu_theme.tres" id="1_rmito"]
 [ext_resource type="Script" uid="uid://byyyjkxfxxukc" path="res://Scripts/howtoplay.gd" id="2_p8sod"]
 [ext_resource type="Texture2D" uid="uid://cwjfettr301b2" path="res://GUI/gui icons/arrow_back_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" id="3_acc0r"]
+[ext_resource type="Texture2D" uid="uid://b177yvofopcak" path="res://Assets/Art/main menu how to play.png" id="4_acc0r"]
+[ext_resource type="VideoStream" uid="uid://dqky1g2bqcm35" path="res://Assets/Art/playing steelpan.ogv" id="4_p8sod"]
+[ext_resource type="Texture2D" uid="uid://l6s65b5clka2" path="res://Assets/Art/song select play song how to play.png" id="5_b5n3c"]
+[ext_resource type="Texture2D" uid="uid://dbfmf0pv88aue" path="res://Assets/Art/note_image.svg" id="7_t3ovl"]
+[ext_resource type="VideoStream" uid="uid://3j30ovlc7qx1" path="res://Assets/Art/song playing how to play.ogv" id="8_1wkga"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3ovl"]
+bg_color = Color(0, 0, 0, 0.588235)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -13,6 +21,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_rmito")
 script = ExtResource("2_p8sod")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.643137)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t3ovl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -61,6 +79,29 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_acc0r")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Spacer1" type="Control" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_b5n3c")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Spacer2" type="Control" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
@@ -75,6 +116,71 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 320)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stream = ExtResource("4_p8sod")
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true
+
+[node name="Spacer3" type="Control" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "In the Song playing menu, there are two main elements, your score and the steelpan.
+Songs are comprised of notes with respective timings. These notes are indicated by timing rings as seen below:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_t3ovl")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Spacer4" type="Control" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "When a timing ring is created, it will be centered around one of the notes on the steelpan. These rings continuously get smaller.
+
+To play a song accurately, play the corresponding note on the steelpan that the timing ring is centered around when the timing ring is the same size as that note.
+
+The corresponding note on the steelpan for a timing ring will be highlighted if that timing ring is currently the smallest timing ring on the screen.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VideoStreamPlayer2" type="VideoStreamPlayer" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 420)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stream = ExtResource("8_1wkga")
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true
+
+[node name="Spacer5" type="Control" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]

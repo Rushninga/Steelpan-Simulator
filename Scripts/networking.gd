@@ -216,8 +216,10 @@ func admin_info_request():
 	
 @rpc("authority", "reliable")
 func admin_info_response(type:String, username:String, email:String, song_name:String, creator:String, accuracy):
-	
-	if type == "score":
+	print(type)
+	if type == "not admin":
+		$StartScreen.switch_screen("main")
+	elif type == "score":
 		var new_entry = entry.instantiate()
 		new_entry.get_node("Username").text = str(username)
 		new_entry.get_node("Song").text = str(song_name)

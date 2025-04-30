@@ -246,4 +246,4 @@ TextEdit/icons/tab = SubResource("ImageTexture_3jcsu")
 TextEdit/styles/focus = SubResource("StyleBoxFlat_sjtbs")
 TextEdit/styles/normal = SubResource("StyleBoxFlat_831jd")
 TextEdit/styles/read_only = SubResource("StyleBoxFlat_x1fpb")
-VBoxContainer/constants/separation = 20
+VBoxContainer/constants/separation = 4

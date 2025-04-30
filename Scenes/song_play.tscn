@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://buufi8lbseah8"]
+[gd_scene load_steps=9 format=3 uid="uid://buufi8lbseah8"]
 
 [ext_resource type="PackedScene" uid="uid://c7fl4innwrghc" path="res://Objects/steelpan.tscn" id="2_mj7i1"]
 [ext_resource type="Theme" uid="uid://ccq60t47rgtuy" path="res://Themes/start_menu_theme.tres" id="3_113jm"]
 [ext_resource type="PackedScene" uid="uid://dco1w80mpoq86" path="res://Objects/notes_sound.tscn" id="3_oph0d"]
+[ext_resource type="Texture2D" uid="uid://duhcgicm0tyyh" path="res://GUI/gui icons/close_56dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.svg" id="4_cs45u"]
 
 [sub_resource type="GDScript" id="GDScript_osh0b"]
 script/source = "extends Control
@@ -146,7 +147,60 @@ func note_is_played(diff): # calculates how close the note was played to its act
 	
 
 	
+
+
+func _on_exit_pressed():
+	get_parent().switch_screen(\"song select\")
+	pass # Replace with function body.
 "
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1g0r"]
+bg_color = Color(0.842635, 3.56168e-06, 4.81307e-07, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 15
+shadow_color = Color(0, 0, 0, 0)
+shadow_size = 10
+shadow_offset = Vector2(5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1dcvd"]
+bg_color = Color(0.222256, 5.6704e-07, 6.01634e-09, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 15
+shadow_color = Color(0, 0, 0, 0)
+shadow_size = 10
+shadow_offset = Vector2(5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_daa66"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 15
+shadow_color = Color(0, 0, 0, 0)
+shadow_size = 10
+shadow_offset = Vector2(5, 0)
 
 [node name="song_play" type="Control"]
 self_modulate = Color(1, 1, 1, 0)
@@ -177,3 +231,29 @@ theme = ExtResource("3_113jm")
 theme_override_font_sizes/font_size = 80
 text = "SCore"
 uppercase = true
+
+[node name="Exit" type="Button" parent="."]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+theme = ExtResource("3_113jm")
+theme_override_colors/icon_hover_color = Color(0.556953, 0.556953, 0.556953, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_g1g0r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1dcvd")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_daa66")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_daa66")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g1g0r")
+icon = ExtResource("4_cs45u")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_button_pressed"]

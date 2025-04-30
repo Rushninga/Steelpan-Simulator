@@ -82,4 +82,5 @@ visible = false
 layout_mode = 1
 
 [node name="HowToPlay" parent="." instance=ExtResource("11_dhceh")]
+visible = false
 layout_mode = 1

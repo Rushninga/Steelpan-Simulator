@@ -1,12 +1,11 @@
-res://Scenes/song_play.tscn
+res://Main.tscn
 res://Themes/start_menu_theme.tres
 res://Themes/song_create_theme.tres
 res://shaders/shockwave.gdshader
 res://addons/shaderV/uv/sphericalUV.gdshaderinc
 res://addons/shaderV/uv/lensDistortion.gdshaderinc
-res://Main.tscn
 res://Scenes/Start Screen.tscn
+res://Scenes/song_play.tscn
 res://Scenes/song_create.tscn
 res://GUI/HowToPlay.tscn
 res://GUI/Login data.tscn
-res://Scripts/login_data.gd

@@ -84,12 +84,14 @@ func _process(_delta):
 		$Container/enter2.visible = true
 		$Container/email.visible = true
 		$Container/Forgot_password.visible = false
+		$Container/RPassword.visible = true
 	elif parent.mode == "login":
 		$Container/Button.text = "Login"
 		$Container/Button_change.text = "Haven't Created An Account Yet? Click Here To Sign Up"
 		$Container/enter2.visible = false
 		$Container/email.visible = false
 		$Container/Forgot_password.visible = true
+		$Container/RPassword.visible = false
 		
 		
 
@@ -111,8 +113,13 @@ func _on_button_pressed():
 			if verify_username($Container/username.text) == true:
 				if verify_email_format($Container/email.text) == true:
 					if verify_password($Container/password.text):
-						$Container/Label.text = ""
-						emit_signal("send_data", $Container/username.text, $Container/email.text, $Container/password.text)
+						if $Container/password.text == $Container/RPassword.text:
+							$Container/Label.text = ""
+							emit_signal("send_data", $Container/username.text, $Container/email.text, $Container/password.text)
+						else:
+							$Container/Label.text = "Passwords do not match"
+						var conn_label = $Container/Label
+						get_parent().flash_tween(conn_label)
 					else:
 						$Container/Label.text = "Password must contain: \n- at least 8 characters \n-An alphabetic character \n-A number\n-A symbol of choice "
 						var conn_label = $Container/Label

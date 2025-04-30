@@ -130,6 +130,17 @@ caret_blink = true
 secret = true
 secret_character = "#"
 
+[node name="RPassword" type="LineEdit" parent="Container"]
+custom_minimum_size = Vector2(400, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+placeholder_text = "Enter Password Again"
+max_length = 20
+caret_blink = true
+secret = true
+secret_character = "#"
+
 [node name="Forgot_password" type="Button" parent="Container"]
 visible = false
 custom_minimum_size = Vector2(600, 30)

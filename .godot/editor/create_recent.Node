@@ -1,11 +1,12 @@
+CheckButton
+Label
+HBoxContainer
 Panel
 Control
-HBoxContainer
 VideoStreamPlayer
 TextureRect
 VBoxContainer
 ScrollContainer
-Label
 RichTextLabel
 LineEdit
 Button

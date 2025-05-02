@@ -13,7 +13,7 @@ var true_scale:Vector2
 @onready var delay
 
 func _ready():
-	scale = Vector2(1.2,1.2) - (speed * delay)
+	scale = (Vector2(2,2) * true_scale) - (speed * delay)
 	distance = scale - true_scale
 	speed = distance/time_to_travel
 	note_speed = Vector2(speed)

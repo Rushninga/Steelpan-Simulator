@@ -157,6 +157,7 @@ func _on_record_pressed():
  
 func _on_clear_pressed():
 	stored_notes = []
+	first_note_played = false
 	pre_song_time = 0
 	$Label.text = str(0)
 

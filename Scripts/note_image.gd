@@ -6,16 +6,17 @@ var end:float
 var speed:Vector2
 var distance:Vector2
 var distance_to_kill:Vector2 
-var time_to_kill:float = 1
+var time_to_kill:float = 3
 var kill_speed
 var true_scale:Vector2
 var time_to_travel 
 var delay
+var pause = false
 
 
 
 func _ready():
-	scale = Vector2(1.2,1.2)
+	scale = (Vector2(2,2) * true_scale) 
 	
 	distance = scale - true_scale
 	distance_to_kill =  true_scale
@@ -24,8 +25,9 @@ func _ready():
 	note_speed = Vector2(speed)
 	scale -= (speed * delay) #removes scale to compisate delay between supposed spawn time and actrual spawn time
 	
-	
-	
+	if pause == true:
+		note_speed = Vector2(0,0)
+			
 	
 	
 	

@@ -47,6 +47,7 @@ var incoming_note
 var mouse
 var current_note
 var queue_free_timer = 1
+var practice = false
 signal song_complete
 
 func _ready():
@@ -55,7 +56,7 @@ func _ready():
 	
 	incoming_notes = JSON.parse_string(json)
 	end_counter = incoming_notes.size()
-	song_time = -2
+	song_time = -3
 	
 
 
@@ -64,7 +65,12 @@ func _process(delta):
 	if(get_parent().mode != \"play song\"):
 		queue_free()
 	
-	song_time += delta
+	
+	if(practice == true):
+		if($Incoming_notes.get_child_count() == 0):
+			song_time += delta
+	else:
+		song_time += delta
 
 	#spawns a shockwave on the screen where the mouse clicks
 	if Input.is_action_just_pressed(\"play\") :
@@ -93,6 +99,7 @@ func _process(delta):
 						incoming_note.global_position = i.global_position
 						incoming_note.time_to_travel = note_travel_time
 						incoming_note.delay = song_time - (incoming_note.start - note_travel_time)  
+						incoming_note.pause = practice
 						$Incoming_notes.add_child(incoming_note)
 			counter += 1
 			incoming_note = null
@@ -112,38 +119,42 @@ func _process(delta):
 		
 	
 	if counter >= end_counter: #ends song and switches to main menu once song is completed
-		if $Incoming_notes.get_child_count() == 0 :
-			var acc:float = 0
-			var num_of_single_notes:int = 0
+		if practice == false:
+			if $Incoming_notes.get_child_count() == 0 :
+				var acc:float = 0
+				var num_of_single_notes:int = 0
 
-			for i in incoming_notes: # calculates how many single notes was in the song. Rolling notes do not count towards accuracy
-				if i[\"start\"] == i[\"end\"]:
-					num_of_single_notes += 1
-			acc = (score / (num_of_single_notes * 100.0)) * 100
-			acc = snappedf(acc, 0.01)
-			song_complete.emit(song_id, song_name, creator_name, score, acc)
-			queue_free()
-			
+				for i in incoming_notes: # calculates how many single notes was in the song. Rolling notes do not count towards accuracy
+					if i[\"start\"] == i[\"end\"]:
+						num_of_single_notes += 1
+				acc = (score / (num_of_single_notes * 100.0)) * 100
+				acc = snappedf(acc, 0.01)
+				song_complete.emit(song_id, song_name, creator_name, score, acc)
+				queue_free()
+		else:
+			if $Incoming_notes.get_child_count() == 0 :
+				get_parent().switch_screen(\"song select\")
 	
 
 	
 	
 func note_is_played(diff): # calculates how close the note was played to its actrual position in the song
-	if diff > -0.05 and diff < 0.05:
-		print(\"perfect\")
-		score += 100
-	elif diff > -0.1 and diff < 0.1:
-		print(\"good\")
-		score += 50
-	elif diff > -0.2 and diff < 0.2:
-		print(\"Sloppy\")
-		score += 25
-	elif diff > -0.5 and diff < 0.5:
-		print(\"Sh**\")
-		score += 10
-	else:
-		print(\"U suck lmfao\")
-		score += 5
+	if practice == false:
+		if diff > -0.05 and diff < 0.05:
+			print(diff)
+			score += 100
+		elif diff > -0.1 and diff < 0.1:
+			print(diff)
+			score += 50
+		elif diff > -0.2 and diff < 0.2:
+			print(diff)
+			score += 25
+		elif diff > -0.5 and diff < 0.5:
+			print(diff)
+			score += 10
+		else:
+			print(diff)
+			score += 5
 	
 
 	
@@ -211,7 +222,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_osh0b")
-note_travel_time = 1.5
+note_travel_time = 2.0
 
 [node name="Steelpan" parent="." instance=ExtResource("2_mj7i1")]
 scale = Vector2(0.24, 0.24)
@@ -255,5 +266,5 @@ icon = ExtResource("4_cs45u")
 icon_alignment = 1
 expand_icon = true
 
-[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

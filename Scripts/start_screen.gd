@@ -167,6 +167,7 @@ func select_song(id, song_name, creator_name, song_data):
 	new_song_play.creator_name = creator_name
 	new_song_play.json = song_data
 	new_song_play.song_complete.connect(song_complete)
+	new_song_play.practice = $Play.get_node("HBoxContainer/CheckButton").button_pressed
 	
 	previous_song_id = id #stores current song id in this variable for retring the song
 	

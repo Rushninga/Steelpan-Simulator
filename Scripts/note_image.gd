@@ -27,7 +27,7 @@ func _ready():
 	
 	if pause == true:
 		note_speed = Vector2(0,0)
-			
+		scale = (Vector2(1,1) * true_scale) 
 	
 	
 	

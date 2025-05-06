@@ -55,13 +55,18 @@ func _on_verify_pressed():
 func _on_confim_pressed():
 	var password = $PasswordChange/LineEdit.text
 	if verify_password(password) == true:
-		root.temp_password = password
-		root.change_password_to.rpc_id(1, password)
-		$PasswordChange/Password.text = "Enter new password"
-		$Verify/Label.text = "Enter verification code sent to email below:"
-		$PasswordChange.visible = false
-		$Verify.visible = true
-		visible = false
+		if $PasswordChange/LineEdit.text == $PasswordChange/RPassword.text:
+			root.temp_password = password
+			root.change_password_to.rpc_id(1, password)
+			$PasswordChange/Password.text = "Enter new password"
+			$Verify/Label.text = "Enter verification code sent to email below:"
+			$PasswordChange.visible = false
+			$Verify.visible = true
+			visible = false
+		else:
+			$PasswordChange/Password.text = "Passwords do not match"
+			var conn_label = $PasswordChange/Password
+			root.get_node("StartScreen").flash_tween(conn_label)
 	else:
 		$PasswordChange/Password.text = "Password must contain: \n- at least 8 characters \n-An alphabetic character \n-A number\n-A symbol of choice"
 		var conn_label = $PasswordChange/Password

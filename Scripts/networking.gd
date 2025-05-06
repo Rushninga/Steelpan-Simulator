@@ -132,6 +132,7 @@ func download_song(song_id, song_name, creator_name, song_data):
 	new_song.creator_name = str(creator_name)
 	new_song.select_song.connect($StartScreen.select_song)
 	$StartScreen/Play/VBoxContainer/ScrollContainer/SongList.add_child(new_song)
+	$StartScreen/Play.search_song()
 	
 @rpc("any_peer", "reliable")
 func cancel_download_song():
@@ -160,6 +161,7 @@ signal invalid_song_name
 @rpc("authority", "reliable")
 func valid_song_name(message):
 	invalid_song_name.emit(message)
+	print(message)
 	
 @rpc("any_peer", "reliable")
 func change_password():

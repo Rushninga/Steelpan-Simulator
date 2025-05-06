@@ -160,7 +160,7 @@ func _on_clear_pressed():
 	first_note_played = false
 	pre_song_time = 0
 	$Label.text = str(0)
-
+	
 
 func _on_preview_pressed():
 	if create_state == 0: #Paused, pressing this starts the preview
@@ -219,10 +219,12 @@ func invalid_song_name(message):
 	if message == 1:
 		$Upload_popup/Label.text = \"Song name is already used\"
 		get_parent().flash_tween(conn_label)
-	else:
+	elif message == 0:
 		$Label.text = \"Song has been uploaded to server\"
 		$Upload_popup.visible = false
 		$Panel.visible = false
+	else:
+		$Label.text = \"An unknown error has occurred\"
 		
 
 

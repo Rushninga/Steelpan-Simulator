@@ -119,20 +119,19 @@ func _process(delta):
 		
 	
 	if counter >= end_counter: #ends song and switches to main menu once song is completed
-		if practice == false:
-			if $Incoming_notes.get_child_count() == 0 :
-				var acc:float = 0
-				var num_of_single_notes:int = 0
+		if $Incoming_notes.get_child_count() == 0 :
+			if practice == false:
+					var acc:float = 0
+					var num_of_single_notes:int = 0
 
-				for i in incoming_notes: # calculates how many single notes was in the song. Rolling notes do not count towards accuracy
-					if i[\"start\"] == i[\"end\"]:
-						num_of_single_notes += 1
-				acc = (score / (num_of_single_notes * 100.0)) * 100
-				acc = snappedf(acc, 0.01)
-				song_complete.emit(song_id, song_name, creator_name, score, acc)
-				queue_free()
-		else:
-			if $Incoming_notes.get_child_count() == 0 :
+					for i in incoming_notes: # calculates how many single notes was in the song. Rolling notes do not count towards accuracy
+						if i[\"start\"] == i[\"end\"]:
+							num_of_single_notes += 1
+					acc = (score / (num_of_single_notes * 100.0)) * 100
+					acc = snappedf(acc, 0.01)
+					song_complete.emit(song_id, song_name, creator_name, score, acc)
+					queue_free()
+			else:
 				get_parent().switch_screen(\"song select\")
 	
 
@@ -140,13 +139,13 @@ func _process(delta):
 	
 func note_is_played(diff): # calculates how close the note was played to its actrual position in the song
 	if practice == false:
-		if diff > -0.05 and diff < 0.05:
+		if diff > -0.1 and diff < 0.1:
 			print(diff)
 			score += 100
-		elif diff > -0.1 and diff < 0.1:
+		elif diff > -0.2 and diff < 0.2:
 			print(diff)
 			score += 50
-		elif diff > -0.2 and diff < 0.2:
+		elif diff > -0.3 and diff < 0.3:
 			print(diff)
 			score += 25
 		elif diff > -0.5 and diff < 0.5:

@@ -75,6 +75,11 @@ func user_login_confirm(message, email):
 		$StartScreen/MainMenu/HBoxContainer/RightSide/Header.text = "Welcome \n " + username
 		user_email = email
 		login = true
+		$StartScreen/Control/Container/username.text = ""
+		$StartScreen/Control/Container/password.text = ""
+		$StartScreen/Control/Container/email.text = ""
+		$StartScreen/Control/Container/RPassword.text = ""
+		
 	else:
 		$StartScreen/Control/Container/Label.text = "Unknown error occurred"
 		var conn_label = $StartScreen/Control/Container/Label

@@ -275,5 +275,5 @@ icon = ExtResource("4_cs45u")
 icon_alignment = 1
 expand_icon = true
 
-[connection signal="pressed" from="Exit" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_button_pressed"]

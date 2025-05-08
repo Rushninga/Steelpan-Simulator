@@ -92,7 +92,6 @@ custom_minimum_size = Vector2(400, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-text = "fun"
 max_length = 20
 caret_blink = true
 
@@ -124,7 +123,6 @@ custom_minimum_size = Vector2(400, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-text = "password24!"
 max_length = 20
 caret_blink = true
 secret = true

@@ -1,5 +1,5 @@
-CheckButton
 Label
+CheckButton
 HBoxContainer
 Panel
 Control
@@ -12,4 +12,3 @@ LineEdit
 Button
 Camera2D
 TextureProgressBar
-Sprite2D

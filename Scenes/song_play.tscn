@@ -41,6 +41,7 @@ var incoming_notes:Array = [] #imports all the notes from the song resource file
 var note_image = preload(\"uid://0pfsvlcupdeb\") # a single notes object
 var roll_note_image = preload(\"res://Objects/rolling note.tscn\") # a rolling note object
 var shockwave = preload(\"res://Objects/shockwave.tscn\") #shockwave object for mouse when note is played
+var hit_score = preload(\"res://Objects/hit_score.tscn\")
 @export var note_travel_time:float = 1 #indicates how many seconds the note will travel from its spawn time to its actrual time in the song. The speed of the note will depend on this variable
 var hit_notes:Array = []
 var incoming_note
@@ -136,24 +137,33 @@ func _process(delta):
 	
 
 	
-	
+
 func note_is_played(diff): # calculates how close the note was played to its actrual position in the song
 	if practice == false:
+		var new_hit_score = hit_score.instantiate()
+		mouse = get_global_mouse_position()
+		new_hit_score.global_position = mouse
+		
 		if diff > -0.1 and diff < 0.1:
-			print(diff)
 			score += 100
+			new_hit_score.get_node(\"Label\").text = str(100)
+			add_child(new_hit_score)
 		elif diff > -0.2 and diff < 0.2:
-			print(diff)
 			score += 50
+			new_hit_score.get_node(\"Label\").text = str(50)
+			add_child(new_hit_score)
 		elif diff > -0.3 and diff < 0.3:
-			print(diff)
 			score += 25
+			new_hit_score.get_node(\"Label\").text = str(25)
+			add_child(new_hit_score)
 		elif diff > -0.5 and diff < 0.5:
-			print(diff)
 			score += 10
+			new_hit_score.get_node(\"Label\").text = str(10)
+			add_child(new_hit_score)
 		else:
-			print(diff)
 			score += 5
+			new_hit_score.get_node(\"Label\").text = str(5)
+			add_child(new_hit_score)
 	
 
 	

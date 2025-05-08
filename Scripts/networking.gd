@@ -7,7 +7,7 @@ var user_email
 var temp_password
 var crypto = Crypto.new()
 var net_key = CryptoKey.new()
-var verify_session_interval = 60
+var verify_session_interval = 20
 var login:bool = false
 var song_container = preload("res://GUI/song_container.tscn")
 var entry = preload("res://GUI/adminpanel_score.tscn")
@@ -23,14 +23,15 @@ func _ready():
 	
 
 func _process(delta):
-	if Input.is_key_pressed(KEY_TAB):
-		$StartScreen.switch_screen("admin")
+	if login == true:
+		if Input.is_key_pressed(KEY_F1):
+			$StartScreen.switch_screen("admin")
 	
 	if login == true:
 		verify_session_interval -= delta
 		if verify_session_interval < 0:
 			verify_session.rpc_id(1)
-			verify_session_interval = 60
+			verify_session_interval = 10
 			
 
 
@@ -107,13 +108,10 @@ func verify_session():
 	
 @rpc("authority", "reliable")
 func verify_session_response(message): #0 = session is invalid, 1 = session is valid
-	print(message)
 	if message == 0:
 		$StartScreen.switch_screen("login")
-		$StartScreen/Control/Container/Label.text = "Your session has timed out"
+		$StartScreen/Control/Container/Label.text = "Your session has timed out "
 		login = false
-	else:
-		print("Your session is valid")
 	
 @rpc("any_peer", "reliable")
 func log_out():

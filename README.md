@@ -3,9 +3,32 @@
 <br>
 
 <p>This repository is for the client side application. <a href="https://github.com/Rushninga/Steel-pan-server">Click here to go to the server side repository</a></p>
+<br>
+
+<h2>How to build</h2>
+<ol>
+   <li>Install Godot Engine: https://godotengine.org/download/</li>
+   <li>Clone the GitHub Repository: <code>git clone https://github.com/Rushninga/Steelpan-Simulator</code></li>
+   <li>Open the Project in Godot:</li>
+      <ul>
+         <li>Launch the Godot Engine</li>
+         <li>In the Project Manager window, click the "Import" button </li>
+         <li>Click the "Browse" button</li>
+         <li>Navigate to the folder you just cloned from GitHub.</li>
+         <li>Select the project.godot file</li>
+         <li>Click the "Import & Edit" button</li>
+      </ul>
+   <li>Open the Export Window</li>
+   <li>Select Windows export preset</li>
+   <li>Click the "Export Project" button</li>
+   <li>Navigate to folder you want to export the project to </li>
+   <li>Click save</li>
+</ol>
+
+
 
 <br><br>
-<p>Note: .tscn files are used to create UI but also stored variables. .gd files are used to define the functionality of .tscn files. The associated .gd file can usually be found in the tcsn file therefore I will not list such files in the following table</p>
+<p>Note: .tscn files are used to create UI but also stored variables. .gd files are used to define the functionality of .tscn files. The associated .gd file will usually be linked within the .tcsn file therefore I will not list such files in the following table</p>
 <br>
 <p>List of files and their purpose:</p><br>
 <table>

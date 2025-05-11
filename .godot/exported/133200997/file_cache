@@ -9,20 +9,20 @@ res://Save Data/songs/test_song/test song.tres::58c6e310090ddf6fbdc3cdcce2e939ef
 res://Scenes/Mouse.tscn::27bec2f58f3ca58be4e9de9684d55ee1::1725982559::res://.godot/exported/133200997/export-c53f53d873cf61968bfaa1cce1725f59-Mouse.scn
 res://Scenes/song_play.tscn::c2b2081c9efb064732ebb51555123476::1746747952::res://.godot/exported/133200997/export-5a20380009fc57ab5019f9a6c1baab07-song_play.scn
 res://Scenes/Start Screen.tscn::d9f652ef92c1dc24a56c6b92d50aa71b::1746747951::res://.godot/exported/133200997/export-12356a69adc7061a1b5a5f56720192ae-Start Screen.scn
-res://Themes/start_menu_theme.tres::e392882cb931c5b6b4013c5069e547a1::1746747951::res://.godot/exported/133200997/export-d339e565494161d86b65d7e541bbef03-start_menu_theme.res
+res://Themes/start_menu_theme.tres::e392882cb931c5b6b4013c5069e547a1::1747004321::res://.godot/exported/133200997/export-d339e565494161d86b65d7e541bbef03-start_menu_theme.res
 res://Main.tscn::a2ce9d458bd131740ea690902e54bbe3::1746747951::res://.godot/exported/133200997/export-bcb0d2eb5949c52b6a65bfe9de3e985b-Main.scn
 res://GUI/background.tscn::7c364ea4b1d8926b2800d4d9f4ec92ee::1737328942::res://.godot/exported/133200997/export-3c7d77ae227c57f8259cec469f44c06e-background.scn
 res://GUI/connect_to_server.tscn::b5fbc2ebb557066982c11f9113595535::1743994989::res://.godot/exported/133200997/export-407374e5c4995c60fafab970aeab29cd-connect_to_server.scn
 res://GUI/Login data.tscn::7586cc4cf305b22b373ccff614bd06a8::1746748000::res://.godot/exported/133200997/export-4ec807847b512f178bbece747b3eda97-Login data.scn
 res://GUI/main_menu.tscn::84c51390f0eaa2b4fe5908b5af35b114::1745181083::res://.godot/exported/133200997/export-b360dd9e67d0be2385e98b8a117ee075-main_menu.scn
 res://GUI/verify.tscn::53e417890726571060ec2378d8855911::1742084590::res://.godot/exported/133200997/export-6400a66b03d60c2e36a0daf329d2b53a-verify.scn
-res://GUI/score.tscn::a208ad6ab8ab6db9442832e3c6dc62c0::1745885163::res://.godot/exported/133200997/export-37d0e8036242bc1f6660afa13d58deac-score.scn
+res://GUI/score.tscn::1fd3497b7370a86435b5456c3e959d03::1747004341::res://.godot/exported/133200997/export-37d0e8036242bc1f6660afa13d58deac-score.scn
 res://GUI/song_container.tscn::805bc29f06f6c3cc6a0f5f92c05e5984::1741471117::res://.godot/exported/133200997/export-8cab2599e85d5c547ab98534979eb795-song_container.scn
 res://GUI/song_list_menu.tscn::9260c668b775f9cf0b2e56b0fc2f685d::1746237391::res://.godot/exported/133200997/export-eb0d847f1258513b69220006731c9809-song_list_menu.scn
 res://throw_away_scene/node_2d.tscn::06a9363bc67530523533c98a750738c8::1744594482::res://.godot/exported/133200997/export-0bf61383367fba1ea81ecac6af86302c-node_2d.scn
 res://Objects/steelpan_create.tscn::2301f0a09991291adddd79f5fc75191e::1741471118::res://.godot/exported/133200997/export-a77b414b2fe531ac11d89bcf76c8b60d-steelpan_create.scn
-res://Scenes/song_create.tscn::3afcc3385257aefee86950b985070383::1746747952::res://.godot/exported/133200997/export-ea971f78358659353116594ad732b638-song_create.scn
-res://Themes/song_create_theme.tres::904418ff5271a284e0b402d168e3565a::1746747951::res://.godot/exported/133200997/export-6d441d0228c9b5bd3c15b2beda2149ba-song_create_theme.res
+res://Scenes/song_create.tscn::440cd8e2f4312650af63e3497d0c7ae3::1747004160::res://.godot/exported/133200997/export-ea971f78358659353116594ad732b638-song_create.scn
+res://Themes/song_create_theme.tres::904418ff5271a284e0b402d168e3565a::1747004321::res://.godot/exported/133200997/export-6d441d0228c9b5bd3c15b2beda2149ba-song_create_theme.res
 res://GUI/account.tscn::0a4e3e3ef746da9f8117c07b8938f431::1744594482::res://.godot/exported/133200997/export-ed58a08f2cb143b944b1b7cfea6e8d32-account.scn
 res://GUI/c_password.tscn::f8e51a67853f3dda70ee5bbc60882169::1746237391::res://.godot/exported/133200997/export-c64cea270fe1fcef35e11b70737960a9-c_password.scn
 res://GUI/adminpanel_score.tscn::aa10a98bee03a1be95c2d239e673cc7b::1744598085::res://.godot/exported/133200997/export-ffdc6dd2c94f43a33d3d1b4ebcb447a8-adminpanel_score.scn

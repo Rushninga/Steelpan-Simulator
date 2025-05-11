@@ -45,40 +45,42 @@ custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Song Name: "
+autowrap_mode = 3
 
 [node name="Creator" type="Label" parent="Container"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Creator: "
+autowrap_mode = 3
 
 [node name="Score" type="Label" parent="Container"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Score: "
-autowrap_mode = 2
+autowrap_mode = 3
 
 [node name="Accuracy" type="Label" parent="Container"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Accuracy:"
-autowrap_mode = 2
+autowrap_mode = 3
 
 [node name="HighScore" type="Label" parent="Container"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "High Score: "
-autowrap_mode = 2
+autowrap_mode = 3
 
 [node name="HighestAccuracy" type="Label" parent="Container"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "High Accuracy: "
-autowrap_mode = 2
+autowrap_mode = 3
 
 [node name="Rank" type="Label" parent="Container"]
 custom_minimum_size = Vector2(500, 0)

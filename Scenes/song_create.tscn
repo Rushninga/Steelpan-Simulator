@@ -388,7 +388,7 @@ layout_mode = 2
 theme = ExtResource("4_bj0bs")
 placeholder_text = "Song Name"
 alignment = 1
-max_length = 50
+max_length = 40
 
 [node name="Upload" type="Button" parent="Upload_popup"]
 custom_minimum_size = Vector2(200, 60)
